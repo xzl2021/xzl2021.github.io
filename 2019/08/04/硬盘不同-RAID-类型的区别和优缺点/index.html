@@ -10,7 +10,7 @@
   
   <title>
     
-      Google BBR的部署 | Lyraa
+      硬盘不同 RAID 类型的区别和优缺点 | Lyraa
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Google BBR的部署</h2>
-  <p class="post-date">2018-08-12</p>
+  <h2>硬盘不同 RAID 类型的区别和优缺点</h2>
+  <p class="post-date">2019-08-04</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,34 +147,19 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>开机后 <code>uname -r</code> 看看是不是内核 &gt;= 4.9</p>
-<p>执行 <code>lsmod | grep bbr</code>，如果结果中没有 tcp_bbr 的话就先执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">modprobe tcp_bbr    <span class="comment">#加载内核的bbr模块</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules-load.d/modules.conf    #将bbr模块在开机时加载</span><br></pre></td></tr></table></figure>
-
-<p>如果上一句命令提示找不到文件，将命令换为</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules</span><br></pre></td></tr></table></figure>
-
-<p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"net.core.default_qdisc=fq"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
-
-<p>保存生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
-
-<p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
-
-<p>如果结果都有 bbr, 则证明你的内核已开启 bbr</p>
-<p>执行 <code>lsmod | grep bbr</code>, 看到有 tcp_bbr 模块即说明 bbr 已启动</p>
+    <section class="markdown-content"><h3 id="RAID-0："><a href="#RAID-0：" class="headerlink" title="RAID 0："></a>RAID 0：</h3><p>最少需要两块盘，没用冗余数据，不做备份，任何一块磁盘损坏都无法运行。n 块磁盘（同类型）的阵列理论上读写速度是单块磁盘的 n 倍（实际达不到），风险性也是单一n倍（实际更高），是磁盘阵列中存储性能最好的。适用于安全性不高，但是要求性能比较高的图形工作站或者个人站。<br>　<br><strong>优势</strong>：数据读取写入最快，最大优势提高硬盘容量和读写速度，比如 3 块 80G 的硬盘做 RAID 0，可用总容量为 240G。速度接近 1 块的 3 倍。<br><strong>缺点</strong>：无冗余能力，一块硬盘损坏，数据全无。<br><strong>建议</strong>：做 RAID 0 可以提供更大的容量以及更好的性能，推荐对数据安全性要求不高的场景使用。  </p>
+<h3 id="RAID-1："><a href="#RAID-1：" class="headerlink" title="RAID 1："></a>RAID 1：</h3><p>至少需要两块盘，磁盘数量是 2 的 n 倍，每一块磁盘要有对应的备份盘，利用率是 50%，只要没有一对磁盘损坏就可以正常使用。n 组磁盘（2n 块同类型磁盘）的阵列理论上读取速度是单块磁盘的 n 倍（实际达不到），风险性是单一磁盘的 n 分之一（实际更低）。换盘后需要长时间的镜像同步，不影响外界访问，但整个系统性能下降。磁盘控制器负载比较大。适用于安全性较高，且能较快恢复数据的场景。<br>　<br><strong>优势</strong>：镜像备份，数据安全强，2 块硬盘做 RAID，一块正常运行，另外一块镜像备份数据，保障数据的安全。一块坏了，另外一块硬盘也有完整的数据，保障运行。<br><strong>缺点</strong>：性能提示不明显，做 RAID 1 之后硬盘使用率为 50%.<br><strong>建议</strong>：对数据安全性比较看重，性能没有太高要求的场景使用。  </p>
+<h3 id="RAID-5："><a href="#RAID-5：" class="headerlink" title="RAID 5："></a>RAID 5：</h3><p>至少需要 3 块盘，读取速度接近 RAID 0，但是安全性更高。安全性上接近 RAID 1，但是磁盘的利用率更高。可以认为是 RAID 0 和 RAID 1 的一个折中方案。只允许有一块盘出错，可以通过另外多块盘来计算出故障盘的数据，故障之后必须尽快更换。比 RAID 10 的磁盘利用率高，是目前比较常用的一种方案。<br>　<br><strong>优势</strong>：以上优势，RAID 5 兼顾。任意 N-1 块硬盘都有完整的数据。<br><strong>缺点</strong>：只允许单盘故障，一盘出现故障得尽快处理。有盘坏情况下，RAID 5 IO/CPU 性能狂跌，此时性能烂到无以复加。<br><strong>建议</strong>：盘不多，对数据安全性和性能提升都有要求，RAID 5 是个不错选择，鉴于出问题的性能，盘多可考虑 RAID 10.  </p>
+<h3 id="RAID-10："><a href="#RAID-10：" class="headerlink" title="RAID 10："></a>RAID 10：</h3><p>至少需要 4 块盘，磁盘数量也是 2 的 n 倍。RAID 10 是 2 块硬盘组成 RAID 1，2 块组成 RAID 0，所以必须需要 4 块硬盘。既有数据镜像备份，也能保证较高的读写速度。成本比较大。<br>　<br><strong>优势</strong>：兼顾安全性和速度。基础 4 盘的情况下，RAID 10 允许对柜盘 2 块故障，随着硬盘数量的提示，容错量也会相对应提升。这是 RAID 5 无法做到的。<br><strong>缺点</strong>：对盘的数量要求稍高，磁盘使用率为一半。<br><strong>建议</strong>：硬盘数量足够的情况，建议 RAID 10.  </p>
+<h3 id="题外话：RAID-5-VS-RAID-10"><a href="#题外话：RAID-5-VS-RAID-10" class="headerlink" title="题外话：RAID 5 VS RAID 10"></a>题外话：RAID 5 VS RAID 10</h3><p>只看盘的数量的话，RAID 5 的写性能不逊于 RAID 10。4 盘的情况下，RAID 10 提供 2 盘的写性能，RAID 5 提供 3 盘的写性能。但是，RAID 5 的校检体质，导致额外的 I0 和 CPU 使用。<br>　<br>不过 RAID 最重要的指标是可靠性：<br>4 盘的 RAID 5，只允许单盘故障，RAID 10，允许对柜盘 2 块故障，可靠性高于 RAID 5，且 RAID 10 可随盘上升提高容错，RAID 5 就不行，而且 IO 和 CPU 的额外开销还涂增，从可靠性和冗余角度，达到同样的可靠性，RAID 10 写能力高于 RAID 5.<br>　<br>特殊情况下：有坏盘，无热备<br>RAID 5 CPU 和 IO 性能狂跌。因为数据不完整，在某特殊软件下，实现即时重构数据进驻内存，保障业务运行，但此时 RAID 5 的性能已经烂到无以复加。<br>RAID 10 是条带化 + 镜像，坏盘影响读性能，不影响写性能，而且无需重构。此时的 RAID 10 完爆 RAID 5.  </p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
+  <a href="/tags#计算机原理" >
+    <span class="tag-code">计算机原理</span>
   </a>
 
       </div>
@@ -185,20 +170,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/01/12/GDriveFS-mount-Google-Drive/">
+      <a class="nav-left" href="/2018/08/12/Google-BBR/">
         <span class="nav-arrow">← </span>
         
-          GDriveFS 挂载 Google Drive
+          Google BBR的部署
         
       </a>
     
-    
-      <a class="nav-right" href="/2019/08/04/硬盘不同-RAID-类型的区别和优缺点/">
-        
-          硬盘不同 RAID 类型的区别和优缺点
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -221,7 +199,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2018/08/12/Google-BBR/';
+    var url = 'https://xzl2021.github.io/2019/08/04/硬盘不同-RAID-类型的区别和优缺点/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({

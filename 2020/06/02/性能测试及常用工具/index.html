@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Lyraa&#39;s blog">
+  <meta name="keyword" content="Lyraa, Hexo, Blog">
+  
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+  
+  <title>
+    
+      性能测试及常用工具 | Lyraa&#39;s Blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Lyraa's Blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">存档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/projects/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">存档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/projects/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>性能测试及常用工具</h2>
+  <p class="post-date">2020-06-02</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="软件的六大特性："><a href="#软件的六大特性：" class="headerlink" title="软件的六大特性："></a>软件的六大特性：</h3><ol>
+<li>功能性<br>一组功能及其指定的性质有关的一组属性。适合性、准确性、互用性/互操作性、依从性、安全性。</li>
+<li>可靠性<br>在规定的一段时间和条件下，软件维持其性能水平有关的一组软件属性。成熟性、容错性、易恢复性。</li>
+<li>可用性<br>与使用的难易程度及规定或隐含用户对使用方式所做的评价有关的软件属性。易理解性、易学性、易操作性。</li>
+<li>效率<br>在规定条件下，软件的性能水平和所有资源之间的关系有关的一组软件属性。时间特性、资源特性。</li>
+<li>可维护性<br>与进行指定的修改所需的努力有关的一组软件熟悉。易分析性、可修改性、稳定性、可测试性。</li>
+<li>可移植性<br>与软件可从某一环境转移到另一环境的能力有关的一组软件属性。适应性、易安装性、一致性（遵循性）、可替换性。</li>
+</ol>
+<h3 id="测试所需要的能力："><a href="#测试所需要的能力：" class="headerlink" title="测试所需要的能力："></a>测试所需要的能力：</h3><blockquote>
+<p>沟通（团队） + 思维（发散） + 理解（流程） + 技术（常用工具） + 高级编程（Python）</p>
+</blockquote>
+<h3 id="性能测试需要考虑的方面："><a href="#性能测试需要考虑的方面：" class="headerlink" title="性能测试需要考虑的方面："></a>性能测试需要考虑的方面：</h3><blockquote>
+<p>项目时间，成本，公司，环境，网络。</p>
+</blockquote>
+<h3 id="不同人眼中对性能的理解"><a href="#不同人眼中对性能的理解" class="headerlink" title="不同人眼中对性能的理解"></a>不同人眼中对性能的理解</h3><ol>
+<li>用户眼中：响应时间，客户端 CPU（2-5-8， 3-5-10， 华为 3-5-7）</li>
+<li>开发人员眼中：内存使用不合理（泄露，不足），数据库索引，死锁，表的设计（12306）。<br> 底层框架设计（架构师）。</li>
+<li>系统管理人员眼中：服务器的资源使用率（CPU、内存、磁盘、网络），承受最大用户数、最佳用户数。</li>
+<li>前端性能：资源（图片、JS、CSS大小、数量）</li>
+</ol>
+<h3 id="性能测试的分类："><a href="#性能测试的分类：" class="headerlink" title="性能测试的分类："></a>性能测试的分类：</h3><blockquote>
+<p>并发测试、压力测试、负载测试、大数据量测试、基准测试、稳定性测试、强度测试、配置测试、疲劳测试。</p>
+</blockquote>
+<ol>
+<li><p>并发测试：同时操作某一个功能，业务（电商的秒杀下单）的TPS（Transaction Per Sec 每秒事务数）；<br> 登录并发，双十一前夕23点至24点，最佳，最大；<br> 下单并发，查询大数据量并发，支付接口。</p>
+</li>
+<li><p>压力测试：最大负载数，性能瓶颈（8s/CPU80%），找性能问题的时候需要把服务器压崩溃（长期较高压力，瞬时极高压力）。</p>
+</li>
+<li><p>负载测试：瓶颈（CPU到80%时，最大承受多少用户，前提是不能压崩溃服务器，保证用户的正常体验）。</p>
+</li>
+<li><p>大数据量测试：查询（数据库里存在大量数据），数据库的索引、数据库的缓冲命中率</p>
+</li>
+</ol>
+<h3 id="性能测试指标："><a href="#性能测试指标：" class="headerlink" title="性能测试指标："></a>性能测试指标：</h3><ul>
+<li>事务：一般是指要做或者所做的事情。（完成某一业务或某一流程的集合）。</li>
+<li>并发数：</li>
+<li>响应时间：</li>
+<li>吞吐量：网络吞吐量、系统吞吐量。</li>
+<li>每秒事务数（TPS）：并发数/响应时间。</li>
+<li>点击率和访问量：</li>
+<li>资源利用率：</li>
+</ul>
+<h3 id="性能测试的完整流程："><a href="#性能测试的完整流程：" class="headerlink" title="性能测试的完整流程："></a>性能测试的完整流程：</h3><ol>
+<li>获取用户的性能指标（并发数，TPS，响应时间），在 SRS 文档中有描述，没有描述的找产品经理。</li>
+<li>数据建模分析性能测试点，哪些功能需要性能测试：<br> 1）核心业务：下单、购物流程；<br> 2）用户使用频繁的功能：登录；<br> 3）大量数据的查询功能：交易记录、搜索商品；<br> 4）第三方接口：支付、短信接口、实名认证接口；<br> 5）Web 前端（资源）的性能测试</li>
+<li>设计性能测试的场景（性能测试用例）<br> 1）单个业务的并发测试、压力测试、负载测试。<br> 2）多个业务并发测试、负载测试（混合场景）。</li>
+<li>搭建测试环境（应用服务器和数据库的服务器分离，方便定位分析问题）</li>
+<li>准备数据（比如大量的测试账号）：<br> 1）找开发人员<br> 2）自己做（利用脚本）</li>
+<li>开发脚本（主要优化、参数化、检查点、关联、头信息、思考时间、集合点）。</li>
+<li>运行脚本前需要提前监控服务器的资源，运行大量数据时，还需要添加负载机（负载均衡）。</li>
+<li>获取运行时和监控的数据，分析性能指标、定位优化性能。</li>
+<li>编写测试报告（分析数据，评估结论）。</li>
+<li>上线后，监控资源，持续优化。</li>
+</ol>
+<h3 id="性能测试工具——LoadRunner"><a href="#性能测试工具——LoadRunner" class="headerlink" title="性能测试工具——LoadRunner"></a>性能测试工具——LoadRunner</h3><blockquote>
+<p>Loadrunner11（4GB）：Win7 + IE8/9<br>Loadrunner12（1.5GB）：Win10 + IE10/11<br>Win10 安装Loadrunner11，可以使用 Chrome，必须先安装 Fiddler 并开启工具。</p>
+</blockquote>
+<ol>
+<li>Loadrunner 工具组成：4部分<br>1）vugen：脚本生成器<br><code>功能：开发脚本、录制脚本（模拟用户行为）</code><br>2）controller：负载控制器<br><code>功能：执行脚本、监控资源（系统资源、应用服务器、web应用、数据库）</code><br>3）analysis：结果分析器<br><code>功能：把执行脚本时生成的数据以及监控资源获取的数据进行统计分析（性能测试简报）。</code><br>4）LG：负载生成器-负载机<br><code>功能：测试大量数据时，高并发、高负载</code><br><code>（普通一台 PC 机，最大并发数 200 - 500 人，最大负载数 5000 - 10000 人）。</code></li>
+</ol>
+<ol start="2">
+<li><p>Loadrunner 自带的 webtours（web端订票系统，端口号1080）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）开启服务：start web server（开始-程序-HP Loadrunner-samples-web-start web server）</span><br><span class="line">   右下角出现【X】图标，绿色正常，如果红色说明 1080 端口被占用。</span><br><span class="line">2）打开 http://127.0.0.1:1080/webtours</span><br><span class="line">3）默认用户名：jojo，默认密码：bean</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 webtours 进行性能测试流程：<br>1）获得性能指标：并发数？（50并发，10w用户数-2w-1000人），响应时间 1-5-8s<br>2）找性能测试点：订票（登录 - 城市 - 航班 - 支付），查询，登录，支付。<br>3）场景设计：单个业务并发测试（单场景），多业务负载测试（混合场景）。<br>4）选择测试工具（Loadrunner，Jmeter），环境（数据库mysql和应用服务器tomcat分离）。<br>5）准备测试数据（在线用户数 - 并发数扩大 100 倍 5000 人，查询交易记录），找开发要数据库的表结构。<br>6）用脚本自己做测试数据。</p>
+</li>
+</ol>
+<ol start="4">
+<li>Loadrunner 录制脚本<br>1）熟悉业务流程，开始录制脚本（把每一步操作，添加事务）<br>2）选择协议：B/S 架构选择 Web/HTML/http，C/S 架构选择 Socket 二进制。<br>3）开始录制，录制过程中可以创建事务（事务记录的是某一系列操作的合集）。<br>4）结束录制，等待生成代码。（代码中的思考时间就是用户没有动作的空闲时间，之后可以删除代码里的思考时间）。<br>5）运行修改好的脚本。<br>6）打开 视图 - 测试结果，查看。</li>
+</ol>
+<ol start="5">
+<li><p>Loadrunner 录制时注意的问题：<br>选项里面设置：选择录制模式 HTML（模拟点击） 或者 URL（模拟请求），选择字符集 UTF-8，关闭自动关联功能。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：录制时不弹出 IE 浏览器</span><br><span class="line">A：需要使用 IE 8 版本。</span><br><span class="line">A：Internet 选项 - 高级 - 启动第三方浏览器扩展（不选）</span><br><span class="line">A：在开始录制中 - 要录制的程序 - 改为 IE 的绝对路径</span><br><span class="line">      x86：C:\Program Files (x86)\Internet Explorer\iexplore.exe</span><br><span class="line">      amd64：C:\Program Files\Internet Explorer\iexplore.exe</span><br><span class="line"></span><br><span class="line">Q：录制时，进度条显示正在录制 0 个事件。</span><br><span class="line">A：录制时捕获的级别（默认套接字），点击 打开 - 开始录制 - 选项 - 网络 -  端口映射，选择其他捕获级别。</span><br><span class="line">A：可能有系统数据保护。打开 系统属性 - 高级系统设置 - 性能选项 - 数据执行保护 - 添加白名单</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Loadrunner 参数化：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）先选中需要作为参数的字符串，右键，点击替换为参数，然后创建参数（参数类型一般为File）。</span><br><span class="line">2）点击工具栏的 Vuser - 参数列表，选择需要设置的参数名称，点击用记事本编辑，之后添加需要用到的参数（一行一个）。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Loadrunner 添加文本检查点：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）点击工具栏中的“树”，找到注册成功的页面快照，选中具有特性的字符串（比如帐号），右键，点击添加文本检查（web_reg_find）。</span><br><span class="line">2）设置 保存计数 的值（就是字符串在页面快照中出现的次数，比如就是1）。</span><br><span class="line">3）回到工具栏中的“脚本”页面，可以发现代码中插入了 web_reg_find 函数，可以将函数的参数替换为参数列表中的参数。</span><br><span class="line">4）运行之前，点击菜单栏 Vuser - 运行时设置，设置好迭代次数，就可以在运行的时候对参数列表中的参数进行自动替换了。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#性能测试" >
+    <span class="tag-code">性能测试</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/08/04/硬盘不同-RAID-类型的区别和优缺点/">
+        <span class="nav-arrow">← </span>
+        
+          硬盘不同 RAID 类型的区别和优缺点
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xzl2021.github.io/2020/06/02/性能测试及常用工具/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/xzl2021">Lyraa</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'false';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

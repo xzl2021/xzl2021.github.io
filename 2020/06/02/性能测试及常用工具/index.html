@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.9.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Lyraa&#39;s blog">
   <meta name="keyword" content="Lyraa, Hexo, Blog">
   
-    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
   
   <title>
     
@@ -16,7 +16,9 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
@@ -49,9 +51,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -208,26 +210,22 @@
 <li>Loadrunner 工具组成：4部分<br>1）vugen：脚本生成器<br><code>功能：开发脚本、录制脚本（模拟用户行为）</code><br>2）controller：负载控制器<br><code>功能：执行脚本、监控资源（系统资源、应用服务器、web应用、数据库）</code><br>3）analysis：结果分析器<br><code>功能：把执行脚本时生成的数据以及监控资源获取的数据进行统计分析（性能测试简报）。</code><br>4）LG：负载生成器-负载机<br><code>功能：测试大量数据时，高并发、高负载</code><br><code>（普通一台 PC 机，最大并发数 200 - 500 人，最大负载数 5000 - 10000 人）。</code></li>
 </ol>
 <ol start="2">
-<li><p>Loadrunner 自带的 webtours（web端订票系统，端口号1080）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）开启服务：start web server（开始-程序-HP Loadrunner-samples-web-start web server）</span><br><span class="line">   右下角出现【X】图标，绿色正常，如果红色说明 1080 端口被占用。</span><br><span class="line">2）打开 http://127.0.0.1:1080/webtours</span><br><span class="line">3）默认用户名：jojo，默认密码：bean</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 webtours 进行性能测试流程：<br>1）获得性能指标：并发数？（50并发，10w用户数-2w-1000人），响应时间 1-5-8s<br>2）找性能测试点：订票（登录 - 城市 - 航班 - 支付），查询，登录，支付。<br>3）场景设计：单个业务并发测试（单场景），多业务负载测试（混合场景）。<br>4）选择测试工具（Loadrunner，Jmeter），环境（数据库mysql和应用服务器tomcat分离）。<br>5）准备测试数据（在线用户数 - 并发数扩大 100 倍 5000 人，查询交易记录），找开发要数据库的表结构。<br>6）用脚本自己做测试数据。</p>
-</li>
+<li>Loadrunner 自带的 webtours（web端订票系统，端口号1080）<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）开启服务：start web server（开始-程序-HP Loadrunner-samples-web-start web server）</span><br><span class="line">   右下角出现【X】图标，绿色正常，如果红色说明 1080 端口被占用。</span><br><span class="line">2）打开 http:&#x2F;&#x2F;127.0.0.1:1080&#x2F;webtours</span><br><span class="line">3）默认用户名：jojo，默认密码：bean</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="3">
+<li>使用 webtours 进行性能测试流程：<br>1）获得性能指标：并发数？（50并发，10w用户数-2w-1000人），响应时间 1-5-8s<br>2）找性能测试点：订票（登录 - 城市 - 航班 - 支付），查询，登录，支付。<br>3）场景设计：单个业务并发测试（单场景），多业务负载测试（混合场景）。<br>4）选择测试工具（Loadrunner，Jmeter），环境（数据库mysql和应用服务器tomcat分离）。<br>5）准备测试数据（在线用户数 - 并发数扩大 100 倍 5000 人，查询交易记录），找开发要数据库的表结构。<br>6）用脚本自己做测试数据。</li>
 </ol>
 <ol start="4">
 <li>Loadrunner 录制脚本<br>1）熟悉业务流程，开始录制脚本（把每一步操作，添加事务）<br>2）选择协议：B/S 架构选择 Web/HTML/http，C/S 架构选择 Socket 二进制。<br>3）开始录制，录制过程中可以创建事务（事务记录的是某一系列操作的合集）。<br>4）结束录制，等待生成代码。（代码中的思考时间就是用户没有动作的空闲时间，之后可以删除代码里的思考时间）。<br>5）运行修改好的脚本。<br>6）打开 视图 - 测试结果，查看。</li>
 </ol>
 <ol start="5">
-<li><p>Loadrunner 录制时注意的问题：<br>选项里面设置：选择录制模式 HTML（模拟点击） 或者 URL（模拟请求），选择字符集 UTF-8，关闭自动关联功能。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：录制时不弹出 IE 浏览器</span><br><span class="line">A：需要使用 IE 8 版本。</span><br><span class="line">A：Internet 选项 - 高级 - 启动第三方浏览器扩展（不选）</span><br><span class="line">A：在开始录制中 - 要录制的程序 - 改为 IE 的绝对路径</span><br><span class="line">      x86：C:\Program Files (x86)\Internet Explorer\iexplore.exe</span><br><span class="line">      amd64：C:\Program Files\Internet Explorer\iexplore.exe</span><br><span class="line"></span><br><span class="line">Q：录制时，进度条显示正在录制 0 个事件。</span><br><span class="line">A：录制时捕获的级别（默认套接字），点击 打开 - 开始录制 - 选项 - 网络 -  端口映射，选择其他捕获级别。</span><br><span class="line">A：可能有系统数据保护。打开 系统属性 - 高级系统设置 - 性能选项 - 数据执行保护 - 添加白名单</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Loadrunner 参数化：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）先选中需要作为参数的字符串，右键，点击替换为参数，然后创建参数（参数类型一般为File）。</span><br><span class="line">2）点击工具栏的 Vuser - 参数列表，选择需要设置的参数名称，点击用记事本编辑，之后添加需要用到的参数（一行一个）。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Loadrunner 添加文本检查点：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）点击工具栏中的“树”，找到注册成功的页面快照，选中具有特性的字符串（比如帐号），右键，点击添加文本检查（web_reg_find）。</span><br><span class="line">2）设置 保存计数 的值（就是字符串在页面快照中出现的次数，比如就是1）。</span><br><span class="line">3）回到工具栏中的“脚本”页面，可以发现代码中插入了 web_reg_find 函数，可以将函数的参数替换为参数列表中的参数。</span><br><span class="line">4）运行之前，点击菜单栏 Vuser - 运行时设置，设置好迭代次数，就可以在运行的时候对参数列表中的参数进行自动替换了。</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>Loadrunner 录制时注意的问题：<br>选项里面设置：选择录制模式 HTML（模拟点击） 或者 URL（模拟请求），选择字符集 UTF-8，关闭自动关联功能。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：录制时不弹出 IE 浏览器</span><br><span class="line">A：需要使用 IE 8 版本。</span><br><span class="line">A：Internet 选项 - 高级 - 启动第三方浏览器扩展（不选）</span><br><span class="line">A：在开始录制中 - 要录制的程序 - 改为 IE 的绝对路径</span><br><span class="line">      x86：C:\Program Files (x86)\Internet Explorer\iexplore.exe</span><br><span class="line">      amd64：C:\Program Files\Internet Explorer\iexplore.exe</span><br><span class="line"></span><br><span class="line">Q：录制时，进度条显示正在录制 0 个事件。</span><br><span class="line">A：录制时捕获的级别（默认套接字），点击 打开 - 开始录制 - 选项 - 网络 -  端口映射，选择其他捕获级别。</span><br><span class="line">A：可能有系统数据保护。打开 系统属性 - 高级系统设置 - 性能选项 - 数据执行保护 - 添加白名单</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="6">
+<li>Loadrunner 参数化：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）先选中需要作为参数的字符串，右键，点击替换为参数，然后创建参数（参数类型一般为File）。</span><br><span class="line">2）点击工具栏的 Vuser - 参数列表，选择需要设置的参数名称，点击用记事本编辑，之后添加需要用到的参数（一行一个）。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="7">
+<li>Loadrunner 添加文本检查点：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）点击工具栏中的“树”，找到注册成功的页面快照，选中具有特性的字符串（比如帐号），右键，点击添加文本检查（web_reg_find）。</span><br><span class="line">2）设置 保存计数 的值（就是字符串在页面快照中出现的次数，比如就是1）。</span><br><span class="line">3）回到工具栏中的“脚本”页面，可以发现代码中插入了 web_reg_find 函数，可以将函数的参数替换为参数列表中的参数。</span><br><span class="line">4）运行之前，点击菜单栏 Vuser - 运行时设置，设置好迭代次数，就可以在运行的时候对参数列表中的参数进行自动替换了。</span><br></pre></td></tr></table></figure></li>
 </ol>
 </section>
     <!-- Tags START -->
@@ -247,13 +245,20 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/08/04/硬盘不同-RAID-类型的区别和优缺点/">
+      <a class="nav-left" href="/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/">
         <span class="nav-arrow">← </span>
         
           硬盘不同 RAID 类型的区别和优缺点
         
       </a>
     
+    
+      <a class="nav-right" href="/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/">
+        
+          Python 学习手册（第四版）高清中文 高清英文 带完整书签
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
@@ -335,9 +340,9 @@
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    &copy; 2020 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    &copy; 2021 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
     <br>
-    Theme by <a href="https://github.com/xzl2021">Lyraa</a>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/xzl2021">Lyraa</a>
   </p>
 </footer>
 
@@ -378,6 +383,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>

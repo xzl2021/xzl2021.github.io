@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.9.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Lyraa&#39;s blog">
   <meta name="keyword" content="Lyraa, Hexo, Blog">
   
-    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
   
   <title>
     
@@ -16,7 +16,9 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
@@ -49,9 +51,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -170,14 +172,16 @@
 <h3 id="系统添加-telegramd-用户："><a href="#系统添加-telegramd-用户：" class="headerlink" title="系统添加 telegramd 用户："></a>系统添加 telegramd 用户：</h3></blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo adduser telegramd</span><br></pre></td></tr></table></figure>
 
+
 <blockquote>
 <h3 id="创建守护进程运行脚本："><a href="#创建守护进程运行脚本：" class="headerlink" title="创建守护进程运行脚本："></a>创建守护进程运行脚本：</h3></blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/init.d/telegram-daemon</span><br></pre></td></tr></table></figure>
 
+
 <ul>
 <li>在 vim 编辑器里写入以下内容并保存：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line">&gt; <span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          telegram-daemon</span></span><br><span class="line"><span class="comment"># Required-Start:</span></span><br><span class="line"><span class="comment"># Required-Stop:</span></span><br><span class="line"><span class="comment"># Default-Start:     S 2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 6</span></span><br><span class="line"><span class="comment"># Short-Description: telegram daemon</span></span><br><span class="line"><span class="comment"># Description:       telegram daemon</span></span><br><span class="line">&gt; <span class="comment">### END INIT INFO</span></span><br><span class="line"><span class="comment"># Author: xzl2021</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># actions</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Telegram daemon is starting..."</span></span><br><span class="line">        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &amp;</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"...done"</span></span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"stopping telegram daemon..."</span></span><br><span class="line">        sudo pkill -9 telegram</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"..done"</span></span><br><span class="line">        ;;</span><br><span class="line">    restart)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"stopping telegram daemon..."</span></span><br><span class="line">        sudo pkill -9 telegram</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"..done -restarting..."</span></span><br><span class="line">        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &amp;</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"...done"</span></span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        sudo netstat -a | grep 1234</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line">&gt; <span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          telegram-daemon</span></span><br><span class="line"><span class="comment"># Required-Start:</span></span><br><span class="line"><span class="comment"># Required-Stop:</span></span><br><span class="line"><span class="comment"># Default-Start:     S 2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 6</span></span><br><span class="line"><span class="comment"># Short-Description: telegram daemon</span></span><br><span class="line"><span class="comment"># Description:       telegram daemon</span></span><br><span class="line">&gt; <span class="comment">### END INIT INFO</span></span><br><span class="line"><span class="comment"># Author: xzl2021</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># actions</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Telegram daemon is starting...&quot;</span></span><br><span class="line">        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &amp;</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;...done&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;stopping telegram daemon...&quot;</span></span><br><span class="line">        sudo pkill -9 telegram</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;..done&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    restart)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;stopping telegram daemon...&quot;</span></span><br><span class="line">        sudo pkill -9 telegram</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;..done -restarting...&quot;</span></span><br><span class="line">        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &amp;</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;...done&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        sudo netstat -a | grep 1234</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h3 id="启动守护进程-监听-1234-端口"><a href="#启动守护进程-监听-1234-端口" class="headerlink" title="启动守护进程(监听 1234 端口)"></a>启动守护进程(监听 1234 端口)</h3></blockquote>
@@ -191,16 +195,14 @@
 <li>在 vim 编辑器写入以下内容并保存<br></li>
 <li>(可以将 CCCAT-bot 改成任何需要签到的机器人的名字)</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nc localhost 1234 &lt;&lt;EOF</span><br><span class="line">msg CCCAT-bot /checkin</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nc localhost 1234 &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">msg CCCAT-bot /checkin</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h3 id="将脚本加入-cron-计划任务"><a href="#将脚本加入-cron-计划任务" class="headerlink" title="将脚本加入 cron 计划任务"></a>将脚本加入 cron 计划任务</h3></blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>在最下面添加一行并保存(代表每天早上 6 点签到)<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0 6 * * * ~/qiandao.sh</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>在最下面添加一行并保存(代表每天早上 6 点签到)<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0 6 * * * ~/qiandao.sh</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="注意：所有代码块前面都有行数，别看错了命令。-1"><a href="#注意：所有代码块前面都有行数，别看错了命令。-1" class="headerlink" title="注意：所有代码块前面都有行数，别看错了命令。"></a><strong>注意：所有代码块前面都有行数，别看错了命令。</strong></h1><p>fin</p>
 </section>
@@ -221,7 +223,7 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/09/17/破解百度云限速/">
+      <a class="nav-left" href="/2017/09/17/%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F/">
         <span class="nav-arrow">← </span>
         
           破解百度云限速
@@ -316,9 +318,9 @@
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    &copy; 2020 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    &copy; 2021 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
     <br>
-    Theme by <a href="https://github.com/xzl2021">Lyraa</a>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/xzl2021">Lyraa</a>
   </p>
 </footer>
 
@@ -359,6 +361,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>

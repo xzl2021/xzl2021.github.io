@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.9.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Lyraa&#39;s blog">
   <meta name="keyword" content="Lyraa, Hexo, Blog">
   
-    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
   
   <title>
     
@@ -16,7 +16,9 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
@@ -49,9 +51,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -150,21 +152,15 @@
     <section class="markdown-content"><p>开机后 <code>uname -r</code> 看看是不是内核 &gt;= 4.9</p>
 <p>执行 <code>lsmod | grep bbr</code>，如果结果中没有 tcp_bbr 的话就先执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">modprobe tcp_bbr    <span class="comment">#加载内核的bbr模块</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules-load.d/modules.conf    #将bbr模块在开机时加载</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;tcp_bbr&quot; &gt;&gt; &#x2F;etc&#x2F;modules-load.d&#x2F;modules.conf    #将bbr模块在开机时加载</span><br></pre></td></tr></table></figure>
 <p>如果上一句命令提示找不到文件，将命令换为</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;tcp_bbr&quot; &gt;&gt; &#x2F;etc&#x2F;modules</span><br></pre></td></tr></table></figure>
 <p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"net.core.default_qdisc=fq"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
 <p>保存生效</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
-
 <p>执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
-
 <p>如果结果都有 bbr, 则证明你的内核已开启 bbr</p>
 <p>执行 <code>lsmod | grep bbr</code>, 看到有 tcp_bbr 模块即说明 bbr 已启动</p>
 </section>
@@ -193,7 +189,7 @@
       </a>
     
     
-      <a class="nav-right" href="/2019/08/04/硬盘不同-RAID-类型的区别和优缺点/">
+      <a class="nav-right" href="/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/">
         
           硬盘不同 RAID 类型的区别和优缺点
         
@@ -280,9 +276,9 @@
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    &copy; 2020 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    &copy; 2021 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
     <br>
-    Theme by <a href="https://github.com/xzl2021">Lyraa</a>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/xzl2021">Lyraa</a>
   </p>
 </footer>
 
@@ -323,6 +319,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>

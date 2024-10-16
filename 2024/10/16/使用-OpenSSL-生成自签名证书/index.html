@@ -10,7 +10,7 @@
   
   <title>
     
-      虚拟机 VMware Workstation Pro v3.x.x - v17.x.x | Lyraa&#39;s Blog
+      使用 OpenSSL 生成自签名证书 | Lyraa&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>虚拟机 VMware Workstation Pro v3.x.x - v17.x.x</h2>
-  <p class="post-date">2024-08-12</p>
+  <h2>使用 OpenSSL 生成自签名证书</h2>
+  <p class="post-date">2024-10-16</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,23 +189,33 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>鉴于 vmware 最近关闭了软件公开下载通道。现分享 VMware Workstation Pro 虚拟机 v3.x.x - v17.x.x 全版本客户端下载。</p>
-<p><img src="https://img.aliang.cool/file/d614f090659fae5940116.png" alt="VM 虚拟机下载"></p>
-<p>分享的文件包括：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">VMware-workstation-3.2.0-2230.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-4.5.3-19414.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-5.5.9-126128.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-6.5.5-328052.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-10.0.7-2844087.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-11.1.2-2780323.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-12.5.9-7535481.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-14.1.8-14921873.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-15.5.7-17171714.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-16.1.2-17966106.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-16.2.5-20904516.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-17.5.1-23298084.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-7.1.6-744570.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-8.0.6-1035888.exe</span><br><span class="line"></span><br><span class="line">VMware-workstation-full-9.0.4-1945795.exe</span><br></pre></td></tr></table></figure>
-
-<p>下载链接1：<a target="_blank" rel="noopener" href="https://www.123pan.com/s/7EGHjv-JPF2.html">VMware官方版下载丨最新版下载丨绿色版下载丨APP下载-123云盘</a></p>
-<p>提取码：52pj</p>
-<p>下载链接2：<a target="_blank" rel="noopener" href="https://archive.org/download/vmware-workstation-full-version_202405">Archive.org</a></p>
+    <section class="markdown-content"><h2 id="生成过程："><a href="#生成过程：" class="headerlink" title="生成过程："></a>生成过程：</h2><p><img src="https://githublog-1253656474.file.myqcloud.com/image/2024/10/%E4%BD%BF%E7%94%A8-OpenSSL-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/%E4%BD%BF%E7%94%A8-OpenSSL-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.png" alt="使用 OpenSSL 生成自签名证书"></p>
+<h3 id="以下为-Ubuntu-环境下生成自签名-SSL-证书的具体过程："><a href="#以下为-Ubuntu-环境下生成自签名-SSL-证书的具体过程：" class="headerlink" title="以下为 Ubuntu 环境下生成自签名 SSL 证书的具体过程："></a>以下为 Ubuntu 环境下生成自签名 SSL 证书的具体过程：</h3><p>1、生成 CA 私钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl genrsa -out cakey.pem 4096 &amp;&amp; chmod 400 cakey.pem</span><br></pre></td></tr></table></figure>
+<p>2、生成 CA 根证书（根据提示输入信息）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl req -new -x509 -key cakey.pem -out cacert.pem</span><br></pre></td></tr></table></figure>
+<p>或者（直接输入信息，其中最重要的是 &#x2F;CN&#x3D;Domain）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl req -new -x509 -days 36500 -key cakey.pem -out cacert.pem -subj &quot;/C=US/ST=State/L=City/O=Orgnization/OU=OrgnizationUnit/CN=Domain&quot;</span><br></pre></td></tr></table></figure>
+<p>3、生成服务器私钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl genrsa -out nginx.key 4096</span><br></pre></td></tr></table></figure>
+<p>4、生成证书签名请求文件（CSR）Common Name 填写要保护的域名，比如：*.qhh.me</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl req -new -key nginx.key -out nginx.csr</span><br></pre></td></tr></table></figure>
+<p>或者（直接输入信息，其中最重要的是 &#x2F;CN&#x3D;Domain）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl req -new -key nginx.key -out nginx.csr -subj &quot;/C=US/ST=State/L=City/O=Orgnization/OU=OrgnizationUnit/CN=Domain&quot;</span><br></pre></td></tr></table></figure>
+<p>5、使用 openssl 签署 CSR 请求，生成服务器证书：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl x509 -req -days 36500 -in nginx.csr -CA cacert.pem -CAkey cakey.pem -set_serial 01 -out nginx.crt</span><br></pre></td></tr></table></figure>
+<p>至此自签名证书生成完成，最终需要：nginx.key 和 nginx.crt</p>
+<h3 id="配置-Nginx-使用自签名证书："><a href="#配置-Nginx-使用自签名证书：" class="headerlink" title="配置 Nginx 使用自签名证书："></a>配置 Nginx 使用自签名证书：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen  80;</span><br><span class="line">        server_name     domain;</span><br><span class="line">        return  301     https://$host$request_uri;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen  443 ssl;</span><br><span class="line">        ssl_certificate       ssl/nginx.crt; # 前面生成的 crt 证书文件</span><br><span class="line">        ssl_certificate_key   ssl/nginx.key; # 前面生成的证书私钥</span><br><span class="line">        server_name     domain;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root /var/www-html;</span><br><span class="line">            index  index.html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
+<p>fin</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#资源分享" >
-    <span class="tag-code">资源分享</span>
+  <a href="/tags#OpenSSL" >
+    <span class="tag-code">OpenSSL</span>
   </a>
 
       </div>
@@ -216,20 +226,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/">
+      <a class="nav-left" href="/2024/08/12/%E8%99%9A%E6%8B%9F%E6%9C%BA-VMware-Workstation-Pro-v3-x-x-v17-x-x/">
         <span class="nav-arrow">← </span>
         
-          Python 学习手册（第四版）高清中文 高清英文 带完整书签
+          虚拟机 VMware Workstation Pro v3.x.x - v17.x.x
         
       </a>
     
-    
-      <a class="nav-right" href="/2024/10/16/%E4%BD%BF%E7%94%A8-OpenSSL-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/">
-        
-          使用 OpenSSL 生成自签名证书
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -259,7 +262,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2024/08/12/虚拟机-VMware-Workstation-Pro-v3-x-x-v17-x-x/';
+    var url = 'https://xzl2021.github.io/2024/10/16/使用-OpenSSL-生成自签名证书/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -322,7 +325,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2024/08/12/%E8%99%9A%E6%8B%9F%E6%9C%BA-VMware-Workstation-Pro-v3-x-x-v17-x-x/';
+    var disqus_url = 'https://xzl2021.github.io/2024/10/16/%E4%BD%BF%E7%94%A8-OpenSSL-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/';
     
     (function(){
       var dsq = document.createElement('script');

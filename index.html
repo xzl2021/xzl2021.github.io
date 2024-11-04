@@ -230,9 +230,117 @@ VMware-workstation-3.2.0-2230.exeVMware-workstation-4. ...
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2022/01/02/%E9%80%9A%E8%BE%BE%E4%BF%A1752%E5%BC%80%E5%BF%83%E6%9E%9C%E7%89%8820210303%E6%97%A0%E9%99%90%E6%97%B6%E9%97%B4/">通达信 752 开心果版 20210303 无限时间</a>
+        <a href="/2023/09/05/MySQL%E9%80%9A%E8%BF%87mysqldump%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/">MySQL 通过 mysqldump 备份数据库</a>
       </h2>
-      <p class="article-date">January 2, 2022</p>
+      <p class="article-date">September 5, 2023</p>
+      
+        
+  <a href="/tags#MySQL" >
+    <span class="tag-code">MySQL</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1、概述在 MySQL 中提供了命令行导出数据库数据以及文件的一种方便的工具 mysqldump, 我们可以通过命令行直接实现数据库内容的导出dump, 首先我们简单了解一下 mysqldump 命令用法:
+# 安装 mysqldumpapt install mysql-client-cor ...
+        
+      </div>
+      <a class="more" href="/2023/09/05/MySQL%E9%80%9A%E8%BF%87mysqldump%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2023/09/05/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%BD%91%E7%AB%99%E5%B5%8C%E5%85%A5B%E7%AB%99%E8%A7%86%E9%A2%91%E4%BB%A3%E7%A0%81/">在自己网站嵌入B站视频代码，如何禁止自动播放，如何定位播放，如何默认静音播放.</a>
+      </h2>
+      <p class="article-date">September 5, 2023</p>
+      
+        
+  <a href="/tags#杂七杂八" >
+    <span class="tag-code">杂七杂八</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          很多人在 B站 上传视频后，都会有转发到自己网站 或 个人博客的需求，B站也提供了一键复制网站嵌入代码，可以很方便的把B站的视频，引用转发到自己需要播放该视频的网站中去。
+但有个问题！在B站，直接复制的视频嵌入代码，默认情况下：是会自动播放视频的。一般网站访问者，都不太喜欢在浏览网页时，打开 ...
+        
+      </div>
+      <a class="more" href="/2023/09/05/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%BD%91%E7%AB%99%E5%B5%8C%E5%85%A5B%E7%AB%99%E8%A7%86%E9%A2%91%E4%BB%A3%E7%A0%81/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2022/09/25/ffmpeg%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91/">ffmpeg 截取视频</a>
+      </h2>
+      <p class="article-date">September 25, 2022</p>
+      
+        
+  <a href="/tags#FFmpeg" >
+    <span class="tag-code">FFmpeg</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          简单命令：
+ffmpeg -i input.mp4 -ss 1:05 -t 10 -c:v copy -c:a copy output.mp4
+-ss 1:05 指定从输入视频第 1:05 秒开始截取，-t 10 指明最多截取 10 秒。-ss 参数允许的格式为 HH:MM:SS.MILLI ...
+        
+      </div>
+      <a class="more" href="/2022/09/25/ffmpeg%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2022/08/19/%E5%88%A9%E7%94%A8du%E5%91%BD%E4%BB%A4%E5%88%86%E6%9E%90%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/">利用 du 命令分析硬盘空间占用情况</a>
+      </h2>
+      <p class="article-date">August 19, 2022</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          du -ah -d 1 / | sort -h# 或者du -sh /* | sort -h
+
+命令参数说明：du
+-a：write counts for all files, not just directories
+-h：print sizes in human readable for ...
+        
+      </div>
+      <a class="more" href="/2022/08/19/%E5%88%A9%E7%94%A8du%E5%91%BD%E4%BB%A4%E5%88%86%E6%9E%90%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2022/05/03/%E4%BD%BF%E7%94%A8CMD%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">使用 CMD 导出导入注册表文件的两种方法</a>
+      </h2>
+      <p class="article-date">May 3, 2022</p>
+      
+        
+  <a href="/tags#Windows" >
+    <span class="tag-code">Windows</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1、使用 REG.EXE 工具REG EXPORT &quot;HKCU\Software\Raptisoft\Hamsterball&quot; &quot;path\to\your\file.reg&quot;REG IMPORT &quot;path\to\your\file.reg& ...
+        
+      </div>
+      <a class="more" href="/2022/05/03/%E4%BD%BF%E7%94%A8CMD%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2022/01/14/%E4%B8%80%E9%94%AE%E5%85%B3%E9%97%AD%E6%98%BE%E7%A4%BA%E5%99%A8/">一键关闭显示器</a>
+      </h2>
+      <p class="article-date">January 14, 2022</p>
       
         
   <a href="/tags#资源分享" >
@@ -244,42 +352,21 @@ VMware-workstation-3.2.0-2230.exeVMware-workstation-4. ...
         
           
 
-
-
+软件很简单，没有 UI 界面，直接双击软件图标即可熄灭显示器。兼容性极佳，XP – Win10 亲测可用！
 软件下载地址：
-https://www.lanzoux.com/icjd9y8306b
+https://www.lanzoux.com/i9X4Xys3yrg
+
 
         
       </div>
-      <a class="more" href="/2022/01/02/%E9%80%9A%E8%BE%BE%E4%BF%A1752%E5%BC%80%E5%BF%83%E6%9E%9C%E7%89%8820210303%E6%97%A0%E9%99%90%E6%97%B6%E9%97%B4/">Read more</a>
+      <a class="more" href="/2022/01/14/%E4%B8%80%E9%94%AE%E5%85%B3%E9%97%AD%E6%98%BE%E7%A4%BA%E5%99%A8/">Read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2022/01/01/2022%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%EF%BC%81/">2022元旦快乐！</a>
+        <a href="/2022/01/05/%E3%80%8A%E9%81%93%E5%BE%B7%E7%BB%8F%E3%80%8B%E5%A5%97%E8%A3%85%E5%85%A8%E5%85%AD%E5%86%8C-%E6%97%A0%E5%88%A0%E5%87%8F-%E7%B2%BE%E6%B3%A8%E5%85%A8%E9%87%8A%E7%89%88/">《道德经》套装全六册 无删减 精注全释版</a>
       </h2>
-      <p class="article-date">January 1, 2022</p>
-      
-        
-  <a href="/tags#杂七杂八" >
-    <span class="tag-code">杂七杂八</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          
-
-        
-      </div>
-      <a class="more" href="/2022/01/01/2022%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%EF%BC%81/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/">WiFi 密码查看器（PC版）</a>
-      </h2>
-      <p class="article-date">December 31, 2021</p>
+      <p class="article-date">January 5, 2022</p>
       
         
   <a href="/tags#资源分享" >
@@ -291,51 +378,28 @@ https://www.lanzoux.com/icjd9y8306b
         
           
 
-软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
+作者：老子
+出版社：北京联合出版公司
+出版日期：2017 年 3 月
+ISBN：978-7-5502-9563-6
+格式：EPUB
+
+
 下载地址：
-https://www.lanzoux.com/iRlQEy6f7mj
-密码:52pj
+https://www.lanzoux.com/iNJn4yekb0j
+密码：2333
+
 
         
       </div>
-      <a class="more" href="/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/">Read more</a>
+      <a class="more" href="/2022/01/05/%E3%80%8A%E9%81%93%E5%BE%B7%E7%BB%8F%E3%80%8B%E5%A5%97%E8%A3%85%E5%85%A8%E5%85%AD%E5%86%8C-%E6%97%A0%E5%88%A0%E5%87%8F-%E7%B2%BE%E6%B3%A8%E5%85%A8%E9%87%8A%E7%89%88/">Read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/">暴风影音老版本</a>
+        <a href="/2022/01/04/CRC32%E7%BC%96%E8%BE%91%E5%99%A8/">CRC32 编辑器</a>
       </h2>
-      <p class="article-date">December 30, 2021</p>
-      
-        
-  <a href="/tags#资源分享" >
-    <span class="tag-code">资源分享</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          暴风影音老版本
-
-
-
-暴风影音_5.57.0202.2111_去广告版：
-https://www.lanzoux.com/i25pssxkw9c
-密码:52pj
-
-暴风影音_5.58.0331.2111_去广告版：
-https://www.lanzoux.com/iDGvVy4edsd
-密码 ...
-        
-      </div>
-      <a class="more" href="/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2021/12/29/Navicat%20Premium%20%E7%A0%B4%E8%A7%A3%E7%89%88/">Navicat Premium 破解版</a>
-      </h2>
-      <p class="article-date">December 29, 2021</p>
+      <p class="article-date">January 4, 2022</p>
       
         
   <a href="/tags#资源分享" >
@@ -347,84 +411,15 @@ https://www.lanzoux.com/iDGvVy4edsd
         
           
 
-破解工具下载地址：
-https://www.lanzoux.com/ihMbxy42ieh
-密码:52pj
-
-        
-      </div>
-      <a class="more" href="/2021/12/29/Navicat%20Premium%20%E7%A0%B4%E8%A7%A3%E7%89%88/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/">油画展</a>
-      </h2>
-      <p class="article-date">December 28, 2021</p>
-      
-        
-  <a href="/tags#杂七杂八" >
-    <span class="tag-code">杂七杂八</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          
-
+软件用途：修改文件的 CRC32 校验值，可以修改为自定义值。
+下载地址：
+https://www.lanzoux.com/iNxgDp23o0j
+密码：1qdd
 
 
         
       </div>
-      <a class="more" href="/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/">Python 学习手册（第四版）高清中文 高清英文 带完整书签</a>
-      </h2>
-      <p class="article-date">May 2, 2021</p>
-      
-        
-  <a href="/tags#资源分享" >
-    <span class="tag-code">资源分享</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          资源下载：Python 学习手册（第四版）高清中文 带完整书签 可复制文字 非扫描版 （附赠随书源码）
-
-
-Python 学习手册（第五版）高清英文 带完整书签 可复制文字 非扫描版
-
-下载地址：链接：https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdy ...
-        
-      </div>
-      <a class="more" href="/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/06/02/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">性能测试及常用工具</a>
-      </h2>
-      <p class="article-date">June 2, 2020</p>
-      
-        
-  <a href="/tags#性能测试" >
-    <span class="tag-code">性能测试</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          软件的六大特性：
-功能性一组功能及其指定的性质有关的一组属性。适合性、准确性、互用性&#x2F;互操作性、依从性、安全性。
-可靠性在规定的一段时间和条件下，软件维持其性能水平有关的一组软件属性。成熟性、容错性、易恢复性。
-可用性与使用的难易程度及规定或隐含用户对使用方式所做的评价有关的软件属 ...
-        
-      </div>
-      <a class="more" href="/2020/06/02/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">Read more</a>
+      <a class="more" href="/2022/01/04/CRC32%E7%BC%96%E8%BE%91%E5%99%A8/">Read more</a>
     </article>
   
 

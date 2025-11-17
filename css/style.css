@@ -827,20 +827,7 @@ h2.article-head {
   background-size: cover;
   height: 350px;
 }
-#about-banner:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background: url("images/escheres.png");
-  background-color: rgba(0,0,0,0.05);
-}
 @media screen and (max-width: 480px) {
-  #about-banner {
-    height: 250px;
-  }
 }
 .author {
   margin-top: -50px;

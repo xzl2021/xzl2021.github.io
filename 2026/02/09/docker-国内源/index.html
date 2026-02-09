@@ -10,7 +10,7 @@
   
   <title>
     
-      git 常用配置 | 阿良の小屋
+      docker 国内源 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>git 常用配置</h2>
-  <p class="post-date">2026-02-04</p>
+  <h2>docker 国内源</h2>
+  <p class="post-date">2026-02-09</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,48 +189,14 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="config-级别"><a href="#config-级别" class="headerlink" title="config 级别"></a>config 级别</h3><p>Git配置文件有三个级别，优先级如下：仓库级（local）&gt; 全局级（global）&gt; 系统级（system）</p>
-<table>
-<thead>
-<tr>
-<th>配置级别</th>
-<th>位置</th>
-<th>配置文件路径</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>仓库级（local）</td>
-<td>git 工作区间</td>
-<td>D:\myGitRepo\.git\config</td>
-</tr>
-<tr>
-<td>全局级（global）</td>
-<td>C 盘 user 路径</td>
-<td>C:\Users\username\.gitconfig</td>
-</tr>
-<tr>
-<td>系统级（system）</td>
-<td>git 安装目录</td>
-<td>C:\Program Files\Git\etc\gitconfig</td>
-</tr>
-</tbody></table>
-<h3 id="查看-config"><a href="#查看-config" class="headerlink" title="查看 config"></a>查看 config</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config -l          				✅查看 所有级别 配置信息</span><br><span class="line">git config -l --local  				✅查看 仓库级别 配置信息</span><br><span class="line">git config -l --global 				✅查看 全局级别 配置信息</span><br><span class="line">git config -l --system 				✅查看 系统级别 配置信息</span><br><span class="line">git config -l --show-origin  			✅打印配置文件本地路径</span><br><span class="line">git config -l | grep core  			✅筛选指定配置</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="编辑-config"><a href="#编辑-config" class="headerlink" title="编辑 config"></a>编辑 config</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --add user.age 10             ✅增加</span><br><span class="line">git config --global --unset user.age              ✅删除</span><br><span class="line">git config --global user.email &quot;xxxxx@mail.com&quot;   ✅修改</span><br><span class="line">git config --global user.name &quot;xxxxx&quot;             ✅修改</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a>常见配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;your@email.com&quot;</span><br><span class="line">git config --global http.version &quot;HTTP/1.1&quot;</span><br><span class="line">git config --global http.proxy &quot;http://127.0.0.1:7890&quot;</span><br><span class="line">git config --global https.proxy &quot;http://127.0.0.1:7890&quot;</span><br><span class="line">git config --global core.longpaths true</span><br><span class="line">git config --global core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="不常见配置"><a href="#不常见配置" class="headerlink" title="不常见配置"></a>不常见配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global alia.st status</span><br><span class="line">✅给命令配置别名，用st代替status</span><br><span class="line"></span><br><span class="line">git config --global alias.lg &quot;log --graph --pretty=format:&#x27;%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset&#x27; --abbrev-commit&quot;</span><br><span class="line">✅通过 Git 别名把复杂 format 封装</span><br></pre></td></tr></table></figure></section>
+    <section class="markdown-content"><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/docker</span><br><span class="line"></span><br><span class="line"><span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;- <span class="string">EOF</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;: [&quot;https://docker.1panel.live/&quot;, &quot;https://docker.m.daocloud.io&quot;, &quot;https://noohub.ru&quot;, &quot;https://huecker.io&quot;, &quot;https://dockerhub.timeweb.cloud&quot;, &quot;https://docker.xuanyuan.me&quot;]</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Git" >
-    <span class="tag-code">Git</span>
+  <a href="/tags#Docker" >
+    <span class="tag-code">Docker</span>
   </a>
 
       </div>
@@ -241,20 +207,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/">
+      <a class="nav-left" href="/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/">
         <span class="nav-arrow">← </span>
         
-          2026新年快乐！
+          git 常用配置
         
       </a>
     
-    
-      <a class="nav-right" href="/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/">
-        
-          docker 国内源
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -284,7 +243,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/02/04/git-常用配置/';
+    var url = 'https://xzl2021.github.io/2026/02/09/docker-国内源/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -347,7 +306,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/';
+    var disqus_url = 'https://xzl2021.github.io/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/';
     
     (function(){
       var dsq = document.createElement('script');

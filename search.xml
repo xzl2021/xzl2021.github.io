@@ -3,8 +3,7 @@
   <entry>
     <title>2022元旦快乐！</title>
     <url>/2022/01/01/2022%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[![2022happynewyear.jpg](https://imgsrc.01000010.xyz/2024/11/2022happynewyear.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -12,8 +11,7 @@
   <entry>
     <title>2025春节快乐！</title>
     <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -21,33 +19,28 @@
   <entry>
     <title>2026新年快乐！</title>
     <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>A股最赚钱的十大指数</title>
-    <url>/2025/11/17/A%E8%82%A1%E6%9C%80%E8%B5%9A%E9%92%B1%E7%9A%84%E5%8D%81%E5%A4%A7%E6%8C%87%E6%95%B0/</url>
-    <content><![CDATA[很多人一听到“长期最赚钱的指数”，第一反应一定是美股。毕竟标普 500，纳斯达克 100 的长期收益早已深入人心。但很多人不知道，A 股市场里也藏着一批“隐形冠军”指数，今天就来拆解 A 股最赚钱的“十大指数”，这份榜单的“含金量”有多高？哪怕是最后一名都轻松吊打标普 500（注：由于各指数成立时间不同，全文收益对比，采用成立以来的年化回报更为客观）。
-
-具体是哪十大指数，请下载 PDF 仔细阅读：附件
-
-]]></content>
-      <tags>
-        <tag>投资理财</tag>
       </tags>
   </entry>
   <entry>
     <title>CRC32 编辑器</title>
     <url>/2022/01/04/CRC32%E7%BC%96%E8%BE%91%E5%99%A8/</url>
     <content><![CDATA[
+![CRC32-2022-1-4-20-45-37.png](https://imgsrc.01000010.xyz/2024/11/CRC32-2022-1-4-20-45-37.png)
+
+---
 
 软件用途：修改文件的 CRC32 校验值，可以修改为自定义值。
+
 下载地址：
+
 https://www.lanzoux.com/iNxgDp23o0j
+
 密码：1qdd
+
+---
 
 ]]></content>
       <tags>
@@ -55,27 +48,61 @@ https://www.lanzoux.com/iNxgDp23o0j
       </tags>
   </entry>
   <entry>
+    <title>A股最赚钱的十大指数</title>
+    <url>/2025/11/17/A%E8%82%A1%E6%9C%80%E8%B5%9A%E9%92%B1%E7%9A%84%E5%8D%81%E5%A4%A7%E6%8C%87%E6%95%B0/</url>
+    <content><![CDATA[很多人一听到**“长期最赚钱的指数”**，第一反应一定是**美股**。毕竟标普 500，纳斯达克 100 的长期收益早已深入人心。但很多人不知道，A 股市场里也藏着一批“隐形冠军”指数，今天就来拆解 A 股最赚钱的**“十大指数”**，这份榜单的“含金量”有多高？哪怕是最后一名都轻松吊打**标普 500**（注：由于各指数成立时间不同，全文收益对比，采用成立以来的年化回报更为客观）。
+
+---
+
+具体是哪十大指数，请下载 PDF 仔细阅读：
+[附件](https://wwia.lanzoux.com/igGAQ3bbl6ve)
+
+---]]></content>
+      <tags>
+        <tag>投资理财</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GDriveFS 挂载 Google Drive</title>
     <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
     <content><![CDATA[不支持OpenVZ架构.
-1. 安装$ sudo apt-get install python-pip$ sudo apt-get install build-essential python-dev$ sudo pip install gdrivefs
 
+### 1. 安装
+```
+$ sudo apt-get install python-pip
+$ sudo apt-get install build-essential python-dev
+$ sudo pip install gdrivefs
+```
+<br>
 ### 2. 授权
 生成授权网址：
+```
 $ gdfstool auth -u
+```
 写入授权文件：
-$ gdfstool auth -a /var/cache/gdfs.creds &quot;4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI&quot;Authorization code recorded.
-
+```
+$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
+Authorization code recorded.
+```
+<br>
 ### 3. 挂载
+```
 $ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
-
+```
+<br>
 ### 4. 解挂
+```
 $ umount -l /root/googledrive/
-
+```
+<br>
 ### 5. 登陆时自动挂载
+```
 $ vim /root/.profile
+```
 加一行：
-mount | grep &quot;$&#123;HOME&#125;/googledrive&quot; &gt;/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds &quot;$&#123;HOME&#125;/googledrive&quot;
+```
+mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
+```
 ]]></content>
       <tags>
         <tag>Linux</tag>
@@ -84,21 +111,36 @@ mount | grep &quot;$&#123;HOME&#125;/googledrive&quot; &gt;/dev/null || sudo gdf
   <entry>
     <title>Google BBR的部署</title>
     <url>/2018/08/12/Google-BBR/</url>
-    <content><![CDATA[开机后 uname -r 看看是不是内核 &gt;&#x3D; 4.9
-执行 lsmod | grep bbr，如果结果中没有 tcp_bbr 的话就先执行
+    <content><![CDATA[开机后 `uname -r` 看看是不是内核 >= 4.9
+
+执行 `lsmod | grep bbr`，如果结果中没有 tcp_bbr 的话就先执行
+```bash
 modprobe tcp_bbr    #加载内核的bbr模块
-echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules-load.d/modules.conf    #将bbr模块在开机时加载
+```
+```
+echo "tcp_bbr" >> /etc/modules-load.d/modules.conf    #将bbr模块在开机时加载
+```
 如果上一句命令提示找不到文件，将命令换为
-echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules
+```
+echo "tcp_bbr" >> /etc/modules
+```
 执行
-echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.confecho &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
+```bash
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+```
 保存生效
+```bash
 sysctl -p
+```
 执行
-sysctl net.ipv4.tcp_available_congestion_controlsysctl net.ipv4.tcp_congestion_control
+```bash
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
+```
 如果结果都有 bbr, 则证明你的内核已开启 bbr
-执行 lsmod | grep bbr, 看到有 tcp_bbr 模块即说明 bbr 已启动
-]]></content>
+
+执行 `lsmod | grep bbr`, 看到有 tcp_bbr 模块即说明 bbr 已启动]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -106,81 +148,228 @@ sysctl net.ipv4.tcp_available_congestion_controlsysctl net.ipv4.tcp_congestion_c
   <entry>
     <title>Hexo 博客的 Vexo 主题使用 LocalSearch</title>
     <url>/2026/02/18/Hexo-%E5%8D%9A%E5%AE%A2%E7%9A%84-Vexo-%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8-LocalSearch/</url>
-    <content><![CDATA[
-修改 vexo 主题的配置文件，确保 local_search 是启用的
-# Local Search Supportlocal_search:  enable: true
+    <content><![CDATA[1. 修改 vexo 主题的配置文件，确保 local_search 是启用的
+```
+# Local Search Support
+local_search:
+  enable: true
+```
 
-安装 hexo 插件 hexo-generator-searchdb
+2. 安装 hexo 插件 hexo-generator-searchdb
+```
 npm install hexo-generator-searchdb
+```
 
-修改整个网站的配置文件加入以下内容：
-search:  path: search.xml  field: post  content: true  format: striptags
+3. 修改整个网站的配置文件
+加入以下内容：
+```
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: striptags
+```
 
-清理并重新生成网站，预览测试。
-hexo cleanhexo ghexo s
-
+4. 清理并重新生成网站，预览测试。
+```
+hexo clean
+hexo g
+hexo s
+```
 ]]></content>
       <tags>
         <tag>建站教程</tag>
       </tags>
   </entry>
   <entry>
+    <title>Navicat Premium 破解版</title>
+    <url>/2021/12/29/Navicat-Premium-%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <content><![CDATA[![navicat-2021-12-29-23-12-33.png](https://imgsrc.01000010.xyz/2024/11/navicat-2021-12-29-23-12-33.png)
+
+---
+
+破解工具下载地址：
+
+[https://www.lanzoux.com/ihMbxy42ieh](https://www.lanzoux.com/ihMbxy42ieh)
+
+密码:52pj]]></content>
+      <tags>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 通过 mysqldump 备份数据库</title>
     <url>/2023/09/05/MySQL%E9%80%9A%E8%BF%87mysqldump%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
-    <content><![CDATA[1、概述在 MySQL 中提供了命令行导出数据库数据以及文件的一种方便的工具 mysqldump, 我们可以通过命令行直接实现数据库内容的导出dump, 首先我们简单了解一下 mysqldump 命令用法:
-# 安装 mysqldumpapt install mysql-client-core-8.0# MySQLdump 常用mysqldump -u root -p 数据库 &gt; xxx.sql   # 还原时需要先手动 CREATE DATABASE 数据库mysqldump -u root -p --databases 数据库 &gt; xxx.sql   # 还原时不需要事先手动创建数据库# 备份远程数据库mysqldump --host=&lt;server&gt; --port=&lt;port&gt; --user &lt;user&gt; --password --databases testdb &gt; dump_file_path.sqlmysqldump -h &lt;server&gt; -P &lt;port&gt; -u &lt;user&gt; -p --databases testdb &gt; dump_file_path.sql
-mysql 8.0 版本此命令会报错：Unknown table ‘COLUMN_STATISTICS’ in information_schema (1109)此处需要添加新参数 –column-statistics&#x3D;0，格式如下：
-mysqldump --column-statistics=0 -u root -p --databases 数据库1 数据库2 &gt; xxx.sql
+    <content><![CDATA[# 1、概述
+在 MySQL 中提供了命令行导出数据库数据以及文件的一种方便的工具 mysqldump, 我们可以通过命令行直接实现数据库内容的导出dump, 首先我们简单了解一下 mysqldump 命令用法:
+```
+# 安装 mysqldump
+apt install mysql-client-core-8.0
+
+# MySQLdump 常用
+mysqldump -u root -p 数据库 > xxx.sql   # 还原时需要先手动 CREATE DATABASE 数据库
+mysqldump -u root -p --databases 数据库 > xxx.sql   # 还原时不需要事先手动创建数据库
+
+
+# 备份远程数据库
+mysqldump --host=<server> --port=<port> --user <user> --password --databases testdb > dump_file_path.sql
+mysqldump -h <server> -P <port> -u <user> -p --databases testdb > dump_file_path.sql
+```
+mysql 8.0 版本此命令会报错：
+Unknown table 'COLUMN_STATISTICS' in information_schema (1109)
+此处需要添加新参数 –column-statistics=0，格式如下：
+```
+mysqldump --column-statistics=0 -u root -p --databases 数据库1 数据库2 > xxx.sql
+```
 如需设置默认参数，可修改 mysql 配置文件，添加如下参数：
-[mysqldump]column-statistics=0
+```
+[mysqldump]
+column-statistics=0
+```
 
-2、mysqldump 常用操作示例
-备份全部数据库的数据和结构mysqldump -uroot -p123456 -A &gt; /data/mysqlDump/mydb.sql
-备份全部数据库的结构（加 -d 参数）mysqldump -uroot -p123456 -A -d &gt; /data/mysqlDump/mydb.sql
-备份全部数据库的数据(加 -t 参数)mysqldump -uroot -p123456 -A -t &gt; /data/mysqlDump/mydb.sql
-备份单个数据库的数据和结构(,数据库名mydb)mysqldump -uroot -p123456 mydb &gt; /data/mysqlDump/mydb.sql
-备份单个数据库的结构mysqldump -uroot -p123456 mydb -d &gt; /data/mysqlDump/mydb.sql
-备份单个数据库的数据mysqldump -uroot -p123456 mydb -t &gt; /data/mysqlDump/mydb.sql
-备份多个表的数据和结构（数据，结构的单独备份方法与上同）mysqldump -uroot -p123456 mydb t1 t2 &gt; /data/mysqlDump/mydb.sql
-一次备份多个数据库mysqldump -uroot -p123456 --databases db1 db2 &gt; /data/mysqlDump/mydb.sql
+# 2、mysqldump 常用操作示例
+1. 备份全部数据库的数据和结构
+```
+mysqldump -uroot -p123456 -A > /data/mysqlDump/mydb.sql
+```
+2. 备份全部数据库的结构（加 -d 参数）
+```
+mysqldump -uroot -p123456 -A -d > /data/mysqlDump/mydb.sql
+```
+3. 备份全部数据库的数据(加 -t 参数)
+```
+mysqldump -uroot -p123456 -A -t > /data/mysqlDump/mydb.sql
+```
+4. 备份单个数据库的数据和结构(,数据库名mydb)
+```
+mysqldump -uroot -p123456 mydb > /data/mysqlDump/mydb.sql
+```
+5. 备份单个数据库的结构
+```
+mysqldump -uroot -p123456 mydb -d > /data/mysqlDump/mydb.sql
+```
+6. 备份单个数据库的数据
+```
+mysqldump -uroot -p123456 mydb -t > /data/mysqlDump/mydb.sql
+```
+7. 备份多个表的数据和结构（数据，结构的单独备份方法与上同）
+```
+mysqldump -uroot -p123456 mydb t1 t2 > /data/mysqlDump/mydb.sql
+```
+8. 一次备份多个数据库
+```
+mysqldump -uroot -p123456 --databases db1 db2 > /data/mysqlDump/mydb.sql
+```
 
-3、还原 MySQL 备份内容有两种方式还原，第一种是使用 SHELL 行完成还原，第二种是在 MySQL 命令行中
+# 3、还原 MySQL 备份内容
+有两种方式还原，第一种是使用 SHELL 行完成还原，第二种是在 MySQL 命令行中
+1. 在系统命令行中，输入如下实现还原：
+```
+mysql -uroot -p123456 < /data/mysqlDump/mydb.sql
+```
+2. 在登录进入 mysql 系统中,通过 source 指令找到对应系统中的文件进行还原：
+```
+mysql> source /data/mysqlDump/mydb.sql
+```
 
-在系统命令行中，输入如下实现还原：mysql -uroot -p123456 &lt; /data/mysqlDump/mydb.sql
-在登录进入 mysql 系统中,通过 source 指令找到对应系统中的文件进行还原：mysql&gt; source /data/mysqlDump/mydb.sql
+# 4、编写BASH维护固定数量备份文件
+在 Linux 中，使用 vi 或者 vim 编写脚本内容并命名为：mysql_dump_script.sh
+```
+#!/bin/bash
 
-4、编写BASH维护固定数量备份文件在 Linux 中，使用 vi 或者 vim 编写脚本内容并命名为：mysql_dump_script.sh
-#!/bin/bash# 保存备份个数，备份 28 天数据number=28# 备份保存路径backup_dir=/root/mysqlbackup# 日期dd=`date +%Y-%m-%d-%H-%M-%S`# 备份工具tool=mysqldump# 用户名username=root# 密码password=TankB214# 将要备份的数据库database_name=edoctor# 如果文件夹不存在则创建if [ ! -d backup_dir ];then  mkdir -p backup_dir;fi# 简单写法 mysqldump -u root -p123456 users &gt; /root/mysqlbackup/users-filename.sqltool -u username -ppassword database_name&gt;backup_dir/database_name-dd.sql# 写创建备份日志echo &quot;create backup_dir/database_name-dd.dump&quot; &gt;&gt;backup_dir/log.txt# 找出需要删除的备份delfile=`ls -l -crt backup_dir/*.sql | awk &#x27;&#123;print9 &#125;&#x27; | head -1`# 判断现在的备份数量是否大于 numbercount=`ls -l -crt backup_dir/*.sql | awk &#x27;&#123;print 9 &#125;&#x27; | wc -l`if [count -gt number ]then  # 删除最早生成的备份，只保留 number 数量的备份  rm delfile  # 写删除文件日志  echo &quot;delete delfile&quot; &gt;&gt;backup_dir/log.txtfi
-如上代码主要含义如下：1.首先设置各项参数，例如 number 最多需要备份的数目，备份路径，用户名，密码等。2.执行 mysqldump 命令保存备份文件，并将操作打印至同目录下的 log.txt 中标记操作日志。3.定义需要删除的文件：通过 ls 命令获取第九列，即文件名列，再通过实现定义操作时间最晚的那个需要删除的文件。4.定义备份数量：通过 ls 命令加上 wc -l 统计以sql结尾的文件的行数。5.如果文件超出限制大小，就删除最早创建的 sql 文件
+# 保存备份个数，备份 28 天数据
+number=28
+# 备份保存路径
+backup_dir=/root/mysqlbackup
+# 日期
+dd=`date +%Y-%m-%d-%H-%M-%S`
+# 备份工具
+tool=mysqldump
+# 用户名
+username=root
+# 密码
+password=TankB214
+# 将要备份的数据库
+database_name=edoctor
 
+# 如果文件夹不存在则创建
+if [ ! -d backup_dir ];
+then
+  mkdir -p backup_dir;
+fi
+
+# 简单写法 mysqldump -u root -p123456 users > /root/mysqlbackup/users-filename.sql
+tool -u username -ppassword database_name>backup_dir/database_name-dd.sql
+
+# 写创建备份日志
+echo "create backup_dir/database_name-dd.dump" >>backup_dir/log.txt
+
+# 找出需要删除的备份
+delfile=`ls -l -crt backup_dir/*.sql | awk '{print9 }' | head -1`
+
+# 判断现在的备份数量是否大于 number
+count=`ls -l -crt backup_dir/*.sql | awk '{print 9 }' | wc -l`
+
+if [count -gt number ]
+then
+  # 删除最早生成的备份，只保留 number 数量的备份
+  rm delfile
+  # 写删除文件日志
+  echo "delete delfile" >>backup_dir/log.txt
+fi
+```
+如上代码主要含义如下：
+1.首先设置各项参数，例如 number 最多需要备份的数目，备份路径，用户名，密码等。
+2.执行 mysqldump 命令保存备份文件，并将操作打印至同目录下的 log.txt 中标记操作日志。
+3.定义需要删除的文件：通过 ls 命令获取第九列，即文件名列，再通过实现定义操作时间最晚的那个需要删除的文件。
+4.定义备份数量：通过 ls 命令加上 wc -l 统计以sql结尾的文件的行数。
+5.如果文件超出限制大小，就删除最早创建的 sql 文件
+
+---
 ]]></content>
       <tags>
         <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
-    <title>Navicat Premium 破解版</title>
-    <url>/2021/12/29/Navicat-Premium-%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <title>Python 学习手册（第四版）高清中文 高清英文 带完整书签</title>
+    <url>/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/</url>
     <content><![CDATA[
+#### 资源下载：
 
-破解工具下载地址：
-https://www.lanzoux.com/ihMbxy42ieh
-密码:52pj
-]]></content>
+## Python 学习手册（第四版）高清中文 带完整书签 可复制文字 非扫描版 （附赠随书源码）
+<!--![Python 学习手册](https://img-blog.csdnimg.cn/20210501235339643.png)-->
+![Python 学习手册](https://imgsrc.01000010.xyz/2021/05/20210501235339643.png)
+
+---
+
+## Python 学习手册（第五版）高清英文 带完整书签 可复制文字 非扫描版
+<!--![Learning Python](https://img-blog.csdnimg.cn/20210501235436572.png)-->
+![Learning Python](https://imgsrc.01000010.xyz/2021/05/20210501235436572.png)
+
+下载地址：
+链接：[https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA](https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA)
+提取码：52pj
+复制这段内容后打开百度网盘手机App，操作更方便哦]]></content>
       <tags>
         <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python 学习手册（第四版）高清中文 高清英文 带完整书签</title>
-    <url>/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/</url>
-    <content><![CDATA[资源下载：Python 学习手册（第四版）高清中文 带完整书签 可复制文字 非扫描版 （附赠随书源码）
+    <title>WiFi 密码查看器（PC版）</title>
+    <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
+    <content><![CDATA[
+![wifipasscheck-2021-12-31-14-13-5.png](https://imgsrc.01000010.xyz/2024/11/wifipasscheck-2021-12-31-14-13-5.png)
 
+---
 
-Python 学习手册（第五版）高清英文 带完整书签 可复制文字 非扫描版
+软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
 
-下载地址：链接：https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA提取码：52pj复制这段内容后打开百度网盘手机App，操作更方便哦
-]]></content>
+下载地址：
+
+[https://www.lanzoux.com/iRlQEy6f7mj](https://www.lanzoux.com/iRlQEy6f7mj)
+
+密码:52pj]]></content>
       <tags>
         <tag>资源分享</tag>
       </tags>
@@ -188,210 +377,369 @@ Python 学习手册（第五版）高清英文 带完整书签 可复制文字 �
   <entry>
     <title>Telegram 自动签到脚本</title>
     <url>/2017/09/28/Telegram-%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[注意：所有代码块前面都有行数，别看错了命令。
+    <content><![CDATA[# **注意：所有代码块前面都有行数，别看错了命令。**
 
-下载 telegram-cli 源码：
-cd ~sudo git clone --recursive https://github.com/vysheng/tg.git &amp;&amp; cd tg
+![20170928031835.png](https://imgsrc.01000010.xyz/2017/09/TelegramAutoCheckinScript/20170928031835.png)
 
+> ### 下载 telegram-cli 源码：
 
-安装依赖：
-sudo apt-get updatesudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson-dev libpython-dev make
+```bash
+cd ~
+sudo git clone --recursive https://github.com/vysheng/tg.git && cd tg
+```
 
+> ### 安装依赖：
 
-编译源码：
-~/tg/configuremake
+```bash
+sudo apt-get update
+sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson-dev libpython-dev make
+```
 
+> ### 编译源码：
 
-登陆账号：
+```bash
+~/tg/configure
+make
+```
+
+> ### 登陆账号：
+
+```bash
 ~/tg/bin/telegram-cli -k tg-server.pub
+```
+
+- **登陆成功后按下 Ctrl+C 退出**
 
 
-登陆成功后按下 Ctrl+C 退出
+> ### 系统添加 telegramd 用户：
 
-
-系统添加 telegramd 用户：
+```bash
 sudo adduser telegramd
+```
 
 
+> ### 创建守护进程运行脚本：
 
-创建守护进程运行脚本：
+```bash
 vim /etc/init.d/telegram-daemon
+```
 
 
+- 在 vim 编辑器里写入以下内容并保存：
 
-在 vim 编辑器里写入以下内容并保存：
+```bash
+#! /bin/sh
+> ### BEGIN INIT INFO
+# Provides:          telegram-daemon
+# Required-Start:
+# Required-Stop:
+# Default-Start:     S 2 3 4 5
+# Default-Stop:      0 6
+# Short-Description: telegram daemon
+# Description:       telegram daemon
+> ### END INIT INFO
+# Author: xzl2021
 
-#! /bin/sh&gt; ### BEGIN INIT INFO# Provides:          telegram-daemon# Required-Start:# Required-Stop:# Default-Start:     S 2 3 4 5# Default-Stop:      0 6# Short-Description: telegram daemon# Description:       telegram daemon&gt; ### END INIT INFO# Author: xzl2021# actionscase &quot;$1&quot; in    start)        echo &quot;Telegram daemon is starting...&quot;        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &amp;        echo &quot;...done&quot;        ;;    stop)        echo &quot;stopping telegram daemon...&quot;        sudo pkill -9 telegram        echo &quot;..done&quot;        ;;    restart)        echo &quot;stopping telegram daemon...&quot;        sudo pkill -9 telegram        echo &quot;..done -restarting...&quot;        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &amp;        echo &quot;...done&quot;        ;;    status)        sudo netstat -a | grep 1234        ;;esacexit 0
+# actions
+case "$1" in
+    start)
+        echo "Telegram daemon is starting..."
+        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &
+        echo "...done"
+        ;;
+    stop)
+        echo "stopping telegram daemon..."
+        sudo pkill -9 telegram
+        echo "..done"
+        ;;
+    restart)
+        echo "stopping telegram daemon..."
+        sudo pkill -9 telegram
+        echo "..done -restarting..."
+        /root/tg/bin/telegram-cli -vvvvRC -k /root/tg/tg-server.pub -W -dL tg.log -P 1234 &
+        echo "...done"
+        ;;
+    status)
+        sudo netstat -a | grep 1234
+        ;;
+esac
 
+exit 0
+```
 
-启动守护进程(监听 1234 端口)
+> ### 启动守护进程(监听 1234 端口)
+
+```bash
 sudo service telegram-daemon start
+```
+![20170928032308.png](https://imgsrc.01000010.xyz/2017/09/TelegramAutoCheckinScript/20170928032308.png)
 
+> ### 创建签到脚本
 
-创建签到脚本
+```bash
 vim ~/qiandao.sh
+```
 
+- 在 vim 编辑器写入以下内容并保存<br>
+- (可以将 CCCAT-bot 改成任何需要签到的机器人的名字)
 
-在 vim 编辑器写入以下内容并保存
-(可以将 CCCAT-bot 改成任何需要签到的机器人的名字)
+```bash
+nc localhost 1234 <<EOF
+msg CCCAT-bot /checkin
+EOF
+```
 
-nc localhost 1234 &lt;&lt;EOFmsg CCCAT-bot /checkinEOF
+> ### 将脚本加入 cron 计划任务
 
-
-将脚本加入 cron 计划任务
+```bash
 crontab -e
+```
+
+- 在最下面添加一行并保存(代表每天早上 6 点签到)
+```bash
+0 6 * * * ~/qiandao.sh
+```
+
+# **注意：所有代码块前面都有行数，别看错了命令。**
 
 
-在最下面添加一行并保存(代表每天早上 6 点签到)0 6 * * * ~/qiandao.sh
-
-注意：所有代码块前面都有行数，别看错了命令。fin
+fin
 ]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>WiFi 密码查看器（PC版）</title>
-    <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
-    <content><![CDATA[
-
-软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
-下载地址：
-https://www.lanzoux.com/iRlQEy6f7mj
-密码:52pj
-]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>absolute 元素垂直水平居中</title>
     <url>/2017/07/10/absolute-%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/</url>
-    <content><![CDATA[关于元素居中问题是个古老的话题，常见方法有 table + table-cell || flex + justify-content + align-items.今天又学到一种利用 position: absolute 来实现水平垂直居中的方法。
-.container &#123;        position: relative;  height: 100%;  width: 100%;&#125;.inner &#123;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  width: 50%;  height: 50%;  margin: auto;&#125;
+    <content><![CDATA[关于元素居中问题是个古老的话题，常见方法有 `table + table-cell` || `flex + justify-content + align-items`.
+今天又学到一种利用 `position: absolute` 来实现水平垂直居中的方法。
+
+```css
+.container {
+        position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+```
 ]]></content>
       <tags>
         <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
+    <title>ffmpeg 截取视频</title>
+    <url>/2022/09/25/ffmpeg-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[简单命令：
+```
+ffmpeg -i input.mp4 -ss 1:05 -t 10 -c:v copy -c:a copy output.mp4
+```
+-ss 1:05 指定从输入视频第 1:05 秒开始截取，-t 10 指明最多截取 10 秒。
+-ss 参数允许的格式为 HH:MM:SS.MILLISECONDS
+但是上面的命令可能会比较慢，更好的命令如下：
+```
+ffmpeg -ss 1:05 -t 10 -i input.mp4 -c:v copy -c:a copy output.mp4
+```
+把 -ss 1:05 和 -t 10 放到 -i 前面，与原来的区别是，这样会先跳转到第 1:05 秒在开始解码输入视频，而原来的会从开始解码，只是丢弃掉前 1:05 秒的结果。
+
+---
+
+按时间截取：
+```
+ffmpeg -i input.mp4 -vcodec copy -acodec copy -ss 00:00:00 -to 00:00:05 output.mp4
+```
+或者：
+```
+ffmpeg -ss 00:00:00 -to 00:00:05 -i input.mp4 -vcodec copy -acodec copy output.mp4
+```
+看了下 FFmpeg 的文档，如果你需要精确截取视频，避免关键帧的丢失并精确截取时间，这个时候最好是重新编码视频。就变成这样了：
+```
+ffmpeg -ss 00:00:00 -to 00:00:05 -i input.mp4 -c:v libx264 -c:a aac -crf 21 output.mp4
+```
+
+---
+
+Fin.]]></content>
+      <tags>
+        <tag>FFmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 国内源</title>
     <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-    <content><![CDATA[mkdir -p /etc/dockertee /etc/docker/daemon.json &lt;&lt;- EOF&#123;&quot;registry-mirrors&quot;: [&quot;https://docker.1panel.live/&quot;, &quot;https://docker.m.daocloud.io&quot;, &quot;https://noohub.ru&quot;, &quot;https://huecker.io&quot;, &quot;https://dockerhub.timeweb.cloud&quot;, &quot;https://docker.xuanyuan.me&quot;]&#125;EOFsystemctl daemon-reloadsystemctl restart docker]]></content>
+    <content><![CDATA[```bash
+mkdir -p /etc/docker
+
+tee /etc/docker/daemon.json <<- EOF
+{
+"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
+}
+EOF
+
+systemctl daemon-reload
+systemctl restart docker
+```]]></content>
       <tags>
         <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg 截取视频</title>
-    <url>/2022/09/25/ffmpeg-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[简单命令：
-ffmpeg -i input.mp4 -ss 1:05 -t 10 -c:v copy -c:a copy output.mp4
--ss 1:05 指定从输入视频第 1:05 秒开始截取，-t 10 指明最多截取 10 秒。-ss 参数允许的格式为 HH:MM:SS.MILLISECONDS但是上面的命令可能会比较慢，更好的命令如下：
-ffmpeg -ss 1:05 -t 10 -i input.mp4 -c:v copy -c:a copy output.mp4
-把 -ss 1:05 和 -t 10 放到 -i 前面，与原来的区别是，这样会先跳转到第 1:05 秒在开始解码输入视频，而原来的会从开始解码，只是丢弃掉前 1:05 秒的结果。
-
-按时间截取：
-ffmpeg -i input.mp4 -vcodec copy -acodec copy -ss 00:00:00 -to 00:00:05 output.mp4
-或者：
-ffmpeg -ss 00:00:00 -to 00:00:05 -i input.mp4 -vcodec copy -acodec copy output.mp4
-看了下 FFmpeg 的文档，如果你需要精确截取视频，避免关键帧的丢失并精确截取时间，这个时候最好是重新编码视频。就变成这样了：
-ffmpeg -ss 00:00:00 -to 00:00:05 -i input.mp4 -c:v libx264 -c:a aac -crf 21 output.mp4
-
-
-Fin.
-]]></content>
-      <tags>
-        <tag>FFmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ffmpeg 调整视频分辨率</title>
     <url>/2026/02/18/ffmpeg-%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E5%88%86%E8%BE%A8%E7%8E%87/</url>
-    <content><![CDATA[
-调整视频分辨率用 -s 参数
+    <content><![CDATA[- ### 调整视频分辨率用 -s 参数
+```
+1、用 -s 参数设置视频分辨率，参数值 wxh，w宽度单位是像素，h高度单位是像素
+ffmpeg -i input_file -s 320x240 output_file
 
-1、用 -s 参数设置视频分辨率，参数值 wxh，w宽度单位是像素，h高度单位是像素ffmpeg -i input_file -s 320x240 output_file2、预定义的视频尺寸下面两条命令有相同效果ffmpeg -i input.avi -s 640x480 output.aviffmpeg -i input.avi -s vga output.avi
+2、预定义的视频尺寸
+下面两条命令有相同效果
+ffmpeg -i input.avi -s 640x480 output.avi
+ffmpeg -i input.avi -s vga output.avi
+```
 
+- ### 使用 Scale filter 调整分辨率
+```
+scale filter的优点是可以使用一些额外的参数
+-vf scale=width:height
+	
+下面两条命令有相同效果
+ffmpeg -i input.mpg -s 320x240 output.mp4 
+ffmpeg -i input.mpg -vf scale=320:240 output.mp4
 
-使用 Scale filter 调整分辨率
+对输入视频成比例缩放
+改变为源视频一半大小
+ffmpeg -i input.mpg -vf scale=iw/2:ih/2 output.mp4
+改变为原视频的90%大小：
+ffmpeg -i input.mpg -vf scale=iw*0.9:ih*0.9 output.mp4
+```
 
-scale filter的优点是可以使用一些额外的参数-vf scale=width:height	下面两条命令有相同效果ffmpeg -i input.mpg -s 320x240 output.mp4 ffmpeg -i input.mpg -vf scale=320:240 output.mp4对输入视频成比例缩放改变为源视频一半大小ffmpeg -i input.mpg -vf scale=iw/2:ih/2 output.mp4改变为原视频的90%大小：ffmpeg -i input.mpg -vf scale=iw*0.9:ih*0.9 output.mp4
+- ### 在未知视频的分辨率时，保证调整的分辨率与源视频有相同的横纵比。
+可能会有错误，不推荐使用，最好传入明确的缩放值。
+另外，scale 只能接受偶数，否则 height not divisible by 2.
+```
+宽度固定400，高度成比例：
+ffmpeg -i input.avi -vf scale=400:-2 output.mp4
 
-
-在未知视频的分辨率时，保证调整的分辨率与源视频有相同的横纵比。
-
-可能会有错误，不推荐使用，最好传入明确的缩放值。另外，scale 只能接受偶数，否则 height not divisible by 2.
-宽度固定400，高度成比例：ffmpeg -i input.avi -vf scale=400:-2 output.mp4相反地，高度固定300，宽度成比例：ffmpeg -i input.avi -vf scale=-2:300 output.mp4
+相反地，高度固定300，宽度成比例：
+ffmpeg -i input.avi -vf scale=-2:300 output.mp4
+```
 ]]></content>
       <tags>
         <tag>FFmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 常用配置</title>
-    <url>/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[config 级别Git配置文件有三个级别，优先级如下：仓库级（local）&gt; 全局级（global）&gt; 系统级（system）
-
-
-
-配置级别
-位置
-配置文件路径
-
-
-
-仓库级（local）
-git 工作区间
-D:\myGitRepo\.git\config
-
-
-全局级（global）
-C 盘 user 路径
-C:\Users\username\.gitconfig
-
-
-系统级（system）
-git 安装目录
-C:\Program Files\Git\etc\gitconfig
-
-
-查看 configgit config -l          				✅查看 所有级别 配置信息git config -l --local  				✅查看 仓库级别 配置信息git config -l --global 				✅查看 全局级别 配置信息git config -l --system 				✅查看 系统级别 配置信息git config -l --show-origin  			✅打印配置文件本地路径git config -l | grep core  			✅筛选指定配置
-
-
-编辑 configgit config --global --add user.age 10             ✅增加git config --global --unset user.age              ✅删除git config --global user.email &quot;xxxxx@mail.com&quot;   ✅修改git config --global user.name &quot;xxxxx&quot;             ✅修改
-
-
-常见配置git config --global user.name &quot;Your Name&quot;git config --global user.email &quot;your@email.com&quot;git config --global http.version &quot;HTTP/1.1&quot;git config --global http.proxy &quot;http://127.0.0.1:7890&quot;git config --global https.proxy &quot;http://127.0.0.1:7890&quot;git config --global core.longpaths truegit config --global core.ignorecase false
-
-
-不常见配置git config --global alia.st status✅给命令配置别名，用st代替statusgit config --global alias.lg &quot;log --graph --pretty=format:&#x27;%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset&#x27; --abbrev-commit&quot;✅通过 Git 别名把复杂 format 封装]]></content>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
     <title>Hello World</title>
     <url>/2017/07/10/hello-world/</url>
-    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-More info: Writing
-Run server$ hexo server
+## Quick Start
 
-More info: Server
-Generate static files$ hexo generate
+### Create a new post
 
-More info: Generating
-Deploy to remote sites$ hexo deploy
+``` bash
+$ hexo new "My New Post"
+```
 
-More info: Deployment
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)
 ]]></content>
+  </entry>
+  <entry>
+    <title>git 常用配置</title>
+    <url>/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[### config 级别
+Git配置文件有三个级别，优先级如下：仓库级（local）> 全局级（global）> 系统级（system）
+
+| 配置级别 | 位置 | 配置文件路径 |
+| --- | --- | --- |
+| 仓库级（local） | git 工作区间 | D:\myGitRepo\\.git\config |
+| 全局级（global） | C 盘 user 路径 | C:\Users\username\\.gitconfig |
+| 系统级（system） | git 安装目录 | C:\Program Files\Git\etc\gitconfig |
+
+
+### 查看 config
+```
+git config -l          				✅查看 所有级别 配置信息
+git config -l --local  				✅查看 仓库级别 配置信息
+git config -l --global 				✅查看 全局级别 配置信息
+git config -l --system 				✅查看 系统级别 配置信息
+git config -l --show-origin  			✅打印配置文件本地路径
+git config -l | grep core  			✅筛选指定配置
+```
+
+
+### 编辑 config
+```
+git config --global --add user.age 10             ✅增加
+git config --global --unset user.age              ✅删除
+git config --global user.email "xxxxx@mail.com"   ✅修改
+git config --global user.name "xxxxx"             ✅修改
+```
+
+
+### 常见配置
+```
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+git config --global http.version "HTTP/1.1"
+git config --global http.proxy "http://127.0.0.1:7890"
+git config --global https.proxy "http://127.0.0.1:7890"
+git config --global core.longpaths true
+git config --global core.ignorecase false
+```
+
+
+### 不常见配置
+```
+git config --global alia.st status
+✅给命令配置别名，用st代替status
+
+git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
+✅通过 Git 别名把复杂 format 封装
+```]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
   </entry>
   <entry>
     <title>js 数组方法总结图</title>
     <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
-    <content><![CDATA[
+    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -400,18 +748,28 @@ More info: Deployment
   <entry>
     <title>shadowsocksR（简称SSR）使用教程（安卓版）</title>
     <url>/2017/11/11/ssr-android/</url>
-    <content><![CDATA[一：下载SSR客户端链接: https://pan.baidu.com/s/1kVGIuJP 密码: j6r6
+    <content><![CDATA[### 一：下载SSR客户端
+[链接: https://pan.baidu.com/s/1kVGIuJP 密码: j6r6](https://pan.baidu.com/s/1kVGIuJP)
 
+<br/>
 
+---
+### 二：使用SSR
+##### 第一步：修改配置
 
-二：使用SSR第一步：修改配置
+![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201813.png)
 
+<br>
 
+![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201655.png)
 
+<br/>
 
+##### 第二步：进行连接
 
-第二步：进行连接
+![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201707.png)
 
+<br/>
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
@@ -420,29 +778,43 @@ More info: Deployment
   <entry>
     <title>shadowsocksR（简称SSR）使用教程（iOS版）</title>
     <url>/2017/11/11/ssr-ios/</url>
-    <content><![CDATA[一：下载SSR客户端去美国区 App Store 下载 Shadowrocket
+    <content><![CDATA[### 一：下载SSR客户端
+去美国区 App Store 下载 Shadowrocket
 
+<br/>
 
+---
+### 二：使用SSR
+##### 第一步：修改语言（如果看得懂英文就不用修改）
 
-二：使用SSR第一步：修改语言（如果看得懂英文就不用修改）
+![修改语言](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2247.PNG)
 
+<br>
 
-第二步：添加配置
+##### 第二步：添加配置
 
+![添加配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2248.png)
 
+<br>
 
+---
 
+<br>
 
+![添加配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2249.PNG)
 
+<br>
 
+---
 
+<br>
 
+![选择混淆](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2250.PNG)
 
+<br>
 
-
-
-
-第三步：进行连接
+##### 第三步：进行连接
+![进行连接](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2252.PNG)
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
@@ -451,63 +823,75 @@ More info: Deployment
   <entry>
     <title>shadowsocksR（简称SSR）使用教程（PC版）</title>
     <url>/2017/11/11/ssr_windows/</url>
-    <content><![CDATA[一：下载SSR客户端链接: https://pan.baidu.com/s/1kVGIuJP 密码: j6r6
+    <content><![CDATA[### 一：下载SSR客户端
+[链接: https://pan.baidu.com/s/1kVGIuJP 密码: j6r6](https://pan.baidu.com/s/1kVGIuJP)
 
+<br/>
 
+---
+### 二：使用SSR
+##### 第一步：添加服务器（节点）
+鼠标右键单击小飞机图标，点开编辑服务器
 
-二：使用SSR第一步：添加服务器（节点）鼠标右键单击小飞机图标，点开编辑服务器
+<br/>
 
+![编辑服务器](https://imgsrc.01000010.xyz/2017/11/shadowsocksR-Usage/1.png)
 
+<br/>
 
+##### 第二步：根据节点配置，把配置信息填入到框内
+最好把节点命名，否则沟通的时候会造成混乱。密码与IP前面的选择框是明文显示的意思
+> ##### 服务器ip尽量手打！！！！
 
+<br/>
 
-第二步：根据节点配置，把配置信息填入到框内最好把节点命名，否则沟通的时候会造成混乱。密码与IP前面的选择框是明文显示的意思
+![填写配置](https://imgsrc.01000010.xyz/2017/11/shadowsocksR-Usage/2.png)
 
-服务器ip尽量手打！！！！
+<br/>
 
+##### 第三步：开启代理
+**_直连模式为关闭代理，全局模式为打开代理_**
 
-
-
-
-第三步：开启代理直连模式为关闭代理，全局模式为打开代理
 打开全局模式后就可以访问Google，Youtube了
 
+<br/>
 
+![更改模式](https://imgsrc.01000010.xyz/2017/11/shadowsocksR-Usage/3.png)
 
+<br/>
 
+> **切换节点：节点前对勾表示目前正在使用的节点，想切换节点就单击选择其他节点**
 
+<br/>
 
-切换节点：节点前对勾表示目前正在使用的节点，想切换节点就单击选择其他节点
+![切换节点](https://imgsrc.01000010.xyz/2017/11/shadowsocksR-Usage/4.png)
 
+<br/>
 
+---
+### 三：注意事项（必看！！）
 
+1. 不要再任何场合暴露ip，任何场合！！！不要再任何场合暴露ip，任何场合！！！不要再任何场合暴露ip，任何场合！！！
 
+2. 不要再公共WIFI下挂代理，不安全
 
+3. 不要随意给别人使用，尤其时sb
 
+4. 开代理的时候尽量不要开迅雷
 
-三：注意事项（必看！！）
-不要再任何场合暴露ip，任何场合！！！不要再任何场合暴露ip，任何场合！！！不要再任何场合暴露ip，任何场合！！！
+6. 不要快速的更换节点，换3 4回节点最好退出ssr（注意，是退出ssr，不是关闭代理），换节点的时候要先关闭代理，然后选择你想更换的节点，之后再开代理
 
-不要再公共WIFI下挂代理，不安全
+7. 开代理的时候千万不要开360，电脑管家这样的杀毒软件，切记切记
 
-不要随意给别人使用，尤其时sb
+8. __退出ssr前一定要关闭代理!!!，否则会导致上不了内网__
 
-开代理的时候尽量不要开迅雷
+9. __不要随意更改ssr里面的设置，不懂不要瞎改！！！__
 
-不要快速的更换节点，换3 4回节点最好退出ssr（注意，是退出ssr，不是关闭代理），换节点的时候要先关闭代理，然后选择你想更换的节点，之后再开代理
+10. 玩游戏的用户可以在此处选择plain
 
-开代理的时候千万不要开360，电脑管家这样的杀毒软件，切记切记
+<br/>
 
-退出ssr前一定要关闭代理!!!，否则会导致上不了内网
-
-不要随意更改ssr里面的设置，不懂不要瞎改！！！
-
-玩游戏的用户可以在此处选择plain
-
-
-
-
-用SSR很卡或连接不上，请看这里
+[用SSR很卡或连接不上，请看这里](http://www.jianshu.com/p/3c4cf6c077f0)
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
@@ -517,17 +901,23 @@ More info: Deployment
     <title>《道德经》套装全六册 无删减 精注全释版</title>
     <url>/2022/01/05/%E3%80%8A%E9%81%93%E5%BE%B7%E7%BB%8F%E3%80%8B%E5%A5%97%E8%A3%85%E5%85%A8%E5%85%AD%E5%86%8C-%E6%97%A0%E5%88%A0%E5%87%8F-%E7%B2%BE%E6%B3%A8%E5%85%A8%E9%87%8A%E7%89%88/</url>
     <content><![CDATA[
+![2022-1-5-15-18-36-1005x1024.png](https://imgsrc.01000010.xyz/2024/11/2022-1-5-15-18-36-1005x1024.png)
 
-作者：老子
-出版社：北京联合出版公司
-出版日期：2017 年 3 月
-ISBN：978-7-5502-9563-6
-格式：EPUB
+- 作者：老子
+- 出版社：北京联合出版公司
+- 出版日期：2017 年 3 月
+- ISBN：978-7-5502-9563-6
+- 格式：EPUB
 
+---
 
 下载地址：
-https://www.lanzoux.com/iNJn4yekb0j
+
+[https://www.lanzoux.com/iNJn4yekb0j](https://www.lanzoux.com/iNJn4yekb0j)
+
 密码：2333
+
+---
 
 ]]></content>
       <tags>
@@ -538,10 +928,17 @@ https://www.lanzoux.com/iNJn4yekb0j
     <title>一键关闭显示器</title>
     <url>/2022/01/14/%E4%B8%80%E9%94%AE%E5%85%B3%E9%97%AD%E6%98%BE%E7%A4%BA%E5%99%A8/</url>
     <content><![CDATA[
+![closemonitor-2022-1-14-22-16-38.png](https://imgsrc.01000010.xyz/2024/11/closemonitor-2022-1-14-22-16-38.png)
+
+---
 
 软件很简单，没有 UI 界面，直接双击软件图标即可熄灭显示器。兼容性极佳，XP – Win10 亲测可用！
+
 软件下载地址：
-https://www.lanzoux.com/i9X4Xys3yrg
+
+[https://www.lanzoux.com/i9X4Xys3yrg](https://www.lanzoux.com/i9X4Xys3yrg)
+
+---
 
 ]]></content>
       <tags>
@@ -551,75 +948,126 @@ https://www.lanzoux.com/i9X4Xys3yrg
   <entry>
     <title>为知笔记服务器部署指南</title>
     <url>/2026/02/17/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[Download and Run the Docker Image
-macOSRun this command in Terminal to create a data folder
+    <content><![CDATA[## Download and Run the Docker Image
+
+- macOS
+Run this command in Terminal to create a data folder
+```bash
 mkdir -p ~/wizdata
-Create a folder wizdata for preserving all the data of WizNote Server. Please backup this folder regularly. If you want to use NAS or private cloud as data storage, please contact us.Run the command below to run the docker container
-docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -e TZ=`ls -la /etc/localtime | cut -d/ -f8-9` -p 80:80 -p 9269:9269/udp  wiznote/wizserver
-
-LinuxRun this command in Terminal to create a data folder
-sudo mkdir -p /data/wizdata
+```
+Create a folder wizdata for preserving all the data of WizNote Server. Please backup this folder regularly. If you want to use NAS or private cloud as data storage, please contact us.
 Run the command below to run the docker container
-docker run --name wiz --restart=always -it -d -v /data/wizdata:/wiz/storage -v /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver
+```bash
+docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -e TZ=`ls -la /etc/localtime | cut -d/ -f8-9` -p 80:80 -p 9269:9269/udp  wiznote/wizserver
+```
 
-WindowsPress Win + R, or click Start Menu - Run, then input this and press Enter.
+- Linux
+Run this command in Terminal to create a data folder
+```bash
+sudo mkdir -p /data/wizdata
+```
+Run the command below to run the docker container
+```bash
+docker run --name wiz --restart=always -it -d -v /data/wizdata:/wiz/storage -v /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver
+```
+
+- Windows
+Press Win + R, or click Start Menu - Run, then input this and press Enter.
+```
 powershell
+```
 Input this command in the window
-cd /d D:\md wizdata
-It will create a folder wizdata in D:\ for preserving all the data. You could modify this folder.Then run this command in terminal.
+```dos
+cd /d D:\
+md wizdata
+```
+It will create a folder wizdata in D:\ for preserving all the data. You could modify this folder.
+Then run this command in terminal.
+```dos
 docker run --name wiz --restart=always -it -d -v  D:\wizdata:/wiz/storage -p 80:80 -p 9269:9269/udp wiznote/wizserver
+```
 It is the first time to run the docker container, so it needs to download the image and initiate the data. Please wait for a while(depends on the network connection; it will take 10 minutes or longer). After the download process finished, the time of running will take 2-3 minutes.
 
+## Launch the browser
 
-Launch the browservisit http://localhostYou will see this page:If it displays like the page below, it means the server has not ready, please wait a minute and refresh.
-Modify the PortIf port 80 has occupied, you could modify it to 8080 or another one.
+visit [http://localhost](http://localhost)
+You will see this page:
+![wizserver1.png](https://imgsrc.01000010.xyz/2026/02/wizserver1.png)
+If it displays like the page below, it means the server has not ready, please wait a minute and refresh.
+![wizserver2.png](https://imgsrc.01000010.xyz/2026/02/wizserver2.png)
 
-Mac&#x2F;Linux
+## Modify the Port
+
+If port 80 has occupied, you could modify it to 8080 or another one.
+
+- Mac/Linux
+```bash
 docker run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 8080:80 wiznote/wizserver
+```
 
-Windows
+- Windows
+```dos
 docker run --name wiz -it -d -v  D:\wizdata:/wiz/storage -p 8080:80 wiznote/wizserver
+```
 After modified the port, please change the link of the website accordingly.
+```
 http://localhost:8080
+```
 You could open the web application by visiting your IP address like this, so the user in the same LAN could connect the server via IP address and port(opt)
+```
 http://192.168.1.186
+```
 The case when you modify the port like this:
+```
 http://192.168.1.186:8080
+```
 On Windows, you have to make the port through the firewall.
 
+## Modify the Time Zone
 
-Modify the Time Zonedocker exec -it wiz /bin/bashcp /usr/share/zoneinfo/Asia/Shanghai /etc/localtimeexit
+```bash
+docker exec -it wiz /bin/bash
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+exit
+```
 
-Get local time zone
-LinuxAdd -v /etc/localtime:/etc/localtime to the running command to get local time zone
+## Get local time zone
+
+- Linux
+Add `-v /etc/localtime:/etc/localtime` to the running command to get local time zone
+```bash
 run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 80:80 -p 9269:9269/udp -v  /etc/localtime:/etc/localtime  wiznote/wizserver
+```
 
-MacOS
+- MacOS
+```bash
 -e TZ=`ls -la /etc/localtime | cut -d/ -f8-9`
+```
 
-FAQ
-Q: Which account should I sign in to manage the console?A: Default administrator account: &#97;&#100;&#x6d;&#105;&#x6e;&#x40;&#119;&#105;&#122;&#x2e;&#x63;&#110; password:123456 Please change the password after you finished the deployment. It can add five accounts in the free edition.
+## FAQ
 
+1. **Q**: Which account should I sign in to manage the console?
+**A**: Default administrator account: admin@wiz.cn password:123456 Please change the password after you finished the deployment. It can add five accounts in the free edition.
 
+<br/>
 
+2. **Q**: Where my data preserved？
+**A**: All data include files and databases saved in the data folder (the wizdata folder, as we mentioned). Please make sure to back up this folder regularly for preventing data loss.
 
-Q: Where my data preserved？A: All data include files and databases saved in the data folder (the wizdata folder, as we mentioned). Please make sure to back up this folder regularly for preventing data loss.
+<br/>
 
+3. **Q**: Are the applications of WizNote acceptable of the Docker Server?
+**A**: Yes, you could connect the server via all the clients by choosing the Enterprise Server when you log in and then input the address of your docker server. Please notice: The same LAN is necessary. For example, the server data are inaccessible on the mobile, which is not in the same LAN with the server, but the data have been downloaded can be accessed.
 
+<br/>
 
+4. **Q**: Is there any time limit of WizNote Docker Server?
+**A**: There is no time limit when the number of accounts is under 5. You can enjoy the server as long as you wish. Please contact us to buy more licenses when you want to promote it in your team.
 
-Q: Are the applications of WizNote acceptable of the Docker Server?A: Yes, you could connect the server via all the clients by choosing the Enterprise Server when you log in and then input the address of your docker server. Please notice: The same LAN is necessary. For example, the server data are inaccessible on the mobile, which is not in the same LAN with the server, but the data have been downloaded can be accessed.
+<br/>
 
-
-
-
-Q: Is there any time limit of WizNote Docker Server?A: There is no time limit when the number of accounts is under 5. You can enjoy the server as long as you wish. Please contact us to buy more licenses when you want to promote it in your team.
-
-
-
-
-Q: The date of new notes is incorrectA: It is because the time of the server is not correct. Please set the time zone. For example, set the time zone to UTC&#x2F;GMT+08:00(Beijing).
-
+5. **Q**: The date of new notes is incorrect
+**A**: It is because the time of the server is not correct. Please set the time zone. For example, set the time zone to UTC/GMT+08:00(Beijing).
 ]]></content>
       <tags>
         <tag>Linux</tag>
@@ -628,26 +1076,61 @@ Q: The date of new notes is incorrectA: It is because the time of the server is 
   <entry>
     <title>使用 OpenSSL 生成自签名证书</title>
     <url>/2024/10/16/%E4%BD%BF%E7%94%A8-OpenSSL-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[生成过程：
-以下为 Ubuntu 环境下生成自签名 SSL 证书的具体过程：1、生成 CA 私钥：
-openssl genrsa -out cakey.pem 4096 &amp;&amp; chmod 400 cakey.pem
-2、生成 CA 根证书（根据提示输入信息）：
-openssl req -new -x509 -key cakey.pem -out cacert.pem
-或者（直接输入信息，其中最重要的是 &#x2F;CN&#x3D;Domain）
-openssl req -new -x509 -days 36500 -key cakey.pem -out cacert.pem -subj &quot;/C=US/ST=State/L=City/O=Orgnization/OU=OrgnizationUnit/CN=Domain&quot;
-3、生成服务器私钥：
-openssl genrsa -out nginx.key 4096
-4、生成证书签名请求文件（CSR）Common Name 填写要保护的域名，比如：*.qhh.me
-openssl req -new -key nginx.key -out nginx.csr
-或者（直接输入信息，其中最重要的是 &#x2F;CN&#x3D;Domain）
-openssl req -new -key nginx.key -out nginx.csr -subj &quot;/C=US/ST=State/L=City/O=Orgnization/OU=OrgnizationUnit/CN=Domain&quot;
-5、使用 openssl 签署 CSR 请求，生成服务器证书：
-openssl x509 -req -days 36500 -in nginx.csr -CA cacert.pem -CAkey cakey.pem -set_serial 01 -out nginx.crt
-至此自签名证书生成完成，最终需要：nginx.key 和 nginx.crt
-配置 Nginx 使用自签名证书：server &#123;        listen  80;        server_name     domain;        return  301     https://$host$request_uri;&#125;server &#123;        listen  443 ssl;        ssl_certificate       ssl/nginx.crt; # 前面生成的 crt 证书文件        ssl_certificate_key   ssl/nginx.key; # 前面生成的证书私钥        server_name     domain;        location / &#123;            root /var/www-html;            index  index.html;        &#125;&#125;
+    <content><![CDATA[## 生成过程：
+![使用 OpenSSL 生成自签名证书](https://imgsrc.01000010.xyz/2024/10/Use-OpenSSL-Make-Cert.png)
 
-fin
-]]></content>
+### 以下为 Ubuntu 环境下生成自签名 SSL 证书的具体过程：
+
+1、生成 CA 私钥：
+```
+openssl genrsa -out cakey.pem 4096 && chmod 400 cakey.pem
+```
+2、生成 CA 根证书（根据提示输入信息）：
+```
+openssl req -new -x509 -key cakey.pem -out cacert.pem
+```
+或者（直接输入信息，其中最重要的是 /CN=Domain）
+```
+openssl req -new -x509 -days 36500 -key cakey.pem -out cacert.pem -subj "/C=US/ST=State/L=City/O=Orgnization/OU=OrgnizationUnit/CN=Domain"
+```
+3、生成服务器私钥：
+```
+openssl genrsa -out nginx.key 4096
+```
+4、生成证书签名请求文件（CSR）Common Name 填写要保护的域名，比如：*.qhh.me
+```
+openssl req -new -key nginx.key -out nginx.csr
+```
+或者（直接输入信息，其中最重要的是 /CN=Domain）
+```
+openssl req -new -key nginx.key -out nginx.csr -subj "/C=US/ST=State/L=City/O=Orgnization/OU=OrgnizationUnit/CN=Domain"
+```
+5、使用 openssl 签署 CSR 请求，生成服务器证书：
+```
+openssl x509 -req -days 36500 -in nginx.csr -CA cacert.pem -CAkey cakey.pem -set_serial 01 -out nginx.crt
+```
+至此自签名证书生成完成，最终需要：nginx.key 和 nginx.crt
+
+### 配置 Nginx 使用自签名证书：
+```
+server {
+        listen  80;
+        server_name     domain;
+        return  301     https://$host$request_uri;
+}
+server {
+        listen  443 ssl;
+        ssl_certificate       ssl/nginx.crt; # 前面生成的 crt 证书文件
+        ssl_certificate_key   ssl/nginx.key; # 前面生成的证书私钥
+        server_name     domain;
+        location / {
+            root /var/www-html;
+            index  index.html;
+        }
+}
+```
+---
+fin]]></content>
       <tags>
         <tag>OpenSSL</tag>
       </tags>
@@ -655,10 +1138,19 @@ fin
   <entry>
     <title>使用 CMD 导出导入注册表文件的两种方法</title>
     <url>/2022/05/03/%E4%BD%BF%E7%94%A8CMD%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[1、使用 REG.EXE 工具REG EXPORT &quot;HKCU\Software\Raptisoft\Hamsterball&quot; &quot;path\to\your\file.reg&quot;REG IMPORT &quot;path\to\your\file.reg&quot;
+    <content><![CDATA[### 1、使用 REG.EXE 工具
+```
+REG EXPORT "HKCU\Software\Raptisoft\Hamsterball" "path\to\your\file.reg"
+REG IMPORT "path\to\your\file.reg"
+```
 
-2、使用 Regedit.exe 工具regedit /e &quot;path\to\your\file.reg&quot; &quot;HKCU\Software\Raptisoft\Hamsterball&quot;regedit /s &quot;path\to\your\file.reg&quot;
+### 2、使用 Regedit.exe 工具
+```
+regedit /e "path\to\your\file.reg" "HKCU\Software\Raptisoft\Hamsterball"
+regedit /s "path\to\your\file.reg"
+```
 
+---
 
 ]]></content>
       <tags>
@@ -668,7 +1160,7 @@ fin
   <entry>
     <title>元素的各种尺寸</title>
     <url>/2017/07/10/%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8/</url>
-    <content><![CDATA[
+    <content><![CDATA[![sizeOfElem](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/sizeOfElem.gif)
 ]]></content>
       <tags>
         <tag>CSS</tag>
@@ -677,16 +1169,30 @@ fin
   <entry>
     <title>利用 du 命令分析硬盘空间占用情况</title>
     <url>/2022/08/19/%E5%88%A9%E7%94%A8du%E5%91%BD%E4%BB%A4%E5%88%86%E6%9E%90%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/</url>
-    <content><![CDATA[du -ah -d 1 / | sort -h# 或者du -sh /* | sort -h
+    <content><![CDATA[```
+du -ah -d 1 / | sort -h
+# 或者
+du -sh /* | sort -h
+```
 
-命令参数说明：du
+命令参数说明：
+du
+
 -a：write counts for all files, not just directories
+
 -h：print sizes in human readable format (e.g., 1K 234M 2G)
+
 -d：展示的目录深度
+
 -s：display only a total for each argument
 
+---
+
 sort（默认从小到大排列）
+
 -h：compare human readable numbers (e.g., 2K 1G)
+
+---
 
 ]]></content>
       <tags>
@@ -696,19 +1202,45 @@ sort（默认从小到大排列）
   <entry>
     <title>在自己网站嵌入B站视频代码，如何禁止自动播放，如何定位播放，如何默认静音播放.</title>
     <url>/2023/09/05/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%BD%91%E7%AB%99%E5%B5%8C%E5%85%A5B%E7%AB%99%E8%A7%86%E9%A2%91%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[很多人在 B站 上传视频后，都会有转发到自己网站 或 个人博客的需求，B站也提供了一键复制网站嵌入代码，可以很方便的把B站的视频，引用转发到自己需要播放该视频的网站中去。
-但有个问题！在B站，直接复制的视频嵌入代码，默认情况下：是会自动播放视频的。一般网站访问者，都不太喜欢在浏览网页时，打开一个网页就自动播放视频和声音的，因为，这也太突然、太打扰了吧。。。
-一、如何禁止B站视频自动播放！
-如果要让引用的视频不自动播放，只要在 src 链接尾部，添加参数 &amp;autoplay&#x3D;0 就行，如下所示：&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=927246340&amp;bvid=BV1xT4y1c75o&amp;cid=238186831&amp;page=1&amp;autoplay=0&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
-如果要让引用的视频自动播放，只要在 src 链接尾部，添加参数 &amp;autoplay&#x3D;1 就行，如下所示：&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=927246340&amp;bvid=BV1xT4y1c75o&amp;cid=238186831&amp;page=1&amp;autoplay=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
+    <content><![CDATA[很多人在 B站 上传视频后，都会有转发到自己网站 或 个人博客的需求，
+B站也提供了一键复制网站嵌入代码，可以很方便的把B站的视频，引用转发到自己需要播放该视频的网站中去。
 
-二、如何让B站的视频，在指定位置开始播放！如果想要让引用的 B站 视频，从指定的某分某秒处开始播放，可以在视频网址链接尾部，添加参数 &amp;t&#x3D;多少秒 就行，如下所示：
-http://player.bilibili.com/player.html?aid=927246340&amp;t=221
-&amp;t&#x3D;多少秒，就会从多少秒处开始播放，比如要从 3分41秒 处开始播放视频，就是 &amp;t&#x3D;221
-【计算方式是： 60*3&#x3D;180秒 再加41，就是221秒！ 所以填入 &amp;t&#x3D;221，就是从 3分41秒 处开始播放视频。】
-三、如何让B站视频，默认静音播放！如果想要让引用的 B站 视频， 默认在网页中静音播放，可以在视频网址链接尾部，添加参数 &amp;muted&#x3D;true 就行，如下所示：
-http://player.bilibili.com/player.html?aid=927246340&amp;muted=true
-如果我们在引用的 B站 视频网址中，添加上 &amp;muted&#x3D;true 时，视频在播放时就没有声音，需要手动点击取消静音模式，视频才有声音。muted 视频静音 （当 muted 等于 true 时，视频将会 默认静音播放）。
+但有个问题！
+在B站，直接复制的视频嵌入代码，默认情况下：是会自动播放视频的。
+一般网站访问者，都不太喜欢在浏览网页时，打开一个网页就自动播放视频和声音的，
+因为，这也太突然、太打扰了吧。。。
+
+# 一、如何禁止B站视频自动播放！
+1. 如果要让引用的视频不自动播放，只要在 src 链接尾部，添加参数 &autoplay=0 就行，如下所示：
+```
+<iframe src="//player.bilibili.com/player.html?aid=927246340&bvid=BV1xT4y1c75o&cid=238186831&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+```
+2. 如果要让引用的视频自动播放，只要在 src 链接尾部，添加参数 &autoplay=1 就行，如下所示：
+```
+<iframe src="//player.bilibili.com/player.html?aid=927246340&bvid=BV1xT4y1c75o&cid=238186831&page=1&autoplay=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+```
+
+# 二、如何让B站的视频，在指定位置开始播放！
+如果想要让引用的 B站 视频，从指定的某分某秒处开始播放，
+可以在视频网址链接尾部，添加参数 &t=多少秒 就行，如下所示：
+```
+http://player.bilibili.com/player.html?aid=927246340&t=221
+```
+&t=多少秒，就会从多少秒处开始播放，比如要从 3分41秒 处开始播放视频，就是 &t=221
+
+【计算方式是： 60*3=180秒 再加41，就是221秒！ 所以填入 &t=221，就是从 3分41秒 处开始播放视频。】
+
+# 三、如何让B站视频，默认静音播放！
+如果想要让引用的 B站 视频， 默认在网页中静音播放，
+可以在视频网址链接尾部，添加参数 &muted=true 就行，如下所示：
+```
+http://player.bilibili.com/player.html?aid=927246340&muted=true
+```
+如果我们在引用的 B站 视频网址中，添加上 &muted=true 时，
+视频在播放时就没有声音，需要手动点击取消静音模式，视频才有声音。
+muted 视频静音 （当 muted 等于 true 时，视频将会 默认静音播放）。
+
+---
 
 ]]></content>
       <tags>
@@ -718,88 +1250,155 @@ http://player.bilibili.com/player.html?aid=927246340&amp;muted=true
   <entry>
     <title>性能测试及常用工具</title>
     <url>/2020/06/02/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[软件的六大特性：
-功能性一组功能及其指定的性质有关的一组属性。适合性、准确性、互用性&#x2F;互操作性、依从性、安全性。
-可靠性在规定的一段时间和条件下，软件维持其性能水平有关的一组软件属性。成熟性、容错性、易恢复性。
-可用性与使用的难易程度及规定或隐含用户对使用方式所做的评价有关的软件属性。易理解性、易学性、易操作性。
-效率在规定条件下，软件的性能水平和所有资源之间的关系有关的一组软件属性。时间特性、资源特性。
-可维护性与进行指定的修改所需的努力有关的一组软件熟悉。易分析性、可修改性、稳定性、可测试性。
-可移植性与软件可从某一环境转移到另一环境的能力有关的一组软件属性。适应性、易安装性、一致性（遵循性）、可替换性。
+    <content><![CDATA[### 软件的六大特性：
+1. 功能性
+一组功能及其指定的性质有关的一组属性。适合性、准确性、互用性/互操作性、依从性、安全性。
+2. 可靠性
+在规定的一段时间和条件下，软件维持其性能水平有关的一组软件属性。成熟性、容错性、易恢复性。
+3. 可用性
+与使用的难易程度及规定或隐含用户对使用方式所做的评价有关的软件属性。易理解性、易学性、易操作性。
+4. 效率
+在规定条件下，软件的性能水平和所有资源之间的关系有关的一组软件属性。时间特性、资源特性。
+5. 可维护性
+与进行指定的修改所需的努力有关的一组软件熟悉。易分析性、可修改性、稳定性、可测试性。
+6. 可移植性
+与软件可从某一环境转移到另一环境的能力有关的一组软件属性。适应性、易安装性、一致性（遵循性）、可替换性。
 
-测试所需要的能力：
-沟通（团队） + 思维（发散） + 理解（流程） + 技术（常用工具） + 高级编程（Python）
+### 测试所需要的能力：
+> 沟通（团队） + 思维（发散） + 理解（流程） + 技术（常用工具） + 高级编程（Python）
 
-性能测试需要考虑的方面：
-项目时间，成本，公司，环境，网络。
+### 性能测试需要考虑的方面：
+> 项目时间，成本，公司，环境，网络。
 
-不同人眼中对性能的理解
-用户眼中：响应时间，客户端 CPU（2-5-8， 3-5-10， 华为 3-5-7）
-开发人员眼中：内存使用不合理（泄露，不足），数据库索引，死锁，表的设计（12306）。 底层框架设计（架构师）。
-系统管理人员眼中：服务器的资源使用率（CPU、内存、磁盘、网络），承受最大用户数、最佳用户数。
-前端性能：资源（图片、JS、CSS大小、数量）
+### 不同人眼中对性能的理解
+1. 用户眼中：响应时间，客户端 CPU（2-5-8， 3-5-10， 华为 3-5-7）
+2. 开发人员眼中：内存使用不合理（泄露，不足），数据库索引，死锁，表的设计（12306）。
+    底层框架设计（架构师）。
+3. 系统管理人员眼中：服务器的资源使用率（CPU、内存、磁盘、网络），承受最大用户数、最佳用户数。
+4. 前端性能：资源（图片、JS、CSS大小、数量）
 
-性能测试的分类：
-并发测试、压力测试、负载测试、大数据量测试、基准测试、稳定性测试、强度测试、配置测试、疲劳测试。
+### 性能测试的分类：
+> 并发测试、压力测试、负载测试、大数据量测试、基准测试、稳定性测试、强度测试、配置测试、疲劳测试。
+1. 并发测试：同时操作某一个功能，业务（电商的秒杀下单）的TPS（Transaction Per Sec 每秒事务数）；
+    登录并发，双十一前夕23点至24点，最佳，最大；
+    下单并发，查询大数据量并发，支付接口。
 
+2. 压力测试：最大负载数，性能瓶颈（8s/CPU80%），找性能问题的时候需要把服务器压崩溃（长期较高压力，瞬时极高压力）。
 
-并发测试：同时操作某一个功能，业务（电商的秒杀下单）的TPS（Transaction Per Sec 每秒事务数）； 登录并发，双十一前夕23点至24点，最佳，最大； 下单并发，查询大数据量并发，支付接口。
+3. 负载测试：瓶颈（CPU到80%时，最大承受多少用户，前提是不能压崩溃服务器，保证用户的正常体验）。
 
-压力测试：最大负载数，性能瓶颈（8s&#x2F;CPU80%），找性能问题的时候需要把服务器压崩溃（长期较高压力，瞬时极高压力）。
+4. 大数据量测试：查询（数据库里存在大量数据），数据库的索引、数据库的缓冲命中率
 
-负载测试：瓶颈（CPU到80%时，最大承受多少用户，前提是不能压崩溃服务器，保证用户的正常体验）。
+### 性能测试指标：
+* 事务：一般是指要做或者所做的事情。（完成某一业务或某一流程的集合）。
+* 并发数：
+* 响应时间：
+* 吞吐量：网络吞吐量、系统吞吐量。
+* 每秒事务数（TPS）：并发数/响应时间。
+* 点击率和访问量：
+* 资源利用率：
 
-大数据量测试：查询（数据库里存在大量数据），数据库的索引、数据库的缓冲命中率
-
-
-性能测试指标：
-事务：一般是指要做或者所做的事情。（完成某一业务或某一流程的集合）。
-并发数：
-响应时间：
-吞吐量：网络吞吐量、系统吞吐量。
-每秒事务数（TPS）：并发数&#x2F;响应时间。
-点击率和访问量：
-资源利用率：
-
-性能测试的完整流程：
-获取用户的性能指标（并发数，TPS，响应时间），在 SRS 文档中有描述，没有描述的找产品经理。
-数据建模分析性能测试点，哪些功能需要性能测试： 1）核心业务：下单、购物流程； 2）用户使用频繁的功能：登录； 3）大量数据的查询功能：交易记录、搜索商品； 4）第三方接口：支付、短信接口、实名认证接口； 5）Web 前端（资源）的性能测试
-设计性能测试的场景（性能测试用例） 1）单个业务的并发测试、压力测试、负载测试。 2）多个业务并发测试、负载测试（混合场景）。
-搭建测试环境（应用服务器和数据库的服务器分离，方便定位分析问题）
-准备数据（比如大量的测试账号）： 1）找开发人员 2）自己做（利用脚本）
-开发脚本（主要优化、参数化、检查点、关联、头信息、思考时间、集合点）。
-运行脚本前需要提前监控服务器的资源，运行大量数据时，还需要添加负载机（负载均衡）。
-获取运行时和监控的数据，分析性能指标、定位优化性能。
-编写测试报告（分析数据，评估结论）。
-上线后，监控资源，持续优化。
-
-性能测试工具——LoadRunner
-Loadrunner11（4GB）：Win7 + IE8&#x2F;9Loadrunner12（1.5GB）：Win10 + IE10&#x2F;11Win10 安装Loadrunner11，可以使用 Chrome，必须先安装 Fiddler 并开启工具。
-
-
-Loadrunner 工具组成：4部分1）vugen：脚本生成器功能：开发脚本、录制脚本（模拟用户行为）2）controller：负载控制器功能：执行脚本、监控资源（系统资源、应用服务器、web应用、数据库）3）analysis：结果分析器功能：把执行脚本时生成的数据以及监控资源获取的数据进行统计分析（性能测试简报）。4）LG：负载生成器-负载机功能：测试大量数据时，高并发、高负载（普通一台 PC 机，最大并发数 200 - 500 人，最大负载数 5000 - 10000 人）。
-
-Loadrunner 自带的 webtours（web端订票系统，端口号1080）
-1）开启服务：start web server（开始-程序-HP Loadrunner-samples-web-start web server）   右下角出现【X】图标，绿色正常，如果红色说明 1080 端口被占用。2）打开 http://127.0.0.1:1080/webtours3）默认用户名：jojo，默认密码：bean
-
-
-
-使用 webtours 进行性能测试流程：1）获得性能指标：并发数？（50并发，10w用户数-2w-1000人），响应时间 1-5-8s2）找性能测试点：订票（登录 - 城市 - 航班 - 支付），查询，登录，支付。3）场景设计：单个业务并发测试（单场景），多业务负载测试（混合场景）。4）选择测试工具（Loadrunner，Jmeter），环境（数据库mysql和应用服务器tomcat分离）。5）准备测试数据（在线用户数 - 并发数扩大 100 倍 5000 人，查询交易记录），找开发要数据库的表结构。6）用脚本自己做测试数据。
-
-Loadrunner 录制脚本1）熟悉业务流程，开始录制脚本（把每一步操作，添加事务）2）选择协议：B&#x2F;S 架构选择 Web&#x2F;HTML&#x2F;http，C&#x2F;S 架构选择 Socket 二进制。3）开始录制，录制过程中可以创建事务（事务记录的是某一系列操作的合集）。4）结束录制，等待生成代码。（代码中的思考时间就是用户没有动作的空闲时间，之后可以删除代码里的思考时间）。5）运行修改好的脚本。6）打开 视图 - 测试结果，查看。
-
-Loadrunner 录制时注意的问题：选项里面设置：选择录制模式 HTML（模拟点击） 或者 URL（模拟请求），选择字符集 UTF-8，关闭自动关联功能。
-Q：录制时不弹出 IE 浏览器A：需要使用 IE 8 版本。A：Internet 选项 - 高级 - 启动第三方浏览器扩展（不选）A：在开始录制中 - 要录制的程序 - 改为 IE 的绝对路径      x86：C:\Program Files (x86)\Internet Explorer\iexplore.exe      amd64：C:\Program Files\Internet Explorer\iexplore.exeQ：录制时，进度条显示正在录制 0 个事件。A：录制时捕获的级别（默认套接字），点击 打开 - 开始录制 - 选项 - 网络 -  端口映射，选择其他捕获级别。A：可能有系统数据保护。打开 系统属性 - 高级系统设置 - 性能选项 - 数据执行保护 - 添加白名单
+### 性能测试的完整流程：
+1. 获取用户的性能指标（并发数，TPS，响应时间），在 SRS 文档中有描述，没有描述的找产品经理。
+2. 数据建模分析性能测试点，哪些功能需要性能测试：
+    1）核心业务：下单、购物流程；
+    2）用户使用频繁的功能：登录；
+    3）大量数据的查询功能：交易记录、搜索商品；
+    4）第三方接口：支付、短信接口、实名认证接口；
+    5）Web 前端（资源）的性能测试
+3. 设计性能测试的场景（性能测试用例）
+    1）单个业务的并发测试、压力测试、负载测试。
+    2）多个业务并发测试、负载测试（混合场景）。
+4. 搭建测试环境（应用服务器和数据库的服务器分离，方便定位分析问题）
+5. 准备数据（比如大量的测试账号）：
+    1）找开发人员
+    2）自己做（利用脚本）
+6. 开发脚本（主要优化、参数化、检查点、关联、头信息、思考时间、集合点）。
+7. 运行脚本前需要提前监控服务器的资源，运行大量数据时，还需要添加负载机（负载均衡）。
+8. 获取运行时和监控的数据，分析性能指标、定位优化性能。
+9. 编写测试报告（分析数据，评估结论）。
+10. 上线后，监控资源，持续优化。
 
 
+### 性能测试工具——LoadRunner
+> Loadrunner11（4GB）：Win7 + IE8/9
+> Loadrunner12（1.5GB）：Win10 + IE10/11
+> Win10 安装Loadrunner11，可以使用 Chrome，必须先安装 Fiddler 并开启工具。
+1. Loadrunner 工具组成：4部分
+1）vugen：脚本生成器
+   `功能：开发脚本、录制脚本（模拟用户行为）`
+2）controller：负载控制器
+   `功能：执行脚本、监控资源（系统资源、应用服务器、web应用、数据库）`
+3）analysis：结果分析器
+   `功能：把执行脚本时生成的数据以及监控资源获取的数据进行统计分析（性能测试简报）。`
+4）LG：负载生成器-负载机
+   `功能：测试大量数据时，高并发、高负载`
+   `（普通一台 PC 机，最大并发数 200 - 500 人，最大负载数 5000 - 10000 人）。`
 
-Loadrunner 参数化：
-1）先选中需要作为参数的字符串，右键，点击替换为参数，然后创建参数（参数类型一般为File）。2）点击工具栏的 Vuser - 参数列表，选择需要设置的参数名称，点击用记事本编辑，之后添加需要用到的参数（一行一个）。
+
+
+2. Loadrunner 自带的 webtours（web端订票系统，端口号1080）
+```
+1）开启服务：start web server（开始-程序-HP Loadrunner-samples-web-start web server）
+   右下角出现【X】图标，绿色正常，如果红色说明 1080 端口被占用。
+2）打开 http://127.0.0.1:1080/webtours
+3）默认用户名：jojo，默认密码：bean
+```
 
 
 
-Loadrunner 添加文本检查点：
-1）点击工具栏中的“树”，找到注册成功的页面快照，选中具有特性的字符串（比如帐号），右键，点击添加文本检查（web_reg_find）。2）设置 保存计数 的值（就是字符串在页面快照中出现的次数，比如就是1）。3）回到工具栏中的“脚本”页面，可以发现代码中插入了 web_reg_find 函数，可以将函数的参数替换为参数列表中的参数。4）运行之前，点击菜单栏 Vuser - 运行时设置，设置好迭代次数，就可以在运行的时候对参数列表中的参数进行自动替换了。
+3. 使用 webtours 进行性能测试流程：
+1）获得性能指标：并发数？（50并发，10w用户数-2w-1000人），响应时间 1-5-8s
+2）找性能测试点：订票（登录 - 城市 - 航班 - 支付），查询，登录，支付。
+3）场景设计：单个业务并发测试（单场景），多业务负载测试（混合场景）。
+4）选择测试工具（Loadrunner，Jmeter），环境（数据库mysql和应用服务器tomcat分离）。
+5）准备测试数据（在线用户数 - 并发数扩大 100 倍 5000 人，查询交易记录），找开发要数据库的表结构。
+6）用脚本自己做测试数据。
 
+
+
+4. Loadrunner 录制脚本
+1）熟悉业务流程，开始录制脚本（把每一步操作，添加事务）
+2）选择协议：B/S 架构选择 Web/HTML/http，C/S 架构选择 Socket 二进制。
+3）开始录制，录制过程中可以创建事务（事务记录的是某一系列操作的合集）。
+4）结束录制，等待生成代码。（代码中的思考时间就是用户没有动作的空闲时间，之后可以删除代码里的思考时间）。
+5）运行修改好的脚本。
+6）打开 视图 - 测试结果，查看。
+
+
+
+5. Loadrunner 录制时注意的问题：
+选项里面设置：选择录制模式 HTML（模拟点击） 或者 URL（模拟请求），选择字符集 UTF-8，关闭自动关联功能。
+```
+    Q：录制时不弹出 IE 浏览器
+    A：需要使用 IE 8 版本。
+    A：Internet 选项 - 高级 - 启动第三方浏览器扩展（不选）
+    A：在开始录制中 - 要录制的程序 - 改为 IE 的绝对路径
+          x86：C:\Program Files (x86)\Internet Explorer\iexplore.exe
+          amd64：C:\Program Files\Internet Explorer\iexplore.exe
+
+    Q：录制时，进度条显示正在录制 0 个事件。
+    A：录制时捕获的级别（默认套接字），点击 打开 - 开始录制 - 选项 - 网络 -  端口映射，选择其他捕获级别。
+    A：可能有系统数据保护。打开 系统属性 - 高级系统设置 - 性能选项 - 数据执行保护 - 添加白名单
+```
+
+
+
+6. Loadrunner 参数化：
+```
+1）先选中需要作为参数的字符串，右键，点击替换为参数，然后创建参数（参数类型一般为File）。
+2）点击工具栏的 Vuser - 参数列表，选择需要设置的参数名称，点击用记事本编辑，之后添加需要用到的参数（一行一个）。
+```
+
+
+
+7. Loadrunner 添加文本检查点：
+```
+1）点击工具栏中的“树”，找到注册成功的页面快照，选中具有特性的字符串（比如帐号），右键，点击添加文本检查（web_reg_find）。
+2）设置 保存计数 的值（就是字符串在页面快照中出现的次数，比如就是1）。
+3）回到工具栏中的“脚本”页面，可以发现代码中插入了 web_reg_find 函数，可以将函数的参数替换为参数列表中的参数。
+4）运行之前，点击菜单栏 Vuser - 运行时设置，设置好迭代次数，就可以在运行的时候对参数列表中的参数进行自动替换了。
+```
 ]]></content>
       <tags>
         <tag>性能测试</tag>
@@ -808,22 +1407,33 @@ Loadrunner 添加文本检查点：
   <entry>
     <title>暴风影音老版本</title>
     <url>/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[暴风影音老版本
+    <content><![CDATA[# 暴风影音老版本
+<br/>
 
+![baofeng_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng_20241102.png)
+![baofeng2_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng2_20241102.png)
 
-
+---
 暴风影音_5.57.0202.2111_去广告版：
-https://www.lanzoux.com/i25pssxkw9c
+
+[https://www.lanzoux.com/i25pssxkw9c](https://www.lanzoux.com/i25pssxkw9c)
+
 密码:52pj
 
+---
 暴风影音_5.58.0331.2111_去广告版：
-https://www.lanzoux.com/iDGvVy4edsd
+
+[https://www.lanzoux.com/iDGvVy4edsd](https://www.lanzoux.com/iDGvVy4edsd)
+
 密码:52pj
+
+---
 
 暴风影音_5.59.0428.1111_去广告版：
-https://www.lanzoux.com/ixxBcsvtx2d
-密码:52pj
-]]></content>
+
+[https://www.lanzoux.com/ixxBcsvtx2d](https://www.lanzoux.com/ixxBcsvtx2d)
+
+密码:52pj]]></content>
       <tags>
         <tag>资源分享</tag>
       </tags>
@@ -831,24 +1441,89 @@ https://www.lanzoux.com/ixxBcsvtx2d
   <entry>
     <title>查看 Linux 发行版名称和版本号的方法</title>
     <url>/2026/02/18/%E6%9F%A5%E7%9C%8B-Linux-%E5%8F%91%E8%A1%8C%E7%89%88%E5%90%8D%E7%A7%B0%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[&#x2F;etc&#x2F;*-release 文件release 文件通常被视为操作系统的标识。在 /etc 目录下放置了很多记录着发行版各种信息的文件，每个发行版都各自有一套这样记录着相关信息的文件。
-通常使用命令 ls /etc/*-release 即可看出发行版类型，接着使用命令 cat /etc/os-release 即可看出发行版的版本号等详细信息。
+    <content><![CDATA[### /etc/*-release 文件
+release 文件通常被视为操作系统的标识。在 `/etc` 目录下放置了很多记录着发行版各种信息的文件，每个发行版都各自有一套这样记录着相关信息的文件。
 
-下面是一组在 Ubuntu/Debian/Alpine/Oracle Linux 系统上显示出来的文件内容。
+通常使用命令 `ls /etc/*-release` 即可看出发行版类型，接着使用命令 `cat /etc/os-release` 即可看出发行版的版本号等详细信息。
 
-Ubuntu
-ls /etc/*release/etc/lsb-release  /etc/os-releasecat /etc/os-releaseNAME=&quot;Ubuntu&quot;VERSION=&quot;18.04 LTS (Bionic Beaver)&quot;ID=ubuntuID_LIKE=debianPRETTY_NAME=&quot;Ubuntu 18.04 LTS&quot;VERSION_ID=&quot;18.04&quot;HOME_URL=&quot;https://www.ubuntu.com/&quot;SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;VERSION_CODENAME=bionicUBUNTU_CODENAME=bionic
+---
 
-Debian
-ls /etc/*release/etc/os-releasecat /etc/os-releasePRETTY_NAME=&quot;Debian GNU/Linux 12 (bookworm)&quot;NAME=&quot;Debian GNU/Linux&quot;VERSION_ID=&quot;12&quot;VERSION=&quot;12 (bookworm)&quot;VERSION_CODENAME=bookwormID=debianHOME_URL=&quot;https://www.debian.org/&quot;SUPPORT_URL=&quot;https://www.debian.org/support&quot;BUG_REPORT_URL=&quot;https://bugs.debian.org/&quot;
+下面是一组在 `Ubuntu/Debian/Alpine/Oracle Linux` 系统上显示出来的文件内容。
 
-Alpine Linux
-ls /etc/*release/etc/alpine-release  /etc/os-releasecat /etc/os-releaseNAME=&quot;Alpine Linux&quot;ID=alpineVERSION_ID=3.23.2PRETTY_NAME=&quot;Alpine Linux v3.23&quot;HOME_URL=&quot;https://alpinelinux.org/&quot;BUG_REPORT_URL=&quot;https://gitlab.alpinelinux.org/alpine/aports/-/issues&quot;
+- Ubuntu
+```bash
+ls /etc/*release
+/etc/lsb-release  /etc/os-release
 
-Oracle Linux
-ls /etc/*release/etc/oracle-release  /etc/os-release  /etc/redhat-release  /etc/system-releasecat /etc/os-releaseNAME=&quot;Oracle Linux Server&quot;VERSION=&quot;7.9&quot;ID=&quot;ol&quot;ID_LIKE=&quot;fedora&quot;VARIANT=&quot;Server&quot;VARIANT_ID=&quot;server&quot;VERSION_ID=&quot;7.9&quot;PRETTY_NAME=&quot;Oracle Linux Server 7.9&quot;ANSI_COLOR=&quot;0;31&quot;CPE_NAME=&quot;cpe:/o:oracle:linux:7:9:server&quot;HOME_URL=&quot;https://linux.oracle.com/&quot;BUG_REPORT_URL=&quot;https://github.com/oracle/oracle-linux&quot;ORACLE_BUGZILLA_PRODUCT=&quot;Oracle Linux 7&quot;ORACLE_BUGZILLA_PRODUCT_VERSION=7.9ORACLE_SUPPORT_PRODUCT=&quot;Oracle Linux&quot;ORACLE_SUPPORT_PRODUCT_VERSION=7.9
+cat /etc/os-release
+NAME="Ubuntu"
+VERSION="18.04 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
+```
 
-]]></content>
+- Debian
+```bash
+ls /etc/*release
+/etc/os-release
+
+cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+NAME="Debian GNU/Linux"
+VERSION_ID="12"
+VERSION="12 (bookworm)"
+VERSION_CODENAME=bookworm
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+```
+
+- Alpine Linux
+```bash
+ls /etc/*release
+/etc/alpine-release  /etc/os-release
+
+cat /etc/os-release
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.23.2
+PRETTY_NAME="Alpine Linux v3.23"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+```
+
+- Oracle Linux
+```bash
+ls /etc/*release
+/etc/oracle-release  /etc/os-release  /etc/redhat-release  /etc/system-release
+
+cat /etc/os-release
+NAME="Oracle Linux Server"
+VERSION="7.9"
+ID="ol"
+ID_LIKE="fedora"
+VARIANT="Server"
+VARIANT_ID="server"
+VERSION_ID="7.9"
+PRETTY_NAME="Oracle Linux Server 7.9"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:oracle:linux:7:9:server"
+HOME_URL="https://linux.oracle.com/"
+BUG_REPORT_URL="https://github.com/oracle/oracle-linux"
+ORACLE_BUGZILLA_PRODUCT="Oracle Linux 7"
+ORACLE_BUGZILLA_PRODUCT_VERSION=7.9
+ORACLE_SUPPORT_PRODUCT="Oracle Linux"
+ORACLE_SUPPORT_PRODUCT_VERSION=7.9
+```]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -857,9 +1532,11 @@ ls /etc/*release/etc/oracle-release  /etc/os-release  /etc/redhat-release  /etc/
     <title>油画展</title>
     <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
     <content><![CDATA[
+![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
 
+![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
 
-]]></content>
+![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -867,29 +1544,64 @@ ls /etc/*release/etc/oracle-release  /etc/os-release  /etc/redhat-release  /etc/
   <entry>
     <title>电脑上搭建 Hexo 环境</title>
     <url>/2026/02/18/%E7%94%B5%E8%84%91%E4%B8%8A%E6%90%AD%E5%BB%BA-Hexo-%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[
-下载并安装 nodejs
-32 位下载地址：https://nodejs.org/dist/v20.20.0/node-v20.20.0-x86.msi64位下载地址：https://nodejs.org/dist/v20.20.0/node-v20.20.0-x64.msi
+    <content><![CDATA[1. 下载并安装 nodejs
+```
+32 位下载地址：
+https://nodejs.org/dist/v20.20.0/node-v20.20.0-x86.msi
+64位下载地址：
+https://nodejs.org/dist/v20.20.0/node-v20.20.0-x64.msi
+```
 
-使用以下命令在全局环境安装 hexo-cli
+2. 使用以下命令在全局环境安装 hexo-cli
+```
 npm install hexo-cli@4.3.2 -g
+```
 
-创建并初始化网站目录，用 npm 安装依赖
-hexo init &lt;folder&gt;cd &lt;folder&gt;npm install
+3. 创建并初始化网站目录，用 npm 安装依赖
+```
+hexo init <folder>
+cd <folder>
+npm install
+```
 
 初始化后，您的项目文件夹将如下所示：
-.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes
+```
+.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+```
 
 其中 _config.yml 为网站的配置文件。
+
 source 为源文件夹，所有写作的文章都存放在 _posts 文件夹中。
+
 themes 为主题文件存放处，例如本网站使用的主题是 Vexo，则存在 vexo 目录。vexo 目录中的 _config.yml 是主题配置文件，可以复制到 hexo 根目录，并重命名为 _config.vexo.yml 方便修改。（_config.vexo.yml 的优先级大于 vexo 目录中的 _config.yml）（该特性自 Hexo 5.0.0 起提供）
 
-修改网站的配置文件参考文档 https://hexo.io/zh-cn/docs/configuration 进行配置。
+4. 修改网站的配置文件
+参考文档 `https://hexo.io/zh-cn/docs/configuration` 进行配置。
 
-常用 hexo 命令
-1、创建一篇名为 title 的空白文章：hexo new [layout] &lt;title&gt;2、生成网站（生成 public 文件夹）hexo generate | hexo g3、清理生成的网站（删除 public 文件夹）hexo clean4、预览网站，默认网址是：http://localhost:4000/hexo server | hexo s5、部署网站hexo deploy | hexo d
+5. 常用 hexo 命令
+```
+1、创建一篇名为 title 的空白文章：
+hexo new [layout] <title>
 
-]]></content>
+2、生成网站（生成 public 文件夹）
+hexo generate | hexo g
+
+3、清理生成的网站（删除 public 文件夹）
+hexo clean
+
+4、预览网站，默认网址是：http://localhost:4000/
+hexo server | hexo s
+
+5、部署网站
+hexo deploy | hexo d
+```]]></content>
       <tags>
         <tag>建站教程</tag>
       </tags>
@@ -897,314 +1609,514 @@ themes 为主题文件存放处，例如本网站使用的主题是 Vexo，则�
   <entry>
     <title>破解百度云限速</title>
     <url>/2017/09/17/%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F/</url>
-    <content><![CDATA[破解百度云限速方法注：有不明白的请先看本文最好先看Q&amp;A，如果无法解决请到这里提出你的问题（因为原issue含有太多个人信息已经被关闭）或者在贴吧上@redapple0204 来找我也或者发邮件到&#114;&#101;&#x64;&#97;&#x70;&#x70;&#x6c;&#101;&#x30;&#x32;&#48;&#x34;&#x31;&#64;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;（不经常处理），当然也可以在telegram里面搜索redapple0204直接给我发消息
-提醒一点，现在百度云官方对p2p下载的文件不限速（例如系统镜像，一些电影等），所以如果你下载的是这些东西就请下载官方客户端，不要来折腾破解！
+    <content><![CDATA[# 破解百度云限速方法
 
-方法一（aget多线程破解法【不建议使用，太麻烦，如果别的方法失效了再用】）最新可用时间：2017-08-11
-
+**注：有不明白的请先看本文最好先看Q&A，如果无法解决请到[这里](https://github.com/redapple0204/my-boring-python/pull/177)提出你的问题（因为原issue含有太多个人信息已经被关闭）或者在贴吧上@redapple0204 来找我也或者发邮件到redapple02041@gmail.com（不经常处理），当然也可以在telegram里面搜索redapple0204直接给我发消息**
 
 
-方法二（pandownload）最新可用时间：部分人可用，总体来说要看运气
+**提醒一点，现在百度云官方对p2p下载的文件不限速（例如系统镜像，一些电影等），所以如果你下载的是这些东西就请下载官方客户端，不要来折腾破解！**
 
+> 方法一（aget多线程破解法【不建议使用，太麻烦，如果别的方法失效了再用】）最新可用时间：2017-08-11
+*****
+> 方法二（pandownload）最新可用时间：部分人可用，总体来说要看运气
+*****
+> 方法三（pcs）最新可用时间：部分人可用                 
+*****
+> 方法四（百度云账号共享）最新可用时间：看运气
+*****
+> 方法五（aria2普通【被限速到2M/s左右】）可用时间：2017-08-11
+*****
+> 方法六（aria2不限制线程【强烈推荐！！】）最新可用时间：2017-08-25
+*****
+> 方法七（vps离线下载【请在方法六无法使用了再用】）最新可用时间: 2017-08-25
+*****
+> 方法八（使用百度企业云盘绕过限速【每人只有5次转存机会，所以说请在别的方法没法用了在用这个办法，而且如果想要一直用这个办法的话请去网上搜索购买百度小号或者说弄个手机小号然后去注册多个百度账号】) 最新可用时间：2017-08-25
 
+**目录索引**
 
-方法三（pcs）最新可用时间：部分人可用                 
+[方法一](#方法一)
 
+[方法二](#方法二)
 
+[方法三](#方法三)
 
-方法四（百度云账号共享）最新可用时间：看运气
+[方法四](#方法四：百度网盘vip账号共享)
 
+[方法五](#方法五：chrome插件配合aria2法)
 
+[方法六](#方法六：采用aria2不限制线程版本)
 
-方法五（aria2普通【被限速到2M&#x2F;s左右】）可用时间：2017-08-11
+[方法七](#方法七：百度云离线下载)
 
+[方法八](#方法八：使用百度企业云破解限速)
 
+## 方法一
 
-方法六（aria2不限制线程【强烈推荐！！】）最新可用时间：2017-08-25
+### 安装环节
 
+先参照[这里](https://github.com/redapple0204/my-boring-python/wiki/%E9%83%A8%E7%BD%B2%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%EF%BC%88aget%E6%B3%95%EF%BC%89%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C) 来做准备工作。
 
+然后来看[这里](https://github.com/redapple0204/my-boring-python/wiki/%E9%83%A8%E7%BD%B2chrome%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6)安装插件
 
-方法七（vps离线下载【请在方法六无法使用了再用】）最新可用时间: 2017-08-25
-
-
-
-方法八（使用百度企业云盘绕过限速【每人只有5次转存机会，所以说请在别的方法没法用了在用这个办法，而且如果想要一直用这个办法的话请去网上搜索购买百度小号或者说弄个手机小号然后去注册多个百度账号】) 最新可用时间：2017-08-25
-
-目录索引
-方法一
-方法二
-方法三
-方法四
-方法五
-方法六
-方法七
-方法八
-方法一安装环节先参照这里 来做准备工作。
-然后来看这里安装插件
 然后选中你要下载的文件，然后点击上面那一栏的“导出下载”中的“导出下载”（如图）
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/1.PNG)
+
 然后会弹出如图的窗口
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/2.PNG)
 
 然后删除红框框框住的这一串命令
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/3.PNG)
+
 然后在前面加上如下格式
 
-aget -s 999999999 -k 2000k
+> aget -s 999999999 -k 2000k
 
 PS:99999999是线程，如果觉得还是慢可以继续增加 2000k是分段的大小，觉得太卡也可以增大。
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/4.PNG)
+
 修改完毕以后复制到xshell（终端里），然后按回车，然后打开任务管理器看下载速度。（程序内的速度是有bug的）
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/5.PNG)
+
 PS:如果你的系统是win7请打开系统监视器查看速度。
+
 如图，这样就是下载完了
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/6.PNG)
+
 这时候点击vmware中的虚拟机（如图红箭头所示），然后点击设置
-注：如果你是用win10bash的话直接输入mv 你下载好的文件名 &#x2F;mnt&#x2F;D&#x2F;即可移动到D盘，如果想要移动到其他地方，输入mv 你下载好的文件名 &#x2F;mnt&#x2F;你放文件的盘符&#x2F;文件夹名 即可。
+
+**注：如果你是用win10bash的话直接输入mv 你下载好的文件名 /mnt/D/即可移动到D盘，如果想要移动到其他地方，输入mv 你下载好的文件名 /mnt/你放文件的盘符/文件夹名 即可。**
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/7.PNG)
 
 点击选项，再点击共享文件夹
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/8.PNG)
+
 点击总是启用，再点击添加
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/9.PNG)
 
 下一步
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/10.PNG)
+
 点击浏览
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/11.PNG)
 
 选择你要保存到的地方，点击确定
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/12.PNG)
+
 然后下一步
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/13.PNG)
 
 然后点击完成即可
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/14.PNG)
+
 最后点击确定
 
-然后输入 mv 你下载好的文件名 &#x2F;mnt&#x2F;hgfs&#x2F;（按一下tab键） 就能复制到你刚刚设置的文件夹里了。
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/15.PNG)
+
+然后输入 mv 你下载好的文件名 /mnt/hgfs/（按一下tab键） 就能复制到你刚刚设置的文件夹里了。
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/16.PNG)
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/17.PNG)
 
 
 注：有github号的同学建议给aget项目（https://github.com/PeterDing/aget ） 一个star吧，毕竟他真的不容易。
-方法二使用52破解的一个pandownload，先下载这个程序
+
+## 方法二
+
+使用52破解的一个pandownload，[先下载这个程序](http://pan.lanzou.com/x/1299189)
+
 然后登陆的时候记得点我圈起来的地方，否则将无法登录。
+
+![登录](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/18.png)
 
 然后登录（如果无法看到登陆界面请尝试清理IE缓存，如果你是xp的话请更新到IE8）
 
+![登录](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/19.png)
+
 登录完毕看到你的网盘目录就可以下载了。
-方法三
-若想使用自动化脚本的请看这里
 
-安装环节Linux &amp; OSX确保你已经安装了git（没有的话用你的包管理器安装，例如apt系是sudo apt-get install git)然后安装依赖，分别是这几个包：
 
-build-essential libcurl4-openssl-dev libssl-dev
+## 方法三
+
+>若想使用自动化脚本的请看[这里](https://github.com/redapple0204/my-boring-python/tree/master/script/pcs_bat)
+
+### 安装环节
+
+#### Linux & OSX
+
+确保你已经安装了git（没有的话用你的包管理器安装，例如apt系是sudo apt-get install git)
+然后安装依赖，分别是这几个包：
+
+>build-essential libcurl4-openssl-dev libssl-dev
 
 用你的包管理器安装（例如apt系是sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev）
+
 OSX则输入
 
-brew install openssl
+>brew install openssl
 
-然后来安装主程序
-git clone https://github.com/GangZhuo/BaiduPCS.git
+##### 然后来安装主程序
 
+>git clone https://github.com/GangZhuo/BaiduPCS.git
 
-cd BaiduPCS
+>cd BaiduPCS
 
+>make clean
 
-make clean
+>make
 
+>make install
 
-make
+**警告：由于pcs程序更新，所以在linux和osx下所有命令开头为pcs的命令都要改成baidupcs，例如pcs login要改成baidupcs login**
 
+#### Windows
 
-make install
+下载[这个](https://github.com/GangZhuo/BaiduPCS/releases)
 
-警告：由于pcs程序更新，所以在linux和osx下所有命令开头为pcs的命令都要改成baidupcs，例如pcs login要改成baidupcs login
-Windows下载这个
 然后复制到windows\System32里面。
-设置线程然后记得设置线程数成16（如果16线程过慢请设置100线程）:
 
-pcs set –max_thread&#x3D;16
+### 设置线程
+
+然后记得设置线程数成16（如果16线程过慢请设置100线程）:
+
+> pcs set --max_thread=16
 
 100线程：
 
-pcs set –max_thread&#x3D;100
+ > pcs set --max_thread=100
 
-登陆环节
-pcs login
+### 登陆环节
+
+> pcs login
 
 程序首先提示输入用户名，我们输入百度网盘的用户名和密码，然后回车。
 
-文件操作环节下载文件：用pcs cd切换到你百度云中要下载的文件目录（例如说“我的应用数据”就是&#x2F;apps）
+![登陆](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/20.png)
+
+### 文件操作环节
+
+#### 下载文件：
+
+用pcs cd切换到你百度云中要下载的文件目录（例如说“我的应用数据”就是/apps）
+
 然后找到你要下载的文件（如果现实的第一页没有发现你要的文件就请输入y回车到第二页）
+
+![下载文件](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/21.png)
 
 如图，现在我找到了我要下载的文件，看文件信息大约为3G，就用100线程。
 
+![下载文件](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/22.png)
+
 然后使用如下命令格式下载
 
-pcs download &lt;文件名&gt; &lt;你要保存到的目录加文件名&gt;
+> pcs download <文件名> <你要保存到的目录加文件名>
 
-例如说我要下载“Parrot-full-3.3_amd64.iso”，保存到&#x2F;home&#x2F;redapple&#x2F;Downloads就输入
+例如说我要下载“Parrot-full-3.3_amd64.iso”，保存到/home/redapple/Downloads
+就输入
 
-pcs download Parrot-full-3.3_amd64.iso &#x2F;home&#x2F;redapple&#x2F;Downloads&#x2F;Parrot-full-3.3_amd64.iso
+> pcs download Parrot-full-3.3_amd64.iso /home/redapple/Downloads/Parrot-full-3.3_amd64.iso
 
-注意:如果你要下载的文件带有空格（如1 2 3 ），就要打上引号，就像这样
+**注意**:如果你要下载的文件带有空格（如1 2 3 ），就要打上引号，就像这样
 
-pcs download “1 2 3” “&#x2F;home&#x2F;redapple&#x2F;Downloads&#x2F;1 2 3”
+>pcs download "1 2 3" "/home/redapple/Downloads/1 2 3"
 
 然后开始下载，体验飞一般的速度吧
 
-下载文件夹：命令格式：
+![下载文件](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/23.png)
 
-pcs synch -cd “你要保存到的地方” ”网盘上文件夹名称”
+#### 下载文件夹：
+
+命令格式：
+
+>pcs synch -cd "你要保存到的地方" ”网盘上文件夹名称"
 
 如图所示：
 
-上传文件：命令格式：
+![下载](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/24.PNG)
 
-pcs upload &lt;你要上传的文件&gt; &lt;你要上传到云盘的位置&gt;
+#### 上传文件：
 
-上传文件夹：官网说能，然而我测试失败，等到有空再试试
-方法四：百度网盘vip账号共享
-注：请勿在上面放私人物品。
+命令格式：
+
+>pcs upload <你要上传的文件> <你要上传到云盘的位置>
+
+#### 上传文件夹：
+
+官网说能，然而我测试失败，等到有空再试试
+
+## 方法四：百度网盘vip账号共享
+
+>注：请勿在上面放私人物品。
 
 当然啦，如果上面的方法都被和谐的话，就只能用vip账号了。
-然而vip账号一般半小时内就会被封，所以该方法是非常不稳定的。
-使用方法：百度搜索“百度云vip共享账号”
-这里提供两个还算不错的网站
-1：http://www.vipgongxiang.com/baiduyunvip/20479.html
-2：http://bbs.vip866.com/forum-82-1.html
-方法五：chrome插件配合aria2法先看这里安装插件
-现在打开aria2的下载网站 ,然后往下拉一点，就会看到这样的下载界面，根据你电脑的是x86还是x64来下载
 
-注：linux的话请用你的包管理器安装aria2，具体百度，mac的话请自己编译，具体自己百度，如果仍不明白，请开issue！
+然而vip账号一般半小时内就会被封，所以该方法是非常不稳定的。
+
+### 使用方法：
+
+百度搜索“百度云vip共享账号”
+
+这里提供两个还算不错的网站
+
+1：http://www.vipgongxiang.com/baiduyunvip/20479.html
+
+2：http://bbs.vip866.com/forum-82-1.html
+
+## 方法五：chrome插件配合aria2法
+
+先看[这里](https://github.com/redapple0204/my-boring-python/wiki/%E9%83%A8%E7%BD%B2chrome%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6)安装插件
+
+现在打开[aria2的下载网站](https://github.com/aria2/aria2/releases) ,然后往下拉一点，就会看到这样的下载界面，根据你电脑的是x86还是x64来下载
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/25.PNG)
+
+**注：linux的话请用你的包管理器安装aria2，具体百度，mac的话请自己编译，具体自己百度，如果仍不明白，请开issue！**
+
 下载完毕解压以后会看到这样的一个应用程序，复制到C:\Windows\System32里。
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/26.PNG)
+
 然后选中你要下载的文件，然后点击上面那一栏的“导出下载”中的“导出下载”（如图）
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/27.PNG)
 
 然后会弹出如图的窗口
 
-重要 在-x16后面按一下空格添加-t1 -m0 （如图）
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/28.PNG)
+
+**重要** 在-x16后面按一下空格添加-t1 -m0 （如图）
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/29.PNG)
 
 解释下原理：-t1表示的是每隔1秒重试一次，-m0表示的是重试设置
+
 然后把最终修改完毕的命令复制到cmd（linux或mac为终端）里执行
+
 注：如果你要下载到别的目录里请先cd到你想要下载到的目录（如不会使用“cd”命令请百度搜索“如何使用cd命令”）
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/30.PNG)
+
 享受你的满速下载吧！这样子就不会断断续续的了。
+
 注意：xp系统下载出错的解决方法请看
-这里
-方法六：采用aria2不限制线程版本aria2这个程序原版有一个非常大的缺陷，就是把线程死死地限制在了16，导致像百度云这种单线程只有100k左右的东西下载速度还是1m左右，所以现在使用一个不限制线程的版本来破解。
-警告：本插件可能和这个油猴脚本 冲突，请先卸载！
-先看这里安装插件
+
+[这里](https://github.com/redapple0204/my-boring-python/blob/master/%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F.md#q2-windowsxp使用第五第六种方法下载出错)
+
+
+## 方法六：采用aria2不限制线程版本
+
+aria2这个程序原版有一个非常大的缺陷，就是把线程死死地限制在了16，导致像百度云这种单线程只有100k左右的东西下载速度还是1m左右，所以现在使用一个不限制线程的版本来破解。
+
+**警告：本插件可能和[这个油猴脚本](https://greasyfork.org/zh-CN/scripts/23635-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B) 冲突，请先卸载！**
+
+先看[这里](https://github.com/redapple0204/my-boring-python/wiki/%E9%83%A8%E7%BD%B2chrome%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6)安装插件
+
 然后现在下载不限制线程的版本
-x86
-x64
+
+[x86](https://ci.appveyor.com/api/projects/myfreeer/a780c730b7282e090f238e8286f815f3/artifacts/aria2c_x86.7z)
+
+[x64](https://ci.appveyor.com/api/projects/myfreeer/a780c730b7282e090f238e8286f815f3/artifacts/aria2c.7z)
+
 下载完毕解压以后会看到一个exe文件，然后复制到C:\Windows\System32里。
+
 然后选中你要下载的文件，然后点击上面那一栏的“导出下载”中的“导出下载”（如图）
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/31.PNG)
 
 然后会弹出如图的窗口
 
-注意：这步是关键：把参数-s10 -k1M -x16 改成 -s256 -k2M -x256 ,不过这只是建议，如果你的网速还要快的话，建议把-s和-x改成更高，如果你改成很高了还是觉得不够快，你可以更改-k后面的参数，变成-k3M甚至-k5M，-k10M,然后在这些参数后面按一下空格加上-t1 -m0这个参数，然后变成如下图这样子的
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/32.PNG)
+
+**注意：这步是关键：把参数-s10 -k1M -x16 改成 -s256 -k2M -x256 ,不过这只是建议，如果你的网速还要快的话，建议把-s和-x改成更高，如果你改成很高了还是觉得不够快，你可以更改-k后面的参数，变成-k3M甚至-k5M，-k10M,然后在这些参数后面按一下空格加上-t1 -m0这个参数，然后变成如下图这样子的**
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/33.png)
 
 然后把这些链接复制到cmd里，享受你的高速下载吧！
 
-PS：如果你觉得慢的话，先私密分享你这个要下载的文件，然后退出百度账号，再用你那个私密链接的导出下载即可
-这是ubuntu下的wine搞得….所以说字体有点丑之类的….
-Linux和Mac请下载我修改好的版本来安装修改好的版本
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/34.png)
 
-在这里吐槽下，大家千万别用国内的小网盘，我以前用某国产网盘分享的这个aria2结果分享链接有时间限制不说，而且文件还跟我弄损坏了….现在彻底换成了外国网盘了！
+PS：如果你觉得慢的话，先私密分享你这个要下载的文件，然后退出百度账号，再用你那个私密链接的导出下载即可
+
+这是ubuntu下的wine搞得....所以说字体有点丑之类的....
+
+#### Linux和Mac请下载我修改好的版本来安装
+
+[修改好的版本](https://cpneteroster-my.sharepoint.com/personal/redapple0204_c4o_me/_layouts/15/guestaccess.aspx?docid=1f9cd8658119c4d2aad258c34ad8000d2&authkey=AbLnYSgl8MPehq213ZgDyZ4)
+
+> 在这里吐槽下，大家千万别用国内的小网盘，我以前用某国产网盘分享的这个aria2结果分享链接有时间限制不说，而且文件还跟我弄损坏了....现在彻底换成了外国网盘了！
 
 安装方法请看aria2官方readme或者这个压缩包里面的readme。
+
 当然啦，如果你很懒，或者不想编译的话，可以直接用wine cmd打开这个windows版本的aria2，也是可以的。
+
 注意：xp系统下载出错的解决方法请看
-这里
-方法七：百度云离线下载鉴于我不把vps当云盘了，现在开放下载权限。但是记住，1.下载的文件将在每天的8:00清空 2.vps只有20GB的硬盘空间，现在已经用掉了6GB。所以下载超大文件的人请绕路。
-警告：本方法禁止任何人（除本人和@lizongzeshunshun)传播到本项目以外的任何地方，只要发现一次，将立刻关闭服务器，并且通报。严重违反者，本人有权利追究法律责任。
+
+[这里](https://github.com/redapple0204/my-boring-python/blob/master/%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F.md#q2-windowsxp使用第五第六种方法下载出错)
+
+### 方法七：百度云离线下载
+
+鉴于我不把vps当云盘了，现在开放下载权限。但是记住，1.下载的文件将在每天的8:00清空 2.vps只有20GB的硬盘空间，现在已经用掉了6GB。所以下载超大文件的人请绕路。
+
+**警告：本方法禁止任何人（除本人和@lizongzeshunshun)传播到本项目以外的任何地方，只要发现一次，将立刻关闭服务器，并且通报。严重违反者，本人有权利追究法律责任。**
+
 注意：由于本方法是直接使用我的vps上的资源，但是我的vps配置很垃圾，只能允许一个人在线下载，否则会导致vps卡死使下载任务自动结束，导致大家都无法下载。所以如果别的方法可以用的话，请尽量不要使用这个方法，留给更需要的人！
-先看这里安装插件
+
+先看[这里](https://github.com/redapple0204/my-boring-python/wiki/%E9%83%A8%E7%BD%B2chrome%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6)安装插件
+
+
 然后打开百度网盘界面，点击你要下载的文件，然后点上面的下载助手
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/35.PNG)
 
 然后会弹出如图的窗口
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/36.PNG)
+
 这个时候把底下的进度条拖到后面，看到有类似
 
-https://pcs.baidu.com/rest/2.0/pcs/file?method=download&amp;app_id=250528&amp;path=%2FMac%20OS%209.2%20Extract-n-Play.7z
+> https://pcs.baidu.com/rest/2.0/pcs/file?method=download&app_id=250528&path=%2FMac%20OS%209.2%20Extract-n-Play.7z
 
 的链接，然后把“s”去掉，变成
 
-http://pcs.baidu.com/rest/2.0/pcs/file?method=download&amp;app_id=250528&amp;path=%2FMac%20OS%209.2%20Extract-n-Play.7z
+> http://pcs.baidu.com/rest/2.0/pcs/file?method=download&app_id=250528&path=%2FMac%20OS%209.2%20Extract-n-Play.7z
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/37.png)
 
 现在把进度条拖到最前面，然后把-o后面（包括-o）一长串的东西复制.
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/38.png)
+
 现在打开http://138.68.60.220:2333/ 这个网站
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/39.png)
 
 然后对话框后面按一下空格，然后把你复制的那一长串东西粘贴到这个对话框的参数后面！注意！不要把原有的参数删除了
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/40.png)
+
 粘贴完了就像这样
 
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/41.png)
+
 这个时候打开http://138.68.60.220:10000/lua/network_stats.lua （用户名密码均为download）
+
 然后如果下面的像仪表盘一样的东西显示数值超过5mbps，就说明有人正在下载东西，请现在不要下载。然后注意记录下traffic底下那栏，暂且记你看到的数据为a
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/42.png)
 
 如果看到像上图一样只有几十k的话，就说明没有人下载，你可以返回原来的那个界面点击“submit”按钮
 
-点击完以后，如果发现标题栏在转圈圈，就说明已经开始下载，切勿重复点击，否则会提交两个任务，导致下载出错！
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/43.png)
+
+点击完以后，如果发现标题栏在转圈圈，就说明已经开始下载，**切勿重复点击，否则会提交两个任务，导致下载出错！**
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/44.png)
 
 然后转到http://138.68.60.220:10000/lua/network_stats.lua （用户名密码均为download）查看下载进度，注意看这个traffic底下那栏，记数据为b，这个时候你的文件下载了多少的公式就是（b-a）G。然后还可以通过底下的仪表盘来看速度（1mbps近似取100k，以此类推）
 
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/45.png)
+
 当一切下载完毕的话，你可以看到这个界面（如果你一点击submit按钮就跳转到这个界面就说明下载错误，请检查你的参数等是否输入正确，如果还是不行，请开issue。）
 
+
+![](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/46.png)
+
 这个时候请到https://138.68.60.220 里面的download文件夹下载你下载的文件，也可以到ftp://138.68.60.220 来下载（较慢）
+
 如果你发现下载速度并不理想，请尝试
+
 1.使用aria2
+
 下载aria2
-x86
-x64
+
+
+[x86](https://ci.appveyor.com/api/projects/myfreeer/a780c730b7282e090f238e8286f815f3/artifacts/aria2c_x86.7z)
+
+[x64](https://ci.appveyor.com/api/projects/myfreeer/a780c730b7282e090f238e8286f815f3/artifacts/aria2c.7z)
+
 然后解压，复制到c:\windows\system32里，然后打开https://138.68.60.220 右键你要下载的文件，获取链接，然后打开cmd，输入
 
-aria2c -s16 -x16 -k1M “链接”
+> aria2c -s16 -x16 -k1M "链接"
 
 2.使用IDM，FDM，迅雷等多线程下载工具
+
 这个不多说了，具体百度
+
 假如还是觉得慢，可以自行搜索shadowsocks免费账号分享，然后挂代理访问，应该就不会慢了
+
 如果还有问题，请开issue。
-方法八：使用百度企业云破解限速首先这个方法相当于是暴力绕过破解，然后百度官方可能意识到了这个问题，于是就限制一个人只能转存5次文件，大大降低了可用性，所以如果想要长期使用的话就请去弄几个百度小号或者说是手机小号，反正也就几块钱的事情，总比一年给百度交360块钱要好，当然了，如果别的方法可以用就先不要用这个方法了。
-好了，教程现在开始
-首先我们先打开百度企业云,然后点击右上角的免费开通，然后登陆你的百度账号
+
+### 方法八：使用百度企业云破解限速
+
+首先这个方法相当于是暴力绕过破解，然后百度官方可能意识到了这个问题，于是就限制一个人只能转存5次文件，大大降低了可用性，所以如果想要长期使用的话就请去弄几个百度小号或者说是手机小号，反正也就几块钱的事情，总比一年给百度交360块钱要好，当然了，如果别的方法可以用就先不要用这个方法了。
+
+**好了，教程现在开始**
+
+首先我们先打开[百度企业云](https://eyun.baidu.com/enterprise/index#list/path=%2F&info=1),然后点击右上角的免费开通，然后登陆你的百度账号
+
+![2017-08-25 08-21-12](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/47.png)
 
 然后登陆完以后可能会提示什么无法开通，联系你的管理员之类的，然后点击确定，就会返回这个页面，这个时候再次点击免费开通即可。
 
+![qq 20170825082325](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/48.png)
+
 然后填写一系列信息，随便乱填就好了
+
+![2017-08-25 08-24-48](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/49.png)
 
 没有意外的话就注册完毕了，然后就会看到百度企业云的首页
 
+![2017-08-25 08-25-50](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/50.png)
+
 然后点击这个转存文件
+
+![qq 20170825082703](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/51.png)
 
 然后选中你要转存的文件，然后下载就好了
 
-彩蛋
-如果你的下载期限到期了，但是还有转存机会，这个时候你可以考虑搞到下载链接（点击下载然后在浏览器下载管理把链接提取出来），然后用这里最后面的aria2下载即可。
-Q &amp; A【Q1】为什么第一种方法非常慢，甚至不如直接下您的CPU可能不足以承受如此高的线程，请把“9999999”降低或者使用其余方法。
-【Q2】 windowsxp使用第五，第六种方法下载出错！请把命令行后面的这一串地址，例如说
+![2017-08-25 08-29-01](https://imgsrc.01000010.xyz/2017/09/baiduyunpojie/52.png)
 
-https://pcs.baidu.com/rest/2.0/pcs/file?method=download&amp;app_id=250528&amp;path=%2FMac%20OS%209.2%20Extract-n-Play.7z
+**彩蛋**
+
+如果你的下载期限到期了，但是还有转存机会，这个时候你可以考虑搞到下载链接（点击下载然后在浏览器下载管理把链接提取出来），然后用[这里](https://github.com/redapple0204/my-boring-python/wiki/%E5%9C%A8%E6%8E%A8%E8%8D%90%E7%9A%84%E6%8F%92%E4%BB%B6%E9%80%9F%E5%BA%A6%E6%85%A2%E6%88%96%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95)最后面的aria2下载即可。
+
+
+## Q & A
+
+#### 【Q1】为什么第一种方法非常慢，甚至不如直接下
+
+您的CPU可能不足以承受如此高的线程，请把“9999999”降低或者使用其余方法。
+
+#### 【Q2】 windowsxp使用第五，第六种方法下载出错！
+
+
+请把命令行后面的这一串地址，例如说
+
+> https://pcs.baidu.com/rest/2.0/pcs/file?method=download&app_id=250528&path=%2FMac%20OS%209.2%20Extract-n-Play.7z
 
 把“s“去掉，变成http
 
-http://pcs.baidu.com/rest/2.0/pcs/file?method=download&amp;app_id=250528&amp;path=%2FMac%20OS%209.2%20Extract-n-Play.7z
+> http://pcs.baidu.com/rest/2.0/pcs/file?method=download&app_id=250528&path=%2FMac%20OS%209.2%20Extract-n-Play.7z
 
-转载自**这里**
+转载自**[这里](https://github.com/redapple0204/my-boring-python/blob/master/%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F.md)**
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>硬盘不同 RAID 类型的区别和优缺点</title>
-    <url>/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/</url>
-    <content><![CDATA[RAID 0：最少需要两块盘，没用冗余数据，不做备份，任何一块磁盘损坏都无法运行。n 块磁盘（同类型）的阵列理论上读写速度是单块磁盘的 n 倍（实际达不到），风险性也是单一n倍（实际更高），是磁盘阵列中存储性能最好的。适用于安全性不高，但是要求性能比较高的图形工作站或者个人站。　优势：数据读取写入最快，最大优势提高硬盘容量和读写速度，比如 3 块 80G 的硬盘做 RAID 0，可用总容量为 240G。速度接近 1 块的 3 倍。缺点：无冗余能力，一块硬盘损坏，数据全无。建议：做 RAID 0 可以提供更大的容量以及更好的性能，推荐对数据安全性要求不高的场景使用。  
-RAID 1：至少需要两块盘，磁盘数量是 2 的 n 倍，每一块磁盘要有对应的备份盘，利用率是 50%，只要没有一对磁盘损坏就可以正常使用。n 组磁盘（2n 块同类型磁盘）的阵列理论上读取速度是单块磁盘的 n 倍（实际达不到），风险性是单一磁盘的 n 分之一（实际更低）。换盘后需要长时间的镜像同步，不影响外界访问，但整个系统性能下降。磁盘控制器负载比较大。适用于安全性较高，且能较快恢复数据的场景。　优势：镜像备份，数据安全强，2 块硬盘做 RAID，一块正常运行，另外一块镜像备份数据，保障数据的安全。一块坏了，另外一块硬盘也有完整的数据，保障运行。缺点：性能提示不明显，做 RAID 1 之后硬盘使用率为 50%.建议：对数据安全性比较看重，性能没有太高要求的场景使用。  
-RAID 5：至少需要 3 块盘，读取速度接近 RAID 0，但是安全性更高。安全性上接近 RAID 1，但是磁盘的利用率更高。可以认为是 RAID 0 和 RAID 1 的一个折中方案。只允许有一块盘出错，可以通过另外多块盘来计算出故障盘的数据，故障之后必须尽快更换。比 RAID 10 的磁盘利用率高，是目前比较常用的一种方案。　优势：以上优势，RAID 5 兼顾。任意 N-1 块硬盘都有完整的数据。缺点：只允许单盘故障，一盘出现故障得尽快处理。有盘坏情况下，RAID 5 IO&#x2F;CPU 性能狂跌，此时性能烂到无以复加。建议：盘不多，对数据安全性和性能提升都有要求，RAID 5 是个不错选择，鉴于出问题的性能，盘多可考虑 RAID 10.  
-RAID 10：至少需要 4 块盘，磁盘数量也是 2 的 n 倍。RAID 10 是 2 块硬盘组成 RAID 1，2 块组成 RAID 0，所以必须需要 4 块硬盘。既有数据镜像备份，也能保证较高的读写速度。成本比较大。　优势：兼顾安全性和速度。基础 4 盘的情况下，RAID 10 允许对柜盘 2 块故障，随着硬盘数量的提示，容错量也会相对应提升。这是 RAID 5 无法做到的。缺点：对盘的数量要求稍高，磁盘使用率为一半。建议：硬盘数量足够的情况，建议 RAID 10.  
-题外话：RAID 5 VS RAID 10只看盘的数量的话，RAID 5 的写性能不逊于 RAID 10。4 盘的情况下，RAID 10 提供 2 盘的写性能，RAID 5 提供 3 盘的写性能。但是，RAID 5 的校检体质，导致额外的 I0 和 CPU 使用。　不过 RAID 最重要的指标是可靠性：4 盘的 RAID 5，只允许单盘故障，RAID 10，允许对柜盘 2 块故障，可靠性高于 RAID 5，且 RAID 10 可随盘上升提高容错，RAID 5 就不行，而且 IO 和 CPU 的额外开销还涂增，从可靠性和冗余角度，达到同样的可靠性，RAID 10 写能力高于 RAID 5.　特殊情况下：有坏盘，无热备RAID 5 CPU 和 IO 性能狂跌。因为数据不完整，在某特殊软件下，实现即时重构数据进驻内存，保障业务运行，但此时 RAID 5 的性能已经烂到无以复加。RAID 10 是条带化 + 镜像，坏盘影响读性能，不影响写性能，而且无需重构。此时的 RAID 10 完爆 RAID 5.  
-]]></content>
-      <tags>
-        <tag>计算机原理</tag>
       </tags>
   </entry>
   <entry>
@@ -1212,32 +2124,113 @@ RAID 10：至少需要 4 块盘，磁盘数量也是 2 的 n 倍。RAID 10 是 2
     <url>/2024/08/12/%E8%99%9A%E6%8B%9F%E6%9C%BA-VMware-Workstation-Pro-v3-x-x-v17-x-x/</url>
     <content><![CDATA[鉴于 vmware 最近关闭了软件公开下载通道。现分享 VMware Workstation Pro 虚拟机 v3.x.x - v17.x.x 全版本客户端下载。
 
+![vmware-workstation-full-version.png](https://imgsrc.01000010.xyz/2026/02/vmware-workstation-full-version.png)
+
 分享的文件包括：
-VMware-workstation-3.2.0-2230.exeVMware-workstation-4.5.3-19414.exeVMware-workstation-5.5.9-126128.exeVMware-workstation-6.5.5-328052.exeVMware-workstation-full-7.1.6-744570.exeVMware-workstation-full-8.0.6-1035888.exeVMware-workstation-full-9.0.4-1945795.exeVMware-workstation-full-10.0.7-2844087.exeVMware-workstation-full-11.1.2-2780323.exeVMware-workstation-full-12.5.9-7535481.exeVMware-workstation-full-14.1.8-14921873.exeVMware-workstation-full-15.5.7-17171714.exeVMware-workstation-full-16.2.5-20904516.exeVMware-workstation-full-17.5.1-23298084.exe
+```
+VMware-workstation-3.2.0-2230.exe
 
-下载链接1：VMware官方版下载丨123云盘
+VMware-workstation-4.5.3-19414.exe
+
+VMware-workstation-5.5.9-126128.exe
+
+VMware-workstation-6.5.5-328052.exe
+
+VMware-workstation-full-7.1.6-744570.exe
+
+VMware-workstation-full-8.0.6-1035888.exe
+
+VMware-workstation-full-9.0.4-1945795.exe
+
+VMware-workstation-full-10.0.7-2844087.exe
+
+VMware-workstation-full-11.1.2-2780323.exe
+
+VMware-workstation-full-12.5.9-7535481.exe
+
+VMware-workstation-full-14.1.8-14921873.exe
+
+VMware-workstation-full-15.5.7-17171714.exe
+
+VMware-workstation-full-16.2.5-20904516.exe
+
+VMware-workstation-full-17.5.1-23298084.exe
+```
+
+下载链接1：[VMware官方版下载丨123云盘](https://www.123pan.com/s/7EGHjv-JPF2.html)
+
 提取码：52pj
-下载链接2：Archive.org
 
-]]></content>
+下载链接2：[Archive.org](https://archive.org/download/vmware-workstation-full-version_202405)
+
+---]]></content>
       <tags>
         <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
+    <title>硬盘不同 RAID 类型的区别和优缺点</title>
+    <url>/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/</url>
+    <content><![CDATA[
+### RAID 0：
+最少需要两块盘，没用冗余数据，不做备份，任何一块磁盘损坏都无法运行。n 块磁盘（同类型）的阵列理论上读写速度是单块磁盘的 n 倍（实际达不到），风险性也是单一n倍（实际更高），是磁盘阵列中存储性能最好的。适用于安全性不高，但是要求性能比较高的图形工作站或者个人站。  
+　
+**优势**：数据读取写入最快，最大优势提高硬盘容量和读写速度，比如 3 块 80G 的硬盘做 RAID 0，可用总容量为 240G。速度接近 1 块的 3 倍。  
+**缺点**：无冗余能力，一块硬盘损坏，数据全无。  
+**建议**：做 RAID 0 可以提供更大的容量以及更好的性能，推荐对数据安全性要求不高的场景使用。  
+
+### RAID 1：
+至少需要两块盘，磁盘数量是 2 的 n 倍，每一块磁盘要有对应的备份盘，利用率是 50%，只要没有一对磁盘损坏就可以正常使用。n 组磁盘（2n 块同类型磁盘）的阵列理论上读取速度是单块磁盘的 n 倍（实际达不到），风险性是单一磁盘的 n 分之一（实际更低）。换盘后需要长时间的镜像同步，不影响外界访问，但整个系统性能下降。磁盘控制器负载比较大。适用于安全性较高，且能较快恢复数据的场景。
+　  
+**优势**：镜像备份，数据安全强，2 块硬盘做 RAID，一块正常运行，另外一块镜像备份数据，保障数据的安全。一块坏了，另外一块硬盘也有完整的数据，保障运行。  
+**缺点**：性能提示不明显，做 RAID 1 之后硬盘使用率为 50%.  
+**建议**：对数据安全性比较看重，性能没有太高要求的场景使用。  
+
+### RAID 5：
+至少需要 3 块盘，读取速度接近 RAID 0，但是安全性更高。安全性上接近 RAID 1，但是磁盘的利用率更高。可以认为是 RAID 0 和 RAID 1 的一个折中方案。只允许有一块盘出错，可以通过另外多块盘来计算出故障盘的数据，故障之后必须尽快更换。比 RAID 10 的磁盘利用率高，是目前比较常用的一种方案。  
+　
+**优势**：以上优势，RAID 5 兼顾。任意 N-1 块硬盘都有完整的数据。  
+**缺点**：只允许单盘故障，一盘出现故障得尽快处理。有盘坏情况下，RAID 5 IO/CPU 性能狂跌，此时性能烂到无以复加。  
+**建议**：盘不多，对数据安全性和性能提升都有要求，RAID 5 是个不错选择，鉴于出问题的性能，盘多可考虑 RAID 10.  
+
+### RAID 10：
+至少需要 4 块盘，磁盘数量也是 2 的 n 倍。RAID 10 是 2 块硬盘组成 RAID 1，2 块组成 RAID 0，所以必须需要 4 块硬盘。既有数据镜像备份，也能保证较高的读写速度。成本比较大。  
+　
+**优势**：兼顾安全性和速度。基础 4 盘的情况下，RAID 10 允许对柜盘 2 块故障，随着硬盘数量的提示，容错量也会相对应提升。这是 RAID 5 无法做到的。  
+**缺点**：对盘的数量要求稍高，磁盘使用率为一半。  
+**建议**：硬盘数量足够的情况，建议 RAID 10.  
+
+### 题外话：RAID 5 VS RAID 10
+只看盘的数量的话，RAID 5 的写性能不逊于 RAID 10。4 盘的情况下，RAID 10 提供 2 盘的写性能，RAID 5 提供 3 盘的写性能。但是，RAID 5 的校检体质，导致额外的 I0 和 CPU 使用。  
+　  
+不过 RAID 最重要的指标是可靠性：  
+4 盘的 RAID 5，只允许单盘故障，RAID 10，允许对柜盘 2 块故障，可靠性高于 RAID 5，且 RAID 10 可随盘上升提高容错，RAID 5 就不行，而且 IO 和 CPU 的额外开销还涂增，从可靠性和冗余角度，达到同样的可靠性，RAID 10 写能力高于 RAID 5.  
+　  
+特殊情况下：有坏盘，无热备  
+RAID 5 CPU 和 IO 性能狂跌。因为数据不完整，在某特殊软件下，实现即时重构数据进驻内存，保障业务运行，但此时 RAID 5 的性能已经烂到无以复加。  
+RAID 10 是条带化 + 镜像，坏盘影响读性能，不影响写性能，而且无需重构。此时的 RAID 10 完爆 RAID 5.  
+]]></content>
+      <tags>
+        <tag>计算机原理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 ssh 不操作就自动掉线问题</title>
     <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。在 /etc/ssh/sshd_config 文件里添加以下两行:
-ClientAliveInterval 15ClientAliveCountMax 45
+    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
+在 `/etc/ssh/sshd_config` 文件里添加以下两行:
+```bash
+ClientAliveInterval 15
+ClientAliveCountMax 45
+```
 
 重启 sshd 服务：
+```bash
 sudo service sshd restart
+```
 
-
-ClientAliveInterval：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
-ClientAliveCountMax：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。
-
-]]></content>
+- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
+- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -1245,26 +2238,52 @@ ClientAliveCountMax：sshd 在未收到任何客户端回应前最多允许发�
   <entry>
     <title>解决 wordpress 的 comment_date 默认值无效的问题</title>
     <url>/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[安装好了 wordpress，今天 MySQL 数据库 ALTER TABLE wp_comments 时出现了报错：
+    <content><![CDATA[安装好了 wordpress，今天 MySQL 数据库 `ALTER TABLE wp_comments` 时出现了报错：
+```plaintext
 Error Code: 1067. Invalid default value for ‘comment_date’
+```
 
 the lead developer of WordPress wrote:
+> “WordPress just pretty simply does not support strict mode.”
 
-“WordPress just pretty simply does not support strict mode.”
+So the solution is to disable strict mode on MySQL. It’s a pity.
+In the WordPress code, you can find includes/wp-db.php which lists:
+```php
+/**
+* A list of incompatible SQL modes.
+*
+* @since 3.9.0
+* @var array
+*/
+protected $incompatible_modes = array(
+    'NO_ZERO_DATE',
+    'ONLY_FULL_GROUP_BY',
+    'STRICT_TRANS_TABLES',
+    'STRICT_ALL_TABLES',
+    'TRADITIONAL',
+);
+```
 
-So the solution is to disable strict mode on MySQL. It’s a pity.In the WordPress code, you can find includes&#x2F;wp-db.php which lists:
-/*** A list of incompatible SQL modes.** @since 3.9.0* @var array*/protected $incompatible_modes = array(    &#x27;NO_ZERO_DATE&#x27;,    &#x27;ONLY_FULL_GROUP_BY&#x27;,    &#x27;STRICT_TRANS_TABLES&#x27;,    &#x27;STRICT_ALL_TABLES&#x27;,    &#x27;TRADITIONAL&#x27;,);
-
-Set the sql_mode option in your my.cnf file to omit those sql modes. You can keep other sql modes, like the ones in the default set of sql modes for MySQL 5.7:
-[mysqld]sql-mode = &quot;ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
-
-注意：配置文件里 sql-mode 中间是连字符，并非下划线。后面的值用双引号包裹。
+Set the `sql_mode` option in your `my.cnf` file to omit those sql modes. You can keep other sql modes, like the ones in the default set of sql modes for MySQL 5.7:
+```plaintext
+[mysqld]
+sql-mode = "ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+```
+> 注意：配置文件里 sql-mode 中间是连字符，并非下划线。后面的值用双引号包裹。
 
 You can also change the global sql mode set without needing to restart the MySQL Server（重启会失效）:
-mysql&gt; SET GLOBAL sql_mode = &#x27;ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#x27;;
+```sql
+mysql> SET GLOBAL sql_mode = 'ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+```
 
 附：查询 sql_mode 的方法：
--- 查看当前连接的数据库模式SELECT @@SESSION.sql_mode;-- 查看全局连接的数据库模式SELECT @@GLOBAL.sql_mode;]]></content>
+```sql
+-- 查看当前连接的数据库模式
+SELECT @@SESSION.sql_mode;
+
+-- 查看全局连接的数据库模式
+SELECT @@GLOBAL.sql_mode;
+```]]></content>
       <tags>
         <tag>MySQL</tag>
       </tags>
@@ -1273,12 +2292,17 @@ mysql&gt; SET GLOBAL sql_mode = &#x27;ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_
     <title>通达信 752 开心果版 20210303 无限时间</title>
     <url>/2022/01/02/%E9%80%9A%E8%BE%BE%E4%BF%A1752%E5%BC%80%E5%BF%83%E6%9E%9C%E7%89%8820210303%E6%97%A0%E9%99%90%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[
+![2022-1-1-16-42-51.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-42-51.png)
 
+![2022-1-1-16-44-24-1024x555.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-44-24-1024x555.png)
 
+![2022-1-1-16-45-58-1024x555.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-45-58-1024x555.png)
+
+---
 
 软件下载地址：
-https://www.lanzoux.com/icjd9y8306b
-]]></content>
+
+[https://www.lanzoux.com/icjd9y8306b](https://www.lanzoux.com/icjd9y8306b)]]></content>
       <tags>
         <tag>资源分享</tag>
       </tags>

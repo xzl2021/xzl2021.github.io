@@ -10,7 +10,7 @@
   
   <title>
     
-      为知笔记服务器部署指南 | 阿良の小屋
+      电脑上搭建 Hexo 环境 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>为知笔记服务器部署指南</h2>
-  <p class="post-date">2026-02-17</p>
+  <h2>电脑上搭建 Hexo 环境</h2>
+  <p class="post-date">2026-02-18</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,74 +189,27 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h2 id="Download-and-Run-the-Docker-Image"><a href="#Download-and-Run-the-Docker-Image" class="headerlink" title="Download and Run the Docker Image"></a>Download and Run the Docker Image</h2><ul>
-<li><p>macOS<br>Run this command in Terminal to create a data folder</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/wizdata</span><br></pre></td></tr></table></figure>
-<p>Create a folder wizdata for preserving all the data of WizNote Server. Please backup this folder regularly. If you want to use NAS or private cloud as data storage, please contact us.<br>Run the command below to run the docker container</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -e TZ=`<span class="built_in">ls</span> -la /etc/localtime | <span class="built_in">cut</span> -d/ -f8-9` -p 80:80 -p 9269:9269/udp  wiznote/wizserver</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><ol>
+<li><p>下载并安装 nodejs</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">32 位下载地址：</span><br><span class="line">https://nodejs.org/dist/v20.20.0/node-v20.20.0-x86.msi</span><br><span class="line">64位下载地址：</span><br><span class="line">https://nodejs.org/dist/v20.20.0/node-v20.20.0-x64.msi</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Linux<br>Run this command in Terminal to create a data folder</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /data/wizdata</span><br></pre></td></tr></table></figure>
-<p>Run the command below to run the docker container</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name wiz --restart=always -it -d -v /data/wizdata:/wiz/storage -v /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver</span><br></pre></td></tr></table></figure>
+<li><p>使用以下命令在全局环境安装 hexo-cli</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli@4.3.2 -g</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Windows<br>Press Win + R, or click Start Menu - Run, then input this and press Enter.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powershell</span><br></pre></td></tr></table></figure>
-<p>Input this command in the window</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d D:\</span><br><span class="line"><span class="built_in">md</span> wizdata</span><br></pre></td></tr></table></figure>
-<p>It will create a folder wizdata in D:\ for preserving all the data. You could modify this folder.<br>Then run this command in terminal.</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">docker run --name wiz --restart=always -it -d -v  D:\wizdata:/wiz/storage -p <span class="number">80</span>:<span class="number">80</span> -p <span class="number">9269</span>:<span class="number">9269</span>/udp wiznote/wizserver</span><br></pre></td></tr></table></figure>
-<p>It is the first time to run the docker container, so it needs to download the image and initiate the data. Please wait for a while(depends on the network connection; it will take 10 minutes or longer). After the download process finished, the time of running will take 2-3 minutes.</p>
-</li>
-</ul>
-<h2 id="Launch-the-browser"><a href="#Launch-the-browser" class="headerlink" title="Launch the browser"></a>Launch the browser</h2><p>visit <a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a><br>You will see this page:<br><img src="https://imgsrc.01000010.xyz/2026/02/wizserver1.png" alt="wizserver1.png"><br>If it displays like the page below, it means the server has not ready, please wait a minute and refresh.<br><img src="https://imgsrc.01000010.xyz/2026/02/wizserver2.png" alt="wizserver2.png"></p>
-<h2 id="Modify-the-Port"><a href="#Modify-the-Port" class="headerlink" title="Modify the Port"></a>Modify the Port</h2><p>If port 80 has occupied, you could modify it to 8080 or another one.</p>
-<ul>
-<li><p>Mac&#x2F;Linux</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 8080:80 wiznote/wizserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Windows</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">docker run --name wiz -it -d -v  D:\wizdata:/wiz/storage -p <span class="number">8080</span>:<span class="number">80</span> wiznote/wizserver</span><br></pre></td></tr></table></figure>
-<p>After modified the port, please change the link of the website accordingly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
-<p>You could open the web application by visiting your IP address like this, so the user in the same LAN could connect the server via IP address and port(opt)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.1.186</span><br></pre></td></tr></table></figure>
-<p>The case when you modify the port like this:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.1.186:8080</span><br></pre></td></tr></table></figure>
-<p>On Windows, you have to make the port through the firewall.</p>
-</li>
-</ul>
-<h2 id="Modify-the-Time-Zone"><a href="#Modify-the-Time-Zone" class="headerlink" title="Modify the Time Zone"></a>Modify the Time Zone</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it wiz /bin/bash</span><br><span class="line"><span class="built_in">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Get-local-time-zone"><a href="#Get-local-time-zone" class="headerlink" title="Get local time zone"></a>Get local time zone</h2><ul>
-<li><p>Linux<br>Add <code>-v /etc/localtime:/etc/localtime</code> to the running command to get local time zone</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 80:80 -p 9269:9269/udp -v  /etc/localtime:/etc/localtime  wiznote/wizserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>MacOS</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-e TZ=`<span class="built_in">ls</span> -la /etc/localtime | <span class="built_in">cut</span> -d/ -f8-9`</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ol>
-<li><strong>Q</strong>: Which account should I sign in to manage the console?<br><strong>A</strong>: Default administrator account: <a href="mailto:&#97;&#100;&#x6d;&#105;&#x6e;&#x40;&#119;&#105;&#122;&#x2e;&#x63;&#110;">&#97;&#100;&#x6d;&#105;&#x6e;&#x40;&#119;&#105;&#122;&#x2e;&#x63;&#110;</a> password:123456 Please change the password after you finished the deployment. It can add five accounts in the free edition.</li>
+<li><p>创建并初始化网站目录，用 npm 安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
 </ol>
-<br/>
+<p>初始化后，您的项目文件夹将如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li><strong>Q</strong>: Where my data preserved？<br><strong>A</strong>: All data include files and databases saved in the data folder (the wizdata folder, as we mentioned). Please make sure to back up this folder regularly for preventing data loss.</li>
-</ol>
-<br/>
-
-<ol start="3">
-<li><strong>Q</strong>: Are the applications of WizNote acceptable of the Docker Server?<br><strong>A</strong>: Yes, you could connect the server via all the clients by choosing the Enterprise Server when you log in and then input the address of your docker server. Please notice: The same LAN is necessary. For example, the server data are inaccessible on the mobile, which is not in the same LAN with the server, but the data have been downloaded can be accessed.</li>
-</ol>
-<br/>
-
+<p>其中 _config.yml 为网站的配置文件。</p>
+<p>source 为源文件夹，所有写作的文章都存放在 _posts 文件夹中。</p>
+<p>themes 为主题文件存放处，例如本网站使用的主题是 Vexo，则存在 vexo 目录。vexo 目录中的 _config.yml 是主题配置文件，可以复制到 hexo 根目录，并重命名为 _config.vexo.yml 方便修改。（_config.vexo.yml 的优先级大于 vexo 目录中的 _config.yml）（该特性自 Hexo 5.0.0 起提供）</p>
 <ol start="4">
-<li><strong>Q</strong>: Is there any time limit of WizNote Docker Server?<br><strong>A</strong>: There is no time limit when the number of accounts is under 5. You can enjoy the server as long as you wish. Please contact us to buy more licenses when you want to promote it in your team.</li>
-</ol>
-<br/>
-
-<ol start="5">
-<li><strong>Q</strong>: The date of new notes is incorrect<br><strong>A</strong>: It is because the time of the server is not correct. Please set the time zone. For example, set the time zone to UTC&#x2F;GMT+08:00(Beijing).</li>
+<li><p>修改网站的配置文件<br>参考文档 <code>https://hexo.io/zh-cn/docs/configuration</code> 进行配置。</p>
+</li>
+<li><p>常用 hexo 命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、创建一篇名为 title 的空白文章：</span><br><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line"></span><br><span class="line">2、生成网站（生成 public 文件夹）</span><br><span class="line">hexo generate | hexo g</span><br><span class="line"></span><br><span class="line">3、清理生成的网站（删除 public 文件夹）</span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">4、预览网站，默认网址是：http://localhost:4000/</span><br><span class="line">hexo server | hexo s</span><br><span class="line"></span><br><span class="line">5、部署网站</span><br><span class="line">hexo deploy | hexo d</span><br></pre></td></tr></table></figure></li>
 </ol>
 </section>
     <!-- Tags START -->
@@ -264,8 +217,8 @@
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
+  <a href="/tags#建站教程" >
+    <span class="tag-code">建站教程</span>
   </a>
 
       </div>
@@ -276,17 +229,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/">
+      <a class="nav-left" href="/2026/02/18/ffmpeg-%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E5%88%86%E8%BE%A8%E7%8E%87/">
         <span class="nav-arrow">← </span>
         
-          解决 ssh 不操作就自动掉线问题
+          ffmpeg 调整视频分辨率
         
       </a>
     
     
-      <a class="nav-right" href="/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/">
+      <a class="nav-right" href="/2026/02/18/Hexo-%E5%8D%9A%E5%AE%A2%E7%9A%84-Vexo-%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8-LocalSearch/">
         
-          解决 wordpress 的 comment_date 默认值无效的问题
+          Hexo 博客的 Vexo 主题使用 LocalSearch
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -319,7 +272,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/02/17/为知笔记服务器部署指南/';
+    var url = 'https://xzl2021.github.io/2026/02/18/电脑上搭建-Hexo-环境/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -382,7 +335,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/02/17/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/';
+    var disqus_url = 'https://xzl2021.github.io/2026/02/18/%E7%94%B5%E8%84%91%E4%B8%8A%E6%90%AD%E5%BB%BA-Hexo-%E7%8E%AF%E5%A2%83/';
     
     (function(){
       var dsq = document.createElement('script');

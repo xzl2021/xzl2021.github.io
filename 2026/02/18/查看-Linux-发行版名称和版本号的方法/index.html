@@ -10,7 +10,7 @@
   
   <title>
     
-      解决 wordpress 的 comment_date 无效默认值的问题 | 阿良の小屋
+      查看 Linux 发行版名称和版本号的方法 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>解决 wordpress 的 comment_date 无效默认值的问题</h2>
-  <p class="post-date">2026-02-17</p>
+  <h2>查看 Linux 发行版名称和版本号的方法</h2>
+  <p class="post-date">2026-02-18</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,33 +189,31 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>安装好了 wordpress，今天 MySQL 数据库 <code>ALTER TABLE wp_comments</code> 时出现了报错：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error Code: 1067. Invalid default value for ‘comment_date’</span><br></pre></td></tr></table></figure>
-
-<p>the lead developer of WordPress wrote:</p>
-<blockquote>
-<p>“WordPress just pretty simply does not support strict mode.”</p>
-</blockquote>
-<p>So the solution is to disable strict mode on MySQL. It’s a pity.<br>In the WordPress code, you can find includes&#x2F;wp-db.php which lists:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* A list of incompatible SQL modes.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@since</span> 3.9.0</span></span><br><span class="line"><span class="comment">* <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$incompatible_modes</span> = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">&#x27;NO_ZERO_DATE&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;ONLY_FULL_GROUP_BY&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;STRICT_TRANS_TABLES&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;STRICT_ALL_TABLES&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;TRADITIONAL&#x27;</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>Set the <code>sql_mode</code> option in your <code>my.cnf</code> file to omit those sql modes. You can keep other sql modes, like the ones in the default set of sql modes for MySQL 5.7:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">sql-mode = &quot;ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：配置文件里 sql-mode 中间是连字符，并非下划线。后面的值用双引号包裹。</p>
-</blockquote>
-<p>You can also change the global sql mode set without needing to restart the MySQL Server（重启会失效）:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> <span class="keyword">GLOBAL</span> sql_mode <span class="operator">=</span> <span class="string">&#x27;ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>附：查询 sql_mode 的方法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看当前连接的数据库模式</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@SESSION</span>.sql_mode;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看全局连接的数据库模式</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@GLOBAL</span>.sql_mode;</span><br></pre></td></tr></table></figure></section>
+    <section class="markdown-content"><h3 id="etc-release-文件"><a href="#etc-release-文件" class="headerlink" title="&#x2F;etc&#x2F;*-release 文件"></a>&#x2F;etc&#x2F;*-release 文件</h3><p>release 文件通常被视为操作系统的标识。在 <code>/etc</code> 目录下放置了很多记录着发行版各种信息的文件，每个发行版都各自有一套这样记录着相关信息的文件。</p>
+<p>通常使用命令 <code>ls /etc/*-release</code> 即可看出发行版类型，接着使用命令 <code>cat /etc/os-release</code> 即可看出发行版的版本号等详细信息。</p>
+<hr>
+<p>下面是一组在 <code>Ubuntu/Debian/Alpine/Oracle Linux</code> 系统上显示出来的文件内容。</p>
+<ul>
+<li><p>Ubuntu</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/*release</span><br><span class="line">/etc/lsb-release  /etc/os-release</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br><span class="line">NAME=<span class="string">&quot;Ubuntu&quot;</span></span><br><span class="line">VERSION=<span class="string">&quot;18.04 LTS (Bionic Beaver)&quot;</span></span><br><span class="line">ID=ubuntu</span><br><span class="line">ID_LIKE=debian</span><br><span class="line">PRETTY_NAME=<span class="string">&quot;Ubuntu 18.04 LTS&quot;</span></span><br><span class="line">VERSION_ID=<span class="string">&quot;18.04&quot;</span></span><br><span class="line">HOME_URL=<span class="string">&quot;https://www.ubuntu.com/&quot;</span></span><br><span class="line">SUPPORT_URL=<span class="string">&quot;https://help.ubuntu.com/&quot;</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">&quot;https://bugs.launchpad.net/ubuntu/&quot;</span></span><br><span class="line">PRIVACY_POLICY_URL=<span class="string">&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;</span></span><br><span class="line">VERSION_CODENAME=bionic</span><br><span class="line">UBUNTU_CODENAME=bionic</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Debian</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/*release</span><br><span class="line">/etc/os-release</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br><span class="line">PRETTY_NAME=<span class="string">&quot;Debian GNU/Linux 12 (bookworm)&quot;</span></span><br><span class="line">NAME=<span class="string">&quot;Debian GNU/Linux&quot;</span></span><br><span class="line">VERSION_ID=<span class="string">&quot;12&quot;</span></span><br><span class="line">VERSION=<span class="string">&quot;12 (bookworm)&quot;</span></span><br><span class="line">VERSION_CODENAME=bookworm</span><br><span class="line">ID=debian</span><br><span class="line">HOME_URL=<span class="string">&quot;https://www.debian.org/&quot;</span></span><br><span class="line">SUPPORT_URL=<span class="string">&quot;https://www.debian.org/support&quot;</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">&quot;https://bugs.debian.org/&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Alpine Linux</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/*release</span><br><span class="line">/etc/alpine-release  /etc/os-release</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br><span class="line">NAME=<span class="string">&quot;Alpine Linux&quot;</span></span><br><span class="line">ID=alpine</span><br><span class="line">VERSION_ID=3.23.2</span><br><span class="line">PRETTY_NAME=<span class="string">&quot;Alpine Linux v3.23&quot;</span></span><br><span class="line">HOME_URL=<span class="string">&quot;https://alpinelinux.org/&quot;</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">&quot;https://gitlab.alpinelinux.org/alpine/aports/-/issues&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Oracle Linux</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/*release</span><br><span class="line">/etc/oracle-release  /etc/os-release  /etc/redhat-release  /etc/system-release</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br><span class="line">NAME=<span class="string">&quot;Oracle Linux Server&quot;</span></span><br><span class="line">VERSION=<span class="string">&quot;7.9&quot;</span></span><br><span class="line">ID=<span class="string">&quot;ol&quot;</span></span><br><span class="line">ID_LIKE=<span class="string">&quot;fedora&quot;</span></span><br><span class="line">VARIANT=<span class="string">&quot;Server&quot;</span></span><br><span class="line">VARIANT_ID=<span class="string">&quot;server&quot;</span></span><br><span class="line">VERSION_ID=<span class="string">&quot;7.9&quot;</span></span><br><span class="line">PRETTY_NAME=<span class="string">&quot;Oracle Linux Server 7.9&quot;</span></span><br><span class="line">ANSI_COLOR=<span class="string">&quot;0;31&quot;</span></span><br><span class="line">CPE_NAME=<span class="string">&quot;cpe:/o:oracle:linux:7:9:server&quot;</span></span><br><span class="line">HOME_URL=<span class="string">&quot;https://linux.oracle.com/&quot;</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">&quot;https://github.com/oracle/oracle-linux&quot;</span></span><br><span class="line">ORACLE_BUGZILLA_PRODUCT=<span class="string">&quot;Oracle Linux 7&quot;</span></span><br><span class="line">ORACLE_BUGZILLA_PRODUCT_VERSION=7.9</span><br><span class="line">ORACLE_SUPPORT_PRODUCT=<span class="string">&quot;Oracle Linux&quot;</span></span><br><span class="line">ORACLE_SUPPORT_PRODUCT_VERSION=7.9</span><br></pre></td></tr></table></figure></li>
+</ul>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#MySQL" >
-    <span class="tag-code">MySQL</span>
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
   </a>
 
       </div>
@@ -226,10 +224,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/02/17/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/">
+      <a class="nav-left" href="/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/">
         <span class="nav-arrow">← </span>
         
-          为知笔记服务器部署指南
+          解决 wordpress 的 comment_date 默认值无效的问题
         
       </a>
     
@@ -262,7 +260,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/02/17/解决-wordpress-的-comment_date-无效默认值的问题/';
+    var url = 'https://xzl2021.github.io/2026/02/18/查看-Linux-发行版名称和版本号的方法/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -325,7 +323,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E6%97%A0%E6%95%88%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E9%97%AE%E9%A2%98/';
+    var disqus_url = 'https://xzl2021.github.io/2026/02/18/%E6%9F%A5%E7%9C%8B-Linux-%E5%8F%91%E8%A1%8C%E7%89%88%E5%90%8D%E7%A7%B0%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95/';
     
     (function(){
       var dsq = document.createElement('script');

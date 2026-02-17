@@ -9,17 +9,17 @@
       </tags>
   </entry>
   <entry>
-    <title>2025春节快乐！</title>
-    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
+    <title>2026新年快乐！</title>
+    <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
-    <title>2026新年快乐！</title>
-    <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
+    <title>2025春节快乐！</title>
+    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -167,7 +167,7 @@ search:
   path: search.xml
   field: post
   content: true
-  format: striptags
+  format: raw
 ```
 
 4. 清理并重新生成网站，预览测试。
@@ -356,25 +356,6 @@ fi
       </tags>
   </entry>
   <entry>
-    <title>WiFi 密码查看器（PC版）</title>
-    <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
-    <content><![CDATA[
-![wifipasscheck-2021-12-31-14-13-5.png](https://imgsrc.01000010.xyz/2024/11/wifipasscheck-2021-12-31-14-13-5.png)
-
----
-
-软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
-
-下载地址：
-
-[https://www.lanzoux.com/iRlQEy6f7mj](https://www.lanzoux.com/iRlQEy6f7mj)
-
-密码:52pj]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Telegram 自动签到脚本</title>
     <url>/2017/09/28/Telegram-%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[# **注意：所有代码块前面都有行数，别看错了命令。**
@@ -510,6 +491,44 @@ fin
       </tags>
   </entry>
   <entry>
+    <title>WiFi 密码查看器（PC版）</title>
+    <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
+    <content><![CDATA[
+![wifipasscheck-2021-12-31-14-13-5.png](https://imgsrc.01000010.xyz/2024/11/wifipasscheck-2021-12-31-14-13-5.png)
+
+---
+
+软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
+
+下载地址：
+
+[https://www.lanzoux.com/iRlQEy6f7mj](https://www.lanzoux.com/iRlQEy6f7mj)
+
+密码:52pj]]></content>
+      <tags>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker 国内源</title>
+    <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <content><![CDATA[```bash
+mkdir -p /etc/docker
+
+tee /etc/docker/daemon.json <<- EOF
+{
+"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
+}
+EOF
+
+systemctl daemon-reload
+systemctl restart docker
+```]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>absolute 元素垂直水平居中</title>
     <url>/2017/07/10/absolute-%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/</url>
     <content><![CDATA[关于元素居中问题是个古老的话题，常见方法有 `table + table-cell` || `flex + justify-content + align-items`.
@@ -576,22 +595,60 @@ Fin.]]></content>
       </tags>
   </entry>
   <entry>
-    <title>docker 国内源</title>
-    <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-    <content><![CDATA[```bash
-mkdir -p /etc/docker
+    <title>git 常用配置</title>
+    <url>/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[### config 级别
+Git配置文件有三个级别，优先级如下：仓库级（local）> 全局级（global）> 系统级（system）
 
-tee /etc/docker/daemon.json <<- EOF
-{
-"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
-}
-EOF
+| 配置级别 | 位置 | 配置文件路径 |
+| --- | --- | --- |
+| 仓库级（local） | git 工作区间 | D:\myGitRepo\\.git\config |
+| 全局级（global） | C 盘 user 路径 | C:\Users\username\\.gitconfig |
+| 系统级（system） | git 安装目录 | C:\Program Files\Git\etc\gitconfig |
 
-systemctl daemon-reload
-systemctl restart docker
+
+### 查看 config
+```
+git config -l          				✅查看 所有级别 配置信息
+git config -l --local  				✅查看 仓库级别 配置信息
+git config -l --global 				✅查看 全局级别 配置信息
+git config -l --system 				✅查看 系统级别 配置信息
+git config -l --show-origin  			✅打印配置文件本地路径
+git config -l | grep core  			✅筛选指定配置
+```
+
+
+### 编辑 config
+```
+git config --global --add user.age 10             ✅增加
+git config --global --unset user.age              ✅删除
+git config --global user.email "xxxxx@mail.com"   ✅修改
+git config --global user.name "xxxxx"             ✅修改
+```
+
+
+### 常见配置
+```
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+git config --global http.version "HTTP/1.1"
+git config --global http.proxy "http://127.0.0.1:7890"
+git config --global https.proxy "http://127.0.0.1:7890"
+git config --global core.longpaths true
+git config --global core.ignorecase false
+```
+
+
+### 不常见配置
+```
+git config --global alia.st status
+✅给命令配置别名，用st代替status
+
+git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
+✅通过 Git 别名把复杂 format 封装
 ```]]></content>
       <tags>
-        <tag>Docker</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -680,99 +737,12 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 ]]></content>
   </entry>
   <entry>
-    <title>git 常用配置</title>
-    <url>/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[### config 级别
-Git配置文件有三个级别，优先级如下：仓库级（local）> 全局级（global）> 系统级（system）
-
-| 配置级别 | 位置 | 配置文件路径 |
-| --- | --- | --- |
-| 仓库级（local） | git 工作区间 | D:\myGitRepo\\.git\config |
-| 全局级（global） | C 盘 user 路径 | C:\Users\username\\.gitconfig |
-| 系统级（system） | git 安装目录 | C:\Program Files\Git\etc\gitconfig |
-
-
-### 查看 config
-```
-git config -l          				✅查看 所有级别 配置信息
-git config -l --local  				✅查看 仓库级别 配置信息
-git config -l --global 				✅查看 全局级别 配置信息
-git config -l --system 				✅查看 系统级别 配置信息
-git config -l --show-origin  			✅打印配置文件本地路径
-git config -l | grep core  			✅筛选指定配置
-```
-
-
-### 编辑 config
-```
-git config --global --add user.age 10             ✅增加
-git config --global --unset user.age              ✅删除
-git config --global user.email "xxxxx@mail.com"   ✅修改
-git config --global user.name "xxxxx"             ✅修改
-```
-
-
-### 常见配置
-```
-git config --global user.name "Your Name"
-git config --global user.email "your@email.com"
-git config --global http.version "HTTP/1.1"
-git config --global http.proxy "http://127.0.0.1:7890"
-git config --global https.proxy "http://127.0.0.1:7890"
-git config --global core.longpaths true
-git config --global core.ignorecase false
-```
-
-
-### 不常见配置
-```
-git config --global alia.st status
-✅给命令配置别名，用st代替status
-
-git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
-✅通过 Git 别名把复杂 format 封装
-```]]></content>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js 数组方法总结图</title>
     <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
     <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>shadowsocksR（简称SSR）使用教程（安卓版）</title>
-    <url>/2017/11/11/ssr-android/</url>
-    <content><![CDATA[### 一：下载SSR客户端
-[链接: https://pan.baidu.com/s/1kVGIuJP 密码: j6r6](https://pan.baidu.com/s/1kVGIuJP)
-
-<br/>
-
----
-### 二：使用SSR
-##### 第一步：修改配置
-
-![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201813.png)
-
-<br>
-
-![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201655.png)
-
-<br/>
-
-##### 第二步：进行连接
-
-![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201707.png)
-
-<br/>
-]]></content>
-      <tags>
-        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
@@ -815,6 +785,36 @@ git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -
 
 ##### 第三步：进行连接
 ![进行连接](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2252.PNG)
+]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shadowsocksR（简称SSR）使用教程（安卓版）</title>
+    <url>/2017/11/11/ssr-android/</url>
+    <content><![CDATA[### 一：下载SSR客户端
+[链接: https://pan.baidu.com/s/1kVGIuJP 密码: j6r6](https://pan.baidu.com/s/1kVGIuJP)
+
+<br/>
+
+---
+### 二：使用SSR
+##### 第一步：修改配置
+
+![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201813.png)
+
+<br>
+
+![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201655.png)
+
+<br/>
+
+##### 第二步：进行连接
+
+![修改配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/Screenshot_20180112-201707.png)
+
+<br/>
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
@@ -1136,6 +1136,15 @@ fin]]></content>
       </tags>
   </entry>
   <entry>
+    <title>元素的各种尺寸</title>
+    <url>/2017/07/10/%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8/</url>
+    <content><![CDATA[![sizeOfElem](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/sizeOfElem.gif)
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 CMD 导出导入注册表文件的两种方法</title>
     <url>/2022/05/03/%E4%BD%BF%E7%94%A8CMD%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[### 1、使用 REG.EXE 工具
@@ -1155,15 +1164,6 @@ regedit /s "path\to\your\file.reg"
 ]]></content>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>元素的各种尺寸</title>
-    <url>/2017/07/10/%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8/</url>
-    <content><![CDATA[![sizeOfElem](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/sizeOfElem.gif)
-]]></content>
-      <tags>
-        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -2120,6 +2120,52 @@ PS：如果你觉得慢的话，先私密分享你这个要下载的文件，然
       </tags>
   </entry>
   <entry>
+    <title>硬盘不同 RAID 类型的区别和优缺点</title>
+    <url>/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/</url>
+    <content><![CDATA[
+### RAID 0：
+最少需要两块盘，没用冗余数据，不做备份，任何一块磁盘损坏都无法运行。n 块磁盘（同类型）的阵列理论上读写速度是单块磁盘的 n 倍（实际达不到），风险性也是单一n倍（实际更高），是磁盘阵列中存储性能最好的。适用于安全性不高，但是要求性能比较高的图形工作站或者个人站。  
+　
+**优势**：数据读取写入最快，最大优势提高硬盘容量和读写速度，比如 3 块 80G 的硬盘做 RAID 0，可用总容量为 240G。速度接近 1 块的 3 倍。  
+**缺点**：无冗余能力，一块硬盘损坏，数据全无。  
+**建议**：做 RAID 0 可以提供更大的容量以及更好的性能，推荐对数据安全性要求不高的场景使用。  
+
+### RAID 1：
+至少需要两块盘，磁盘数量是 2 的 n 倍，每一块磁盘要有对应的备份盘，利用率是 50%，只要没有一对磁盘损坏就可以正常使用。n 组磁盘（2n 块同类型磁盘）的阵列理论上读取速度是单块磁盘的 n 倍（实际达不到），风险性是单一磁盘的 n 分之一（实际更低）。换盘后需要长时间的镜像同步，不影响外界访问，但整个系统性能下降。磁盘控制器负载比较大。适用于安全性较高，且能较快恢复数据的场景。
+　  
+**优势**：镜像备份，数据安全强，2 块硬盘做 RAID，一块正常运行，另外一块镜像备份数据，保障数据的安全。一块坏了，另外一块硬盘也有完整的数据，保障运行。  
+**缺点**：性能提示不明显，做 RAID 1 之后硬盘使用率为 50%.  
+**建议**：对数据安全性比较看重，性能没有太高要求的场景使用。  
+
+### RAID 5：
+至少需要 3 块盘，读取速度接近 RAID 0，但是安全性更高。安全性上接近 RAID 1，但是磁盘的利用率更高。可以认为是 RAID 0 和 RAID 1 的一个折中方案。只允许有一块盘出错，可以通过另外多块盘来计算出故障盘的数据，故障之后必须尽快更换。比 RAID 10 的磁盘利用率高，是目前比较常用的一种方案。  
+　
+**优势**：以上优势，RAID 5 兼顾。任意 N-1 块硬盘都有完整的数据。  
+**缺点**：只允许单盘故障，一盘出现故障得尽快处理。有盘坏情况下，RAID 5 IO/CPU 性能狂跌，此时性能烂到无以复加。  
+**建议**：盘不多，对数据安全性和性能提升都有要求，RAID 5 是个不错选择，鉴于出问题的性能，盘多可考虑 RAID 10.  
+
+### RAID 10：
+至少需要 4 块盘，磁盘数量也是 2 的 n 倍。RAID 10 是 2 块硬盘组成 RAID 1，2 块组成 RAID 0，所以必须需要 4 块硬盘。既有数据镜像备份，也能保证较高的读写速度。成本比较大。  
+　
+**优势**：兼顾安全性和速度。基础 4 盘的情况下，RAID 10 允许对柜盘 2 块故障，随着硬盘数量的提示，容错量也会相对应提升。这是 RAID 5 无法做到的。  
+**缺点**：对盘的数量要求稍高，磁盘使用率为一半。  
+**建议**：硬盘数量足够的情况，建议 RAID 10.  
+
+### 题外话：RAID 5 VS RAID 10
+只看盘的数量的话，RAID 5 的写性能不逊于 RAID 10。4 盘的情况下，RAID 10 提供 2 盘的写性能，RAID 5 提供 3 盘的写性能。但是，RAID 5 的校检体质，导致额外的 I0 和 CPU 使用。  
+　  
+不过 RAID 最重要的指标是可靠性：  
+4 盘的 RAID 5，只允许单盘故障，RAID 10，允许对柜盘 2 块故障，可靠性高于 RAID 5，且 RAID 10 可随盘上升提高容错，RAID 5 就不行，而且 IO 和 CPU 的额外开销还涂增，从可靠性和冗余角度，达到同样的可靠性，RAID 10 写能力高于 RAID 5.  
+　  
+特殊情况下：有坏盘，无热备  
+RAID 5 CPU 和 IO 性能狂跌。因为数据不完整，在某特殊软件下，实现即时重构数据进驻内存，保障业务运行，但此时 RAID 5 的性能已经烂到无以复加。  
+RAID 10 是条带化 + 镜像，坏盘影响读性能，不影响写性能，而且无需重构。此时的 RAID 10 完爆 RAID 5.  
+]]></content>
+      <tags>
+        <tag>计算机原理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>虚拟机 VMware Workstation Pro v3.x.x - v17.x.x</title>
     <url>/2024/08/12/%E8%99%9A%E6%8B%9F%E6%9C%BA-VMware-Workstation-Pro-v3-x-x-v17-x-x/</url>
     <content><![CDATA[鉴于 vmware 最近关闭了软件公开下载通道。现分享 VMware Workstation Pro 虚拟机 v3.x.x - v17.x.x 全版本客户端下载。
@@ -2169,52 +2215,6 @@ VMware-workstation-full-17.5.1-23298084.exe
       </tags>
   </entry>
   <entry>
-    <title>硬盘不同 RAID 类型的区别和优缺点</title>
-    <url>/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/</url>
-    <content><![CDATA[
-### RAID 0：
-最少需要两块盘，没用冗余数据，不做备份，任何一块磁盘损坏都无法运行。n 块磁盘（同类型）的阵列理论上读写速度是单块磁盘的 n 倍（实际达不到），风险性也是单一n倍（实际更高），是磁盘阵列中存储性能最好的。适用于安全性不高，但是要求性能比较高的图形工作站或者个人站。  
-　
-**优势**：数据读取写入最快，最大优势提高硬盘容量和读写速度，比如 3 块 80G 的硬盘做 RAID 0，可用总容量为 240G。速度接近 1 块的 3 倍。  
-**缺点**：无冗余能力，一块硬盘损坏，数据全无。  
-**建议**：做 RAID 0 可以提供更大的容量以及更好的性能，推荐对数据安全性要求不高的场景使用。  
-
-### RAID 1：
-至少需要两块盘，磁盘数量是 2 的 n 倍，每一块磁盘要有对应的备份盘，利用率是 50%，只要没有一对磁盘损坏就可以正常使用。n 组磁盘（2n 块同类型磁盘）的阵列理论上读取速度是单块磁盘的 n 倍（实际达不到），风险性是单一磁盘的 n 分之一（实际更低）。换盘后需要长时间的镜像同步，不影响外界访问，但整个系统性能下降。磁盘控制器负载比较大。适用于安全性较高，且能较快恢复数据的场景。
-　  
-**优势**：镜像备份，数据安全强，2 块硬盘做 RAID，一块正常运行，另外一块镜像备份数据，保障数据的安全。一块坏了，另外一块硬盘也有完整的数据，保障运行。  
-**缺点**：性能提示不明显，做 RAID 1 之后硬盘使用率为 50%.  
-**建议**：对数据安全性比较看重，性能没有太高要求的场景使用。  
-
-### RAID 5：
-至少需要 3 块盘，读取速度接近 RAID 0，但是安全性更高。安全性上接近 RAID 1，但是磁盘的利用率更高。可以认为是 RAID 0 和 RAID 1 的一个折中方案。只允许有一块盘出错，可以通过另外多块盘来计算出故障盘的数据，故障之后必须尽快更换。比 RAID 10 的磁盘利用率高，是目前比较常用的一种方案。  
-　
-**优势**：以上优势，RAID 5 兼顾。任意 N-1 块硬盘都有完整的数据。  
-**缺点**：只允许单盘故障，一盘出现故障得尽快处理。有盘坏情况下，RAID 5 IO/CPU 性能狂跌，此时性能烂到无以复加。  
-**建议**：盘不多，对数据安全性和性能提升都有要求，RAID 5 是个不错选择，鉴于出问题的性能，盘多可考虑 RAID 10.  
-
-### RAID 10：
-至少需要 4 块盘，磁盘数量也是 2 的 n 倍。RAID 10 是 2 块硬盘组成 RAID 1，2 块组成 RAID 0，所以必须需要 4 块硬盘。既有数据镜像备份，也能保证较高的读写速度。成本比较大。  
-　
-**优势**：兼顾安全性和速度。基础 4 盘的情况下，RAID 10 允许对柜盘 2 块故障，随着硬盘数量的提示，容错量也会相对应提升。这是 RAID 5 无法做到的。  
-**缺点**：对盘的数量要求稍高，磁盘使用率为一半。  
-**建议**：硬盘数量足够的情况，建议 RAID 10.  
-
-### 题外话：RAID 5 VS RAID 10
-只看盘的数量的话，RAID 5 的写性能不逊于 RAID 10。4 盘的情况下，RAID 10 提供 2 盘的写性能，RAID 5 提供 3 盘的写性能。但是，RAID 5 的校检体质，导致额外的 I0 和 CPU 使用。  
-　  
-不过 RAID 最重要的指标是可靠性：  
-4 盘的 RAID 5，只允许单盘故障，RAID 10，允许对柜盘 2 块故障，可靠性高于 RAID 5，且 RAID 10 可随盘上升提高容错，RAID 5 就不行，而且 IO 和 CPU 的额外开销还涂增，从可靠性和冗余角度，达到同样的可靠性，RAID 10 写能力高于 RAID 5.  
-　  
-特殊情况下：有坏盘，无热备  
-RAID 5 CPU 和 IO 性能狂跌。因为数据不完整，在某特殊软件下，实现即时重构数据进驻内存，保障业务运行，但此时 RAID 5 的性能已经烂到无以复加。  
-RAID 10 是条带化 + 镜像，坏盘影响读性能，不影响写性能，而且无需重构。此时的 RAID 10 完爆 RAID 5.  
-]]></content>
-      <tags>
-        <tag>计算机原理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 ssh 不操作就自动掉线问题</title>
     <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
@@ -2233,6 +2233,25 @@ sudo service sshd restart
 - **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通达信 752 开心果版 20210303 无限时间</title>
+    <url>/2022/01/02/%E9%80%9A%E8%BE%BE%E4%BF%A1752%E5%BC%80%E5%BF%83%E6%9E%9C%E7%89%8820210303%E6%97%A0%E9%99%90%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[
+![2022-1-1-16-42-51.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-42-51.png)
+
+![2022-1-1-16-44-24-1024x555.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-44-24-1024x555.png)
+
+![2022-1-1-16-45-58-1024x555.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-45-58-1024x555.png)
+
+---
+
+软件下载地址：
+
+[https://www.lanzoux.com/icjd9y8306b](https://www.lanzoux.com/icjd9y8306b)]]></content>
+      <tags>
+        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
@@ -2286,25 +2305,6 @@ SELECT @@GLOBAL.sql_mode;
 ```]]></content>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通达信 752 开心果版 20210303 无限时间</title>
-    <url>/2022/01/02/%E9%80%9A%E8%BE%BE%E4%BF%A1752%E5%BC%80%E5%BF%83%E6%9E%9C%E7%89%8820210303%E6%97%A0%E9%99%90%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[
-![2022-1-1-16-42-51.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-42-51.png)
-
-![2022-1-1-16-44-24-1024x555.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-44-24-1024x555.png)
-
-![2022-1-1-16-45-58-1024x555.png](https://imgsrc.01000010.xyz/2024/11/2022-1-1-16-45-58-1024x555.png)
-
----
-
-软件下载地址：
-
-[https://www.lanzoux.com/icjd9y8306b](https://www.lanzoux.com/icjd9y8306b)]]></content>
-      <tags>
-        <tag>资源分享</tag>
       </tags>
   </entry>
 </search>

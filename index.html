@@ -183,6 +183,29 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/">解决 ssh 不操作就自动掉线问题</a>
+      </h2>
+      <p class="article-date">February 17, 2026</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。在 /etc/ssh/sshd_config 文件里添加以下两行:
+ClientAliveInterval 15ClientAliveCountMax 45
+
+重启  ...
+        
+      </div>
+      <a class="more" href="/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/">docker 国内源</a>
       </h2>
       <p class="article-date">February 9, 2026</p>
@@ -756,29 +779,6 @@ Python 学习手册（第五版）高清英文 带完整书签 可复制文字 �
         
       </div>
       <a class="more" href="/2019/08/04/%E7%A1%AC%E7%9B%98%E4%B8%8D%E5%90%8C-RAID-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/08/12/Google-BBR/">Google BBR的部署</a>
-      </h2>
-      <p class="article-date">August 12, 2018</p>
-      
-        
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          开机后 uname -r 看看是不是内核 &gt;&#x3D; 4.9
-执行 lsmod | grep bbr，如果结果中没有 tcp_bbr 的话就先执行
-modprobe tcp_bbr    #加载内核的bbr模块
-echo &quot;tcp_bbr&quot; &gt;&gt; / ...
-        
-      </div>
-      <a class="more" href="/2018/08/12/Google-BBR/">Read more</a>
     </article>
   
 

@@ -10,7 +10,7 @@
   
   <title>
     
-      docker 国内源 | 阿良の小屋
+      解决 ssh 不操作就自动掉线问题 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>docker 国内源</h2>
-  <p class="post-date">2026-02-09</p>
+  <h2>解决 ssh 不操作就自动掉线问题</h2>
+  <p class="post-date">2026-02-17</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,14 +189,24 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/docker</span><br><span class="line"></span><br><span class="line"><span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;- <span class="string">EOF</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;: [&quot;https://docker.1panel.live/&quot;, &quot;https://docker.m.daocloud.io&quot;, &quot;https://noohub.ru&quot;, &quot;https://huecker.io&quot;, &quot;https://dockerhub.timeweb.cloud&quot;, &quot;https://docker.xuanyuan.me&quot;]</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></section>
+    <section class="markdown-content"><p>vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。<br>在 <code>/etc/ssh/sshd_config</code> 文件里添加以下两行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ClientAliveInterval 15</span><br><span class="line">ClientAliveCountMax 45</span><br></pre></td></tr></table></figure>
+
+<p>重启 sshd 服务：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service sshd restart</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>ClientAliveInterval</strong>：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。</li>
+<li><strong>ClientAliveCountMax</strong>：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。</li>
+</ul>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Docker" >
-    <span class="tag-code">Docker</span>
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
   </a>
 
       </div>
@@ -207,20 +217,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/">
+      <a class="nav-left" href="/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/">
         <span class="nav-arrow">← </span>
         
-          git 常用配置
+          docker 国内源
         
       </a>
     
-    
-      <a class="nav-right" href="/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/">
-        
-          解决 ssh 不操作就自动掉线问题
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -250,7 +253,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/02/09/docker-国内源/';
+    var url = 'https://xzl2021.github.io/2026/02/17/解决-ssh-不操作就自动掉线问题/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -313,7 +316,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/';
+    var disqus_url = 'https://xzl2021.github.io/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/';
     
     (function(){
       var dsq = document.createElement('script');

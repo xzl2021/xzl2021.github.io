@@ -9,17 +9,17 @@
       </tags>
   </entry>
   <entry>
-    <title>2025春节快乐！</title>
-    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
+    <title>2026新年快乐！</title>
+    <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
-    <title>2026新年快乐！</title>
-    <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
+    <title>2025春节快乐！</title>
+    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -37,52 +37,6 @@
 ---]]></content>
       <tags>
         <tag>投资理财</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GDriveFS 挂载 Google Drive</title>
-    <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
-    <content><![CDATA[不支持OpenVZ架构.
-
-### 1. 安装
-```
-$ sudo apt-get install python-pip
-$ sudo apt-get install build-essential python-dev
-$ sudo pip install gdrivefs
-```
-<br>
-### 2. 授权
-生成授权网址：
-```
-$ gdfstool auth -u
-```
-写入授权文件：
-```
-$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
-Authorization code recorded.
-```
-<br>
-### 3. 挂载
-```
-$ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
-```
-<br>
-### 4. 解挂
-```
-$ umount -l /root/googledrive/
-```
-<br>
-### 5. 登陆时自动挂载
-```
-$ vim /root/.profile
-```
-加一行：
-```
-mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
-```
-]]></content>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -146,6 +100,52 @@ sysctl net.ipv4.tcp_congestion_control
       </tags>
   </entry>
   <entry>
+    <title>GDriveFS 挂载 Google Drive</title>
+    <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
+    <content><![CDATA[不支持OpenVZ架构.
+
+### 1. 安装
+```
+$ sudo apt-get install python-pip
+$ sudo apt-get install build-essential python-dev
+$ sudo pip install gdrivefs
+```
+<br>
+### 2. 授权
+生成授权网址：
+```
+$ gdfstool auth -u
+```
+写入授权文件：
+```
+$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
+Authorization code recorded.
+```
+<br>
+### 3. 挂载
+```
+$ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
+```
+<br>
+### 4. 解挂
+```
+$ umount -l /root/googledrive/
+```
+<br>
+### 5. 登陆时自动挂载
+```
+$ vim /root/.profile
+```
+加一行：
+```
+mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
+```
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo 博客的 Vexo 主题使用 LocalSearch</title>
     <url>/2026/02/18/Hexo-%E5%8D%9A%E5%AE%A2%E7%9A%84-Vexo-%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8-LocalSearch/</url>
     <content><![CDATA[1. 修改 vexo 主题的配置文件，确保 local_search 是启用的
@@ -179,6 +179,105 @@ hexo s
 ]]></content>
       <tags>
         <tag>建站教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux /etc/passwd 内容解释（超详细）</title>
+    <url>/2026/02/18/Linux-etc-passwd-%E5%86%85%E5%AE%B9%E8%A7%A3%E9%87%8A-%E8%B6%85%E8%AF%A6%E7%BB%86/</url>
+    <content><![CDATA[
+Linux 系统中的 `/etc/passwd` 文件，是系统用户配置文件，存储了系统中所有用户的基本信息，并且所有用户都可以对此文件执行读操作。
+
+首先我们来打开这个文件，看看到底包含哪些内容，执行命令如下：
+```bash
+cat /etc/passwd
+#查看一下文件内容
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+…省略部分输出…
+```
+
+可以看到，`/etc/passwd` 文件中的内容非常规律，每行记录对应一个用户。
+
+读者可能会问，Linux 系统中默认怎么会有这么多的用户？这些用户中的绝大多数是系统或服务正常运行所必需的用户，这种用户通常称为系统用户或伪用户。系统用户无法用来登录系统，但也不能删除，因为一旦删除，依赖这些用户运行的服务或程序就不能正常执行，会导致系统问题。
+
+不仅如此，每行用户信息都以 ":" 作为分隔符，划分为 7 个字段，每个字段所表示的含义如下：
+
+用户名 : 密码 : UID（用户ID） : GID（组ID） : 描述性信息 : 主目录 : 默认Shell
+
+接下来，给大家逐个介绍这些字段。
+
+### 用户名
+用户名，就是一串代表用户身份的字符串。
+
+前面讲过，用户名仅是为了方便用户记忆，Linux 系统是通过 UID 来识别用户身份，分配用户权限的。`/etc/passwd` 文件中就定义了用户名和 UID 之间的对应关系。
+
+### 密码
+"x" 表示此用户设有密码，但不是真正的密码，真正的密码保存在 `/etc/shadow` 文件中。
+
+在早期的 UNIX 中，这里保存的就是真正的加密密码串，但由于所有程序都能读取此文件，非常容易造成用户数据被窃取。
+
+虽然密码是加密的，但是采用暴力破解的方式也是能够进行破解的。
+
+因此，现在 Linux 系统把真正的加密密码串放置在 `/etc/shadow` 文件中，此文件只有 root 用户可以浏览和操作，这样就最大限度地保证了密码的安全。
+
+需要注意的是，虽然 "x" 并不表示真正的密码，但也不能删除，如果删除了 "x"，那么系统会认为这个用户没有密码，从而导致只输入用户名而不用输入密码就可以登陆（只能在使用无密码登录，远程是不可以的），除非特殊情况（如破解用户密码），这当然是不可行的。
+
+### UID
+UID，也就是用户 ID。每个用户都有唯一的一个 UID，Linux 系统通过 UID 来识别不同的用户。
+
+实际上，UID 就是一个 0~65535 之间的数，不同范围的数字表示不同的用户身份，具体如表所示：
+
+| UID范围 | 用户身份 |
+| --- | --- |
+| 0 | 超级用户。UID 为 0 就代表这个账号是管理员账号。在 Linux 中，如何把普通用户升级成管理员呢？只需把其他用户的 UID 修改为 0 就可以了，这一点和 Windows 是不同的。不过不建议建立多个管理员账号。|
+| 1~499 | 系统用户（伪用户）。也就是说，此范围的 UID 保留给系统使用。其中，1~99 用于系统自行创建的账号；100~499 分配给有系统账号需求的用户。 <br/> 其实，除了 0 之外，其他的 UID 并无不同，这里只是默认 500 以下的数字给系统作为保留账户，只是一个公认的习惯而已。 |
+| 500~65535 | 普通用户。通常这些 UID 已经足够用户使用了。但不够用也没关系，2.6.x 内核之后的 Linux 系统已经可以支持 232 个 UID 了。 |
+
+### GID
+全称 “Group ID”，简称 “组ID”，表示用户初始组的组 ID 号。这里需要解释一下初始组和附加组的概念。
+
+初始组，指用户登陆时就拥有这个用户组的相关权限。每个用户的初始组只能有一个，通常就是将和此用户的用户名相同的组名作为该用户的初始组。比如说，我们手工添加用户 lamp，在建立用户 lamp 的同时，就会建立 lamp 组作为 lamp 用户的初始组。
+
+附加组，指用户可以加入多个其他的用户组，并拥有这些组的权限。每个用户只能有一个初始组，除初始组外，用户再加入其他的用户组，这些用户组就是这个用户的附加组。附加组可以有多个，而且用户可以有这些附加组的权限。
+
+举例来说，刚刚的 lamp 用户除属于初始组 lamp 外，我又把它加入了 users 组，那么 lamp 用户同时属于 lamp 组和 users 组，其中 lamp 是初始组，users 是附加组。
+
+当然，初始组和附加组的身份是可以修改的，但是我们在工作中不修改初始组，只修改附加组，因为修改了初始组有时会让管理员逻辑混乱。
+
+需要注意的是，在 `/etc/passwd` 文件的第四个字段中看到的 ID 是这个用户的初始组。
+
+### 描述性信息
+这个字段并没有什么重要的用途，只是用来解释这个用户的意义而已。
+
+### 主目录
+也就是用户登录后有操作权限的访问目录，通常称为用户的主目录。
+
+例如，root 超级管理员账户的主目录为 `/root`，普通用户的主目录为 `/home/yourusername`，即在 `/home/` 目录下建立和用户名相同的目录作为主目录，如 lamp 用户的主目录就是 `/home/lamp/` 目录。
+
+### 默认的 Shell
+Shell 就是 Linux 的命令解释器，是用户和 Linux 内核之间沟通的桥梁。
+
+我们知道，用户登陆 Linux 系统后，通过使用 Linux 命令完成操作任务，但系统只认识类似 0101 的机器语言，这里就需要使用命令解释器。也就是说，Shell 命令解释器的功能就是将用户输入的命令转换成系统可以识别的机器语言。
+
+通常情况下，Linux 系统默认使用的命令解释器是 bash（`/bin/bash`），当然还有其他命令解释器，例如 sh、csh 等。
+
+在 `/etc/passwd` 文件中，大家可以把这个字段理解为用户登录之后所拥有的权限。如果这里使用的是 bash 命令解释器，就代表这个用户拥有权限范围内的所有权限。
+
+如果我把用户的 Shell 命令解释器修改为 `/sbin/nologin`，那么，这个用户就不能登录了.
+
+因为 `/sbin/nologin` 就是禁止登录的 Shell。同样，如果我在这里放入的系统命令，如 `/usr/bin/passwd`，例如：
+```bash
+cat /etc/passwd
+lamp:x:502:502::/home/lamp:/usr/bin/passwd
+```
+
+那么这个用户可以登录，但登录之后就只能修改自己的密码。
+
+但是，这里不能随便写入和登陆没有关系的命令（如 ls），系统不会识别这些命令，同时也就意味着这个用户不能登录。]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -356,6 +455,25 @@ fi
       </tags>
   </entry>
   <entry>
+    <title>WiFi 密码查看器（PC版）</title>
+    <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
+    <content><![CDATA[
+![wifipasscheck-2021-12-31-14-13-5.png](https://imgsrc.01000010.xyz/2024/11/wifipasscheck-2021-12-31-14-13-5.png)
+
+---
+
+软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
+
+下载地址：
+
+[https://www.lanzoux.com/iRlQEy6f7mj](https://www.lanzoux.com/iRlQEy6f7mj)
+
+密码:52pj]]></content>
+      <tags>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Telegram 自动签到脚本</title>
     <url>/2017/09/28/Telegram-%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[# **注意：所有代码块前面都有行数，别看错了命令。**
@@ -491,25 +609,6 @@ fin
       </tags>
   </entry>
   <entry>
-    <title>WiFi 密码查看器（PC版）</title>
-    <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
-    <content><![CDATA[
-![wifipasscheck-2021-12-31-14-13-5.png](https://imgsrc.01000010.xyz/2024/11/wifipasscheck-2021-12-31-14-13-5.png)
-
----
-
-软件作用：可以查看电脑曾经连接过的 WiFi 名称以及 WiFi 密码。
-
-下载地址：
-
-[https://www.lanzoux.com/iRlQEy6f7mj](https://www.lanzoux.com/iRlQEy6f7mj)
-
-密码:52pj]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>absolute 元素垂直水平居中</title>
     <url>/2017/07/10/absolute-%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/</url>
     <content><![CDATA[关于元素居中问题是个古老的话题，常见方法有 `table + table-cell` || `flex + justify-content + align-items`.
@@ -536,6 +635,25 @@ fin
 ]]></content>
       <tags>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker 国内源</title>
+    <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <content><![CDATA[```bash
+mkdir -p /etc/docker
+
+tee /etc/docker/daemon.json <<- EOF
+{
+"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
+}
+EOF
+
+systemctl daemon-reload
+systemctl restart docker
+```]]></content>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -707,25 +825,6 @@ chmod 775 /data/mywordpress/wp-content  # 修改权限以允许上传文件
       </tags>
   </entry>
   <entry>
-    <title>docker 国内源</title>
-    <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-    <content><![CDATA[```bash
-mkdir -p /etc/docker
-
-tee /etc/docker/daemon.json <<- EOF
-{
-"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
-}
-EOF
-
-systemctl daemon-reload
-systemctl restart docker
-```]]></content>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ffmpeg 截取视频</title>
     <url>/2022/09/25/ffmpeg-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[简单命令：
@@ -758,51 +857,6 @@ ffmpeg -ss 00:00:00 -to 00:00:05 -i input.mp4 -c:v libx264 -c:a aac -crf 21 outp
 ---
 
 Fin.]]></content>
-      <tags>
-        <tag>FFmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ffmpeg 调整视频分辨率</title>
-    <url>/2026/02/18/ffmpeg-%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E5%88%86%E8%BE%A8%E7%8E%87/</url>
-    <content><![CDATA[- ### 调整视频分辨率用 -s 参数
-```
-1、用 -s 参数设置视频分辨率，参数值 wxh，w宽度单位是像素，h高度单位是像素
-ffmpeg -i input_file -s 320x240 output_file
-
-2、预定义的视频尺寸
-下面两条命令有相同效果
-ffmpeg -i input.avi -s 640x480 output.avi
-ffmpeg -i input.avi -s vga output.avi
-```
-
-- ### 使用 Scale filter 调整分辨率
-```
-scale filter的优点是可以使用一些额外的参数
--vf scale=width:height
-	
-下面两条命令有相同效果
-ffmpeg -i input.mpg -s 320x240 output.mp4 
-ffmpeg -i input.mpg -vf scale=320:240 output.mp4
-
-对输入视频成比例缩放
-改变为源视频一半大小
-ffmpeg -i input.mpg -vf scale=iw/2:ih/2 output.mp4
-改变为原视频的90%大小：
-ffmpeg -i input.mpg -vf scale=iw*0.9:ih*0.9 output.mp4
-```
-
-- ### 在未知视频的分辨率时，保证调整的分辨率与源视频有相同的横纵比。
-可能会有错误，不推荐使用，最好传入明确的缩放值。
-另外，scale 只能接受偶数，否则 height not divisible by 2.
-```
-宽度固定400，高度成比例：
-ffmpeg -i input.avi -vf scale=400:-2 output.mp4
-
-相反地，高度固定300，宽度成比例：
-ffmpeg -i input.avi -vf scale=-2:300 output.mp4
-```
-]]></content>
       <tags>
         <tag>FFmpeg</tag>
       </tags>
@@ -865,6 +919,51 @@ git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -
       </tags>
   </entry>
   <entry>
+    <title>ffmpeg 调整视频分辨率</title>
+    <url>/2026/02/18/ffmpeg-%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E5%88%86%E8%BE%A8%E7%8E%87/</url>
+    <content><![CDATA[- ### 调整视频分辨率用 -s 参数
+```
+1、用 -s 参数设置视频分辨率，参数值 wxh，w宽度单位是像素，h高度单位是像素
+ffmpeg -i input_file -s 320x240 output_file
+
+2、预定义的视频尺寸
+下面两条命令有相同效果
+ffmpeg -i input.avi -s 640x480 output.avi
+ffmpeg -i input.avi -s vga output.avi
+```
+
+- ### 使用 Scale filter 调整分辨率
+```
+scale filter的优点是可以使用一些额外的参数
+-vf scale=width:height
+	
+下面两条命令有相同效果
+ffmpeg -i input.mpg -s 320x240 output.mp4 
+ffmpeg -i input.mpg -vf scale=320:240 output.mp4
+
+对输入视频成比例缩放
+改变为源视频一半大小
+ffmpeg -i input.mpg -vf scale=iw/2:ih/2 output.mp4
+改变为原视频的90%大小：
+ffmpeg -i input.mpg -vf scale=iw*0.9:ih*0.9 output.mp4
+```
+
+- ### 在未知视频的分辨率时，保证调整的分辨率与源视频有相同的横纵比。
+可能会有错误，不推荐使用，最好传入明确的缩放值。
+另外，scale 只能接受偶数，否则 height not divisible by 2.
+```
+宽度固定400，高度成比例：
+ffmpeg -i input.avi -vf scale=400:-2 output.mp4
+
+相反地，高度固定300，宽度成比例：
+ffmpeg -i input.avi -vf scale=-2:300 output.mp4
+```
+]]></content>
+      <tags>
+        <tag>FFmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2017/07/10/hello-world/</url>
     <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
@@ -905,15 +1004,6 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 ]]></content>
   </entry>
   <entry>
-    <title>js 数组方法总结图</title>
-    <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
-    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>shadowsocksR（简称SSR）使用教程（安卓版）</title>
     <url>/2017/11/11/ssr-android/</url>
     <content><![CDATA[### 一：下载SSR客户端
@@ -941,6 +1031,15 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js 数组方法总结图</title>
+    <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
+    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1304,28 +1403,6 @@ fin]]></content>
       </tags>
   </entry>
   <entry>
-    <title>使用 CMD 导出导入注册表文件的两种方法</title>
-    <url>/2022/05/03/%E4%BD%BF%E7%94%A8CMD%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[### 1、使用 REG.EXE 工具
-```
-REG EXPORT "HKCU\Software\Raptisoft\Hamsterball" "path\to\your\file.reg"
-REG IMPORT "path\to\your\file.reg"
-```
-
-### 2、使用 Regedit.exe 工具
-```
-regedit /e "path\to\your\file.reg" "HKCU\Software\Raptisoft\Hamsterball"
-regedit /s "path\to\your\file.reg"
-```
-
----
-
-]]></content>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>元素的各种尺寸</title>
     <url>/2017/07/10/%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8/</url>
     <content><![CDATA[![sizeOfElem](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/sizeOfElem.gif)
@@ -1417,7 +1494,7 @@ muted 视频静音 （当 muted 等于 true 时，视频将会 默认静音播�
   </entry>
   <entry>
     <title>如何在 WordPress 中调整最大文件上传大小</title>
-    <url>/2026/02/18/%E5%A6%82%E4%BD%95%E5%9C%A8%20WordPress%20%E4%B8%AD%E8%B0%83%E6%95%B4%E6%9C%80%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F/</url>
+    <url>/2026/02/18/%E5%A6%82%E4%BD%95%E5%9C%A8-WordPress-%E4%B8%AD%E8%B0%83%E6%95%B4%E6%9C%80%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F/</url>
     <content><![CDATA[- ### 方法一：修改wp-config.php文件
 请将如下代码添加到 `wp-config.php` 文件末尾，下面代码中的最大文件上传大小是 128M，如果你要改成 256M 或其他数值，请将第 1、2 行同时改为相同数值。
 ```php
@@ -1440,6 +1517,28 @@ upload_max_filesize = 100M
 Fin.]]></content>
       <tags>
         <tag>建站教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 CMD 导出导入注册表文件的两种方法</title>
+    <url>/2022/05/03/%E4%BD%BF%E7%94%A8CMD%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[### 1、使用 REG.EXE 工具
+```
+REG EXPORT "HKCU\Software\Raptisoft\Hamsterball" "path\to\your\file.reg"
+REG IMPORT "path\to\your\file.reg"
+```
+
+### 2、使用 Regedit.exe 工具
+```
+regedit /e "path\to\your\file.reg" "HKCU\Software\Raptisoft\Hamsterball"
+regedit /s "path\to\your\file.reg"
+```
+
+---
+
+]]></content>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1634,6 +1733,19 @@ Fin.]]></content>
       </tags>
   </entry>
   <entry>
+    <title>油画展</title>
+    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
+    <content><![CDATA[
+![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
+
+![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
+
+![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>查看 Linux 发行版名称和版本号的方法</title>
     <url>/2026/02/18/%E6%9F%A5%E7%9C%8B-Linux-%E5%8F%91%E8%A1%8C%E7%89%88%E5%90%8D%E7%A7%B0%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[### /etc/*-release 文件
@@ -1721,19 +1833,6 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
 ```]]></content>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>油画展</title>
-    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
-    <content><![CDATA[
-![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
-
-![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
-
-![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
-      <tags>
-        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
@@ -2424,6 +2523,27 @@ VMware-workstation-full-17.5.1-23298084.exe
       </tags>
   </entry>
   <entry>
+    <title>解决 ssh 不操作就自动掉线问题</title>
+    <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
+在 `/etc/ssh/sshd_config` 文件里添加以下两行:
+```bash
+ClientAliveInterval 15
+ClientAliveCountMax 45
+```
+
+重启 sshd 服务：
+```bash
+sudo service sshd restart
+```
+
+- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
+- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 wordpress 的 comment_date 默认值无效的问题</title>
     <url>/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[安装好了 wordpress，今天 MySQL 数据库 `ALTER TABLE wp_comments` 时出现了报错：
@@ -2493,27 +2613,6 @@ SELECT @@GLOBAL.sql_mode;
 [https://www.lanzoux.com/icjd9y8306b](https://www.lanzoux.com/icjd9y8306b)]]></content>
       <tags>
         <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 ssh 不操作就自动掉线问题</title>
-    <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
-在 `/etc/ssh/sshd_config` 文件里添加以下两行:
-```bash
-ClientAliveInterval 15
-ClientAliveCountMax 45
-```
-
-重启 sshd 服务：
-```bash
-sudo service sshd restart
-```
-
-- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
-- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
 </search>

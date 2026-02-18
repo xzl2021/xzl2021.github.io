@@ -40,29 +40,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CRC32 编辑器</title>
-    <url>/2022/01/04/CRC32%E7%BC%96%E8%BE%91%E5%99%A8/</url>
-    <content><![CDATA[
-![CRC32-2022-1-4-20-45-37.png](https://imgsrc.01000010.xyz/2024/11/CRC32-2022-1-4-20-45-37.png)
-
----
-
-软件用途：修改文件的 CRC32 校验值，可以修改为自定义值。
-
-下载地址：
-
-https://www.lanzoux.com/iNxgDp23o0j
-
-密码：1qdd
-
----
-
-]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GDriveFS 挂载 Google Drive</title>
     <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
     <content><![CDATA[不支持OpenVZ架构.
@@ -106,6 +83,29 @@ mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/ca
 ]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CRC32 编辑器</title>
+    <url>/2022/01/04/CRC32%E7%BC%96%E8%BE%91%E5%99%A8/</url>
+    <content><![CDATA[
+![CRC32-2022-1-4-20-45-37.png](https://imgsrc.01000010.xyz/2024/11/CRC32-2022-1-4-20-45-37.png)
+
+---
+
+软件用途：修改文件的 CRC32 校验值，可以修改为自定义值。
+
+下载地址：
+
+https://www.lanzoux.com/iNxgDp23o0j
+
+密码：1qdd
+
+---
+
+]]></content>
+      <tags>
+        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
@@ -539,25 +539,6 @@ fin
       </tags>
   </entry>
   <entry>
-    <title>docker 国内源</title>
-    <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-    <content><![CDATA[```bash
-mkdir -p /etc/docker
-
-tee /etc/docker/daemon.json <<- EOF
-{
-"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
-}
-EOF
-
-systemctl daemon-reload
-systemctl restart docker
-```]]></content>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alpine Linux 3.23 下搭建 WordPress 教程</title>
     <url>/2026/02/18/alpine-linux-3-23-%E4%B8%8B-wordpress-%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[### 一、安装 docker 版 mysql 数据库：
@@ -677,6 +658,8 @@ server {
     location ~ \.php$ {
         fastcgi_pass 127.0.0.1:9001;
         fastcgi_index index.php;
+        fastcgi_buffers 16 16k;
+        fastcgi_buffer_size 32k;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
@@ -721,6 +704,25 @@ chmod 775 /data/mywordpress/wp-content  # 修改权限以允许上传文件
 ]]></content>
       <tags>
         <tag>建站教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker 国内源</title>
+    <url>/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <content><![CDATA[```bash
+mkdir -p /etc/docker
+
+tee /etc/docker/daemon.json <<- EOF
+{
+"registry-mirrors": ["https://docker.1panel.live/", "https://docker.m.daocloud.io", "https://noohub.ru", "https://huecker.io", "https://dockerhub.timeweb.cloud", "https://docker.xuanyuan.me"]
+}
+EOF
+
+systemctl daemon-reload
+systemctl restart docker
+```]]></content>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1414,6 +1416,33 @@ muted 视频静音 （当 muted 等于 true 时，视频将会 默认静音播�
       </tags>
   </entry>
   <entry>
+    <title>如何在 WordPress 中调整最大文件上传大小</title>
+    <url>/2026/02/18/%E5%A6%82%E4%BD%95%E5%9C%A8%20WordPress%20%E4%B8%AD%E8%B0%83%E6%95%B4%E6%9C%80%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F/</url>
+    <content><![CDATA[- ### 方法一：修改wp-config.php文件
+请将如下代码添加到 `wp-config.php` 文件末尾，下面代码中的最大文件上传大小是 128M，如果你要改成 256M 或其他数值，请将第 1、2 行同时改为相同数值。
+```php
+@ini_set( 'upload_max_filesize' , '128M' );
+@ini_set( 'post_max_size', '128M');
+@ini_set( 'memory_limit', '256M' );
+@ini_set( 'max_execution_time', '300' );
+@ini_set( 'max_input_time', '300' );
+```
+
+- ### 方法二：修改 php 配置文件
+找到 `/etc/php7/php.ini`，同时修改其中的两行：
+```
+post_max_size = 100M
+upload_max_filesize = 100M
+```
+
+---
+
+Fin.]]></content>
+      <tags>
+        <tag>建站教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>性能测试及常用工具</title>
     <url>/2020/06/02/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[### 软件的六大特性：
@@ -1695,6 +1724,19 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
       </tags>
   </entry>
   <entry>
+    <title>油画展</title>
+    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
+    <content><![CDATA[
+![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
+
+![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
+
+![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>炒股神技之老鹰抓鱼</title>
     <url>/2026/02/18/%E7%82%92%E8%82%A1%E7%A5%9E%E6%8A%80%E4%B9%8B%E8%80%81%E9%B9%B0%E6%8A%93%E9%B1%BC/</url>
     <content><![CDATA[```
@@ -1706,19 +1748,6 @@ CROSS(EMA(LOW,30)*0.618,EMA(LOW,3));
 Fin.]]></content>
       <tags>
         <tag>投资理财</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>油画展</title>
-    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
-    <content><![CDATA[
-![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
-
-![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
-
-![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
-      <tags>
-        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
@@ -2395,27 +2424,6 @@ VMware-workstation-full-17.5.1-23298084.exe
       </tags>
   </entry>
   <entry>
-    <title>解决 ssh 不操作就自动掉线问题</title>
-    <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
-在 `/etc/ssh/sshd_config` 文件里添加以下两行:
-```bash
-ClientAliveInterval 15
-ClientAliveCountMax 45
-```
-
-重启 sshd 服务：
-```bash
-sudo service sshd restart
-```
-
-- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
-- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 wordpress 的 comment_date 默认值无效的问题</title>
     <url>/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[安装好了 wordpress，今天 MySQL 数据库 `ALTER TABLE wp_comments` 时出现了报错：
@@ -2485,6 +2493,27 @@ SELECT @@GLOBAL.sql_mode;
 [https://www.lanzoux.com/icjd9y8306b](https://www.lanzoux.com/icjd9y8306b)]]></content>
       <tags>
         <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 ssh 不操作就自动掉线问题</title>
+    <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
+在 `/etc/ssh/sshd_config` 文件里添加以下两行:
+```bash
+ClientAliveInterval 15
+ClientAliveCountMax 45
+```
+
+重启 sshd 服务：
+```bash
+sudo service sshd restart
+```
+
+- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
+- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>

@@ -558,6 +558,172 @@ systemctl restart docker
       </tags>
   </entry>
   <entry>
+    <title>Alpine Linux 3.23 下搭建 WordPress 教程</title>
+    <url>/2026/02/18/alpine-linux-3-23-%E4%B8%8B-wordpress-%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[### 一、安装 docker 版 mysql 数据库：
+
+```bash
+# 安装 Docker 引擎
+sudo apk update
+sudo apk add docker docker-compose mysql-client
+
+# 启动 Docker 并设置开机自启 
+sudo rc-service docker start 
+sudo rc-update add docker default
+
+# 创建 MySQL 数据目录（持久化数据）
+sudo mkdir -p /opt/mysql57/data
+# 匹配容器内 mysql 用户 UID
+sudo chown -R 1000:1000 /opt/mysql57/data
+
+# 拉取 mysql 镜像
+sudo docker pull mysql:5.7.44
+
+# 启动 MySQL 5.7 容器（一键配置）
+sudo docker run -d \
+  --name mysql50744 \
+  --restart=always \
+  -p 3306:3306 \
+  -v /opt/mysql57/data:/var/lib/mysql \
+  -e MYSQL_ROOT_PASSWORD=你的root密码 \
+  -e MYSQL_DATABASE=mywordpress \
+  -e MYSQL_USER=wp_user \
+  -e MYSQL_PASSWORD=你的wp用户密码 \
+  mysql:5.7.44 \
+  --character-set-server=utf8mb4 \
+  --collation-server=utf8mb4_unicode_ci \
+  --lower_case_table_names=1
+
+# 验证容器运行状态
+sudo docker ps -a | grep mysql50744  # 显示 Up 即成功
+
+# 测试 MySQL 连接
+mysql -h 127.0.0.1 -u wp_user -p -e "SELECT VERSION();"
+# 输入 wp 用户密码，输出 5.7.x 版本即成功
+```
+
+如果在启动容器时没创建 mywordpress 数据库和 wp_user 数据库用户，则可以单独执行：
+
+```sql
+# 登录 MySQL（输入刚才设置的 root 密码）
+mysql -h 127.0.0.1 -uroot -p数据库root密码
+
+# 在 Mysql 命令行中执行以下语句（替换自定义密码）
+CREATE DATABASE mywordpress DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'wp_user'@'%' IDENTIFIED BY '你的自定义密码';
+GRANT ALL PRIVILEGES ON mywordpress.* TO 'wp_user'@'%';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### 二、配置 php
+
+```bash
+# 添加 apk 源
+vim /etc/apk/repositories
+# 加入下面两行
+http://dl-cdn.alpinelinux.org/alpine/v3.15/main
+http://dl-cdn.alpinelinux.org/alpine/v3.15/community
+
+# 安装 php 7.4.33
+sudo apk update
+apk add php7 php7-fpm php7-mysqli php7-json php7-curl php7-dom php7-exif php7-fileinfo php7-mbstring php7-openssl php7-xml php7-zip php7-gd php7-iconv php7-session php7-common php7-intl php7-opcache php7-bcmath php7-shmop php7-simplexml php7-sodium php7-xmlreader php7-pecl-igbinary php7-pecl-imagick php7-pecl-apcu php7-pecl-memcached php7-pecl-redis php7-pecl-timezonedb
+
+# 修改 php-fpm 配置文件
+sudo vim /etc/php7/php-fpm.d/www.conf
+# 修改为 user = nginx
+# 修改为 group = nginx
+# 修改为 listen = 127.0.0.1:9001
+# 退出 vim
+
+# 启动 PHP-FPM 并设置开机自启
+sudo rc-service php-fpm7 start
+sudo rc-update add php-fpm7 default
+```
+
+### 三、配置 nginx
+
+```bash
+# 安装 nginx
+sudo apk update
+sudo apk add nginx
+
+# 创建网站根目录并设置权限
+sudo mkdir -p /data/mywordpress
+sudo chown -R nginx:nginx /data/mywordpress
+
+# 新建 nginx 配置文件
+sudo touch /etc/nginx/http.d/wordpress.conf
+
+# 修改配置文件
+sudo vim /etc/nginx/http.d/wordpress.conf
+```
+
+需要在配置文件中添加以下内容：
+
+```nginx
+server {
+    listen 80;
+    server_name localhost;  # 替换为你的域名/服务器IP
+    root /data/mywordpress;
+    index index.php index.html index.htm;
+
+    # WordPress 固定链接友好配置
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    # PHP 解析配置
+    location ~ \.php$ {
+        fastcgi_pass 127.0.0.1:9001;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    # 禁止访问敏感文件
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+接下来:
+
+```bash
+# 测试 nginx 配置文件
+sudo nginx -t
+
+# 如果显示测试成功，启动 Nginx 并设置开机自启
+sudo rc-service nginx start
+sudo rc-update add nginx default
+```
+
+### 四、下载并配置 WordPress
+
+```shell
+# 安装 wget、unzip
+sudo apk update
+sudo apk add wget unzip
+
+# 下载最新版 WordPress 并解压
+cd /data/
+wget https://wordpress.org/wordpress-5.8.8.zip
+unzip wordpress-5.8.8.zip
+
+# 设置目录权限（WordPress 运行所需）
+mv /data/wordpress/* /data/mywordpress/
+chown -R nginx:nginx /data/mywordpress
+chmod 775 /data/mywordpress/wp-content  # 修改权限以允许上传文件
+```
+
+### 五、打开网址，在网站上继续配置 wordpress
+]]></content>
+      <tags>
+        <tag>建站教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ffmpeg 截取视频</title>
     <url>/2022/09/25/ffmpeg-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[简单命令：
@@ -1529,19 +1695,6 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
       </tags>
   </entry>
   <entry>
-    <title>油画展</title>
-    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
-    <content><![CDATA[
-![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
-
-![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
-
-![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
-      <tags>
-        <tag>杂七杂八</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>炒股神技之老鹰抓鱼</title>
     <url>/2026/02/18/%E7%82%92%E8%82%A1%E7%A5%9E%E6%8A%80%E4%B9%8B%E8%80%81%E9%B9%B0%E6%8A%93%E9%B1%BC/</url>
     <content><![CDATA[```
@@ -1553,6 +1706,19 @@ CROSS(EMA(LOW,30)*0.618,EMA(LOW,3));
 Fin.]]></content>
       <tags>
         <tag>投资理财</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>油画展</title>
+    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
+    <content><![CDATA[
+![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
+
+![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
+
+![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>

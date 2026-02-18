@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="阿良の小屋">
+  <meta name="keyword" content="hexo, blog, Lyra">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Alpine Linux 3.23 下搭建 WordPress 教程 | 阿良の小屋
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>阿良の小屋</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/projects/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/projects/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Alpine Linux 3.23 下搭建 WordPress 教程</h2>
+  <p class="post-date">2026-02-18</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="一、安装-docker-版-mysql-数据库："><a href="#一、安装-docker-版-mysql-数据库：" class="headerlink" title="一、安装 docker 版 mysql 数据库："></a>一、安装 docker 版 mysql 数据库：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Docker 引擎</span></span><br><span class="line"><span class="built_in">sudo</span> apk update</span><br><span class="line"><span class="built_in">sudo</span> apk add docker docker-compose mysql-client</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Docker 并设置开机自启 </span></span><br><span class="line"><span class="built_in">sudo</span> rc-service docker start </span><br><span class="line"><span class="built_in">sudo</span> rc-update add docker default</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 MySQL 数据目录（持久化数据）</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /opt/mysql57/data</span><br><span class="line"><span class="comment"># 匹配容器内 mysql 用户 UID</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R 1000:1000 /opt/mysql57/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拉取 mysql 镜像</span></span><br><span class="line"><span class="built_in">sudo</span> docker pull mysql:5.7.44</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 MySQL 5.7 容器（一键配置）</span></span><br><span class="line"><span class="built_in">sudo</span> docker run -d \</span><br><span class="line">  --name mysql50744 \</span><br><span class="line">  --restart=always \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  -v /opt/mysql57/data:/var/lib/mysql \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=你的root密码 \</span><br><span class="line">  -e MYSQL_DATABASE=mywordpress \</span><br><span class="line">  -e MYSQL_USER=wp_user \</span><br><span class="line">  -e MYSQL_PASSWORD=你的wp用户密码 \</span><br><span class="line">  mysql:5.7.44 \</span><br><span class="line">  --character-set-server=utf8mb4 \</span><br><span class="line">  --collation-server=utf8mb4_unicode_ci \</span><br><span class="line">  --lower_case_table_names=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证容器运行状态</span></span><br><span class="line"><span class="built_in">sudo</span> docker ps -a | grep mysql50744  <span class="comment"># 显示 Up 即成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试 MySQL 连接</span></span><br><span class="line">mysql -h 127.0.0.1 -u wp_user -p -e <span class="string">&quot;SELECT VERSION();&quot;</span></span><br><span class="line"><span class="comment"># 输入 wp 用户密码，输出 5.7.x 版本即成功</span></span><br></pre></td></tr></table></figure>
+
+<p>如果在启动容器时没创建 mywordpress 数据库和 wp_user 数据库用户，则可以单独执行：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 登录 MySQL（输入刚才设置的 root 密码）</span><br><span class="line">mysql <span class="operator">-</span>h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="operator">-</span>uroot <span class="operator">-</span>p数据库root密码</span><br><span class="line"></span><br><span class="line"># 在 Mysql 命令行中执行以下语句（替换自定义密码）</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE mywordpress <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;wp_user&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;你的自定义密码&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> mywordpress.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;wp_user&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">EXIT;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、配置-php"><a href="#二、配置-php" class="headerlink" title="二、配置 php"></a>二、配置 php</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加 apk 源</span></span><br><span class="line">vim /etc/apk/repositories</span><br><span class="line"><span class="comment"># 加入下面两行</span></span><br><span class="line">http://dl-cdn.alpinelinux.org/alpine/v3.15/main</span><br><span class="line">http://dl-cdn.alpinelinux.org/alpine/v3.15/community</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 php 7.4.33</span></span><br><span class="line"><span class="built_in">sudo</span> apk update</span><br><span class="line">apk add php7 php7-fpm php7-mysqli php7-json php7-curl php7-dom php7-exif php7-fileinfo php7-mbstring php7-openssl php7-xml php7-zip php7-gd php7-iconv php7-session php7-common php7-intl php7-opcache php7-bcmath php7-shmop php7-simplexml php7-sodium php7-xmlreader php7-pecl-igbinary php7-pecl-imagick php7-pecl-apcu php7-pecl-memcached php7-pecl-redis php7-pecl-timezonedb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 php-fpm 配置文件</span></span><br><span class="line"><span class="built_in">sudo</span> vim /etc/php7/php-fpm.d/www.conf</span><br><span class="line"><span class="comment"># 修改为 user = nginx</span></span><br><span class="line"><span class="comment"># 修改为 group = nginx</span></span><br><span class="line"><span class="comment"># 修改为 listen = 127.0.0.1:9001</span></span><br><span class="line"><span class="comment"># 退出 vim</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 PHP-FPM 并设置开机自启</span></span><br><span class="line"><span class="built_in">sudo</span> rc-service php-fpm7 start</span><br><span class="line"><span class="built_in">sudo</span> rc-update add php-fpm7 default</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、配置-nginx"><a href="#三、配置-nginx" class="headerlink" title="三、配置 nginx"></a>三、配置 nginx</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 nginx</span></span><br><span class="line"><span class="built_in">sudo</span> apk update</span><br><span class="line"><span class="built_in">sudo</span> apk add nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建网站根目录并设置权限</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /data/mywordpress</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R nginx:nginx /data/mywordpress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建 nginx 配置文件</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> /etc/nginx/http.d/wordpress.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件</span></span><br><span class="line"><span class="built_in">sudo</span> vim /etc/nginx/http.d/wordpress.conf</span><br></pre></td></tr></table></figure>
+
+<p>需要在配置文件中添加以下内容：</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;  <span class="comment"># 替换为你的域名/服务器IP</span></span><br><span class="line">    <span class="attribute">root</span> /data/mywordpress;</span><br><span class="line">    <span class="attribute">index</span> index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># WordPress 固定链接友好配置</span></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$args</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># PHP 解析配置</span></span><br><span class="line">    <span class="section">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">        <span class="attribute">fastcgi_pass</span> <span class="number">127.0.0.1:9001</span>;</span><br><span class="line">        <span class="attribute">fastcgi_index</span> index.php;</span><br><span class="line">        <span class="attribute">fastcgi_param</span> SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        <span class="attribute">include</span> fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 禁止访问敏感文件</span></span><br><span class="line">    <span class="section">location</span> <span class="regexp">~ /\.ht</span> &#123;</span><br><span class="line">        <span class="attribute">deny</span> all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试 nginx 配置文件</span></span><br><span class="line"><span class="built_in">sudo</span> nginx -t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果显示测试成功，启动 Nginx 并设置开机自启</span></span><br><span class="line"><span class="built_in">sudo</span> rc-service nginx start</span><br><span class="line"><span class="built_in">sudo</span> rc-update add nginx default</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、下载并配置-WordPress"><a href="#四、下载并配置-WordPress" class="headerlink" title="四、下载并配置 WordPress"></a>四、下载并配置 WordPress</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 wget、unzip</span></span><br><span class="line">sudo apk update</span><br><span class="line">sudo apk add wget unzip</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载最新版 WordPress 并解压</span></span><br><span class="line">cd /data/</span><br><span class="line">wget https://wordpress.org/wordpress-5.8.8.zip</span><br><span class="line">unzip wordpress-5.8.8.zip</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目录权限（WordPress 运行所需）</span></span><br><span class="line">mv /data/wordpress/* /data/mywordpress/</span><br><span class="line">chown -R nginx:nginx /data/mywordpress</span><br><span class="line">chmod 775 /data/mywordpress/wp-content  # 修改权限以允许上传文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、打开网址，在网站上继续配置-wordpress"><a href="#五、打开网址，在网站上继续配置-wordpress" class="headerlink" title="五、打开网址，在网站上继续配置 wordpress"></a>五、打开网址，在网站上继续配置 wordpress</h3></section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#建站教程" >
+    <span class="tag-code">建站教程</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2026/02/18/%E7%82%92%E8%82%A1%E7%A5%9E%E6%8A%80%E4%B9%8B%E8%80%81%E9%B9%B0%E6%8A%93%E9%B1%BC/">
+        <span class="nav-arrow">← </span>
+        
+          炒股神技之老鹰抓鱼
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xzl2021.github.io/2026/02/18/alpine-linux-3-23-下-wordpress-搭建教程/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'lyraa';
+    
+    var disqus_url = 'https://xzl2021.github.io/2026/02/18/alpine-linux-3-23-%E4%B8%8B-wordpress-%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2026 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">Vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'false';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>

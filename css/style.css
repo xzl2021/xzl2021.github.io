@@ -529,8 +529,9 @@ h2.article-head {
 }
 .markdown-content p code,
 .article-summary p code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   background-color: #f8f8f8;
-  color: #e96900;
+  color: #d63384;
   padding: 3px 5px;
   margin: 0 2px;
   border-radius: 2px;

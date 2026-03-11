@@ -10,7 +10,7 @@
   
   <title>
     
-      为知笔记服务器部署指南 | 阿良の小屋
+      MA、EMA、SMA、DMA、TMA、WMA 6种均值算法含义 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>为知笔记服务器部署指南</h2>
-  <p class="post-date">2026-02-17</p>
+  <h2>MA、EMA、SMA、DMA、TMA、WMA 6种均值算法含义</h2>
+  <p class="post-date">2026-03-11</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,83 +189,73 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h2 id="Download-and-Run-the-Docker-Image"><a href="#Download-and-Run-the-Docker-Image" class="headerlink" title="Download and Run the Docker Image"></a>Download and Run the Docker Image</h2><ul>
-<li><p>macOS<br>Run this command in Terminal to create a data folder</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/wizdata</span><br></pre></td></tr></table></figure>
-<p>Create a folder wizdata for preserving all the data of WizNote Server. Please backup this folder regularly. If you want to use NAS or private cloud as data storage, please contact us.<br>Run the command below to run the docker container</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -e TZ=`<span class="built_in">ls</span> -la /etc/localtime | <span class="built_in">cut</span> -d/ -f8-9` -p 80:80 -p 9269:9269/udp  wiznote/wizserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Linux<br>Run this command in Terminal to create a data folder</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /data/wizdata</span><br></pre></td></tr></table></figure>
-<p>Run the command below to run the docker container</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name wiz --restart=always -it -d -v /data/wizdata:/wiz/storage -v /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Windows<br>Press Win + R, or click Start Menu - Run, then input this and press Enter.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powershell</span><br></pre></td></tr></table></figure>
-<p>Input this command in the window</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d D:\</span><br><span class="line"><span class="built_in">md</span> wizdata</span><br></pre></td></tr></table></figure>
-<p>It will create a folder wizdata in D:\ for preserving all the data. You could modify this folder.<br>Then run this command in terminal.</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">docker run --name wiz --restart=always -it -d -v  D:\wizdata:/wiz/storage -p <span class="number">80</span>:<span class="number">80</span> -p <span class="number">9269</span>:<span class="number">9269</span>/udp wiznote/wizserver</span><br></pre></td></tr></table></figure>
-<p>It is the first time to run the docker container, so it needs to download the image and initiate the data. Please wait for a while(depends on the network connection; it will take 10 minutes or longer). After the download process finished, the time of running will take 2-3 minutes.</p>
+    <section class="markdown-content"><p>这些移动平均指标的主要区别在于对近期价格的敏感度（权重）和计算方法不同。MA&#x2F;SMA最基础且平滑；EMA和WMA更重近期数据，响应更快；DMA结合了成交量；TMA为双重平滑。EMA适用于趋势追踪，SMA适用于长期趋势观察。 </p>
+<h3 id="具体区别如下："><a href="#具体区别如下：" class="headerlink" title="具体区别如下："></a>具体区别如下：</h3><ul>
+<li><strong>MA (Moving Average，简单算数平均)：</strong><ul>
+<li>通称，通常指简单算术平均（MA）。</li>
+</ul>
 </li>
 </ul>
-<h2 id="Launch-the-browser"><a href="#Launch-the-browser" class="headerlink" title="Launch the browser"></a>Launch the browser</h2><p>visit <a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a><br>You will see this page:<br><img src="https://imgsrc.01000010.xyz/2026/02/wizserver1.png" alt="wizserver1.png"><br>If it displays like the page below, it means the server has not ready, please wait a minute and refresh.<br><img src="https://imgsrc.01000010.xyz/2026/02/wizserver2.png" alt="wizserver2.png"></p>
-<h2 id="Modify-the-Port"><a href="#Modify-the-Port" class="headerlink" title="Modify the Port"></a>Modify the Port</h2><p>If port 80 has occupied, you could modify it to 8080 or another one.</p>
+<p>MA(X,N) 简单算术平均<br>求X的N日移动平均值，不分轻重，平均算。<br>算法是： <code>(X1+X2+X3+...+Xn)/N</code><br>例如：MA(C，20) 表示 20 日的平均收盘价。C 表示 CLOSE。</p>
 <ul>
-<li><p>Mac&#x2F;Linux</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 8080:80 wiznote/wizserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Windows</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">docker run --name wiz -it -d -v  D:\wizdata:/wiz/storage -p <span class="number">8080</span>:<span class="number">80</span> wiznote/wizserver</span><br></pre></td></tr></table></figure>
-<p>After modified the port, please change the link of the website accordingly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
-<p>You could open the web application by visiting your IP address like this, so the user in the same LAN could connect the server via IP address and port(opt)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.1.186</span><br></pre></td></tr></table></figure>
-<p>The case when you modify the port like this:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.1.186:8080</span><br></pre></td></tr></table></figure>
-<p>On Windows, you have to make the port through the firewall.</p>
+<li><strong>EMA (Exponential Moving Average，指数移动平均)：</strong><ul>
+<li>特点：权重随时间间隔指数递减，越近的数据权重越大。</li>
+<li>优缺点：对价格变化反应敏感，能快速跟进趋势，但也容易产生假信号。</li>
+</ul>
 </li>
 </ul>
-<h2 id="Modify-the-Time-Zone"><a href="#Modify-the-Time-Zone" class="headerlink" title="Modify the Time Zone"></a>Modify the Time Zone</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it wiz /bin/bash</span><br><span class="line"><span class="built_in">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Get-local-time-zone"><a href="#Get-local-time-zone" class="headerlink" title="Get local time zone"></a>Get local time zone</h2><ul>
-<li><p>Linux<br>Add <code>-v /etc/localtime:/etc/localtime</code> to the running command to get local time zone</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 80:80 -p 9269:9269/udp -v  /etc/localtime:/etc/localtime  wiznote/wizserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>MacOS</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-e TZ=`<span class="built_in">ls</span> -la /etc/localtime | <span class="built_in">cut</span> -d/ -f8-9`</span><br></pre></td></tr></table></figure></li>
+<p>EMA(X,N) 指数平滑移动平均<br>求X的N日指数平滑移动平均，它真正的公式表达是：<br><code>当日指数平均值 = 平滑系数 * (当日指数值 - 昨日指数平均值) + 昨日指数平均值</code><br><code>平滑系数 = 2 / (周期单位 + 1)</code><br>由以上公式推导开，得到：<br><code>EMA(C,N)=2*C/(N+1)+(N-1)/(N+1)*昨天的指数收盘平均值</code><br>算法是：若 <code>Y=EMA(X，N)</code>，则 <code>Y=[2*X+(N-1)*Y’]/(N+1)</code>，其中 <code>Y’</code> 表示上一周期的Y值。<br>EMA 引用函数在计算机上使用递归算法很容易实现，但不容易理解。例举分析说明EMA函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">X是变量，每天的X值都不同，从远到近地标记，它们分别记为X1，X2，X3，….，Xn</span><br><span class="line">如果N=1，则EMA(X，1)=[2*X1+(1-1)*Y’]/(1+1)=X1</span><br><span class="line">如果N=2，则EMA(X，2)=[2*X2+(2-1)*Y’]/(2+1)=(2/3)*X2+(1/3)X1</span><br><span class="line">如果N=3，则EMA(X，3)=[2*X3+(3-1)*Y’]/(3+1)=[2*X3+2*((2/3)*X2+(1/3)*X1)]/4=(1/2)*X3+(1/3)*X2+(1/6)*X1</span><br><span class="line">如果N=4，则EMA(X，4)=[2*X4+(4-1)*Y’]/(4+1)=2/5*X4+3/5*((1/2)*X3+(1/3)*X2+(1/6)*X1)</span><br><span class="line">=2/5*X4+3/10*X3+1/5*X2+1/10*X1</span><br><span class="line">如果N=5，则EMA(X，5)=2/(5+1)*X5+(5-1)/(5+1)(2/5*X4+3/10*X3+3/15*X2+3/30*X1)</span><br><span class="line">=(1/3)*X5+(4/15)*X4+(3/15)*X3+(2/15)*X2+(1/15)*X1</span><br><span class="line">…………循环</span><br><span class="line"></span><br><span class="line">X1</span><br><span class="line">(2/3)*X2+(1/3)X1</span><br><span class="line">(3/6)*X3+(2/6)*X2+(1/6)*X1</span><br><span class="line">(4/10)*X4+(3/10)*X3+(2/10)*X2+(1/10)*X1</span><br><span class="line">(5/15)*X5+(4/15)*X4+(3/15)*X3+(2/15)*X2+(1/15)*X1</span><br></pre></td></tr></table></figure>
+<p>任何时候系数之和恒为1。如果 X 是常量，每天的 X 值都不变，则 <code>EMA(X,N)=MA(X,N)</code></p>
+<p>从以上的例举分析中，我们可以看到时间周期越近的 X 值它的权重越大，说明 EMA 函数对近期的 X 值加强了权重比，更能及时反映近期 X 值的波动情况。 所以 EMA 比 Ma 更具参考价值，而 EMA 也不容易出现死叉和金叉，所以一旦出现要立即作出反映！对周线处理，EMA 就更加稳定了。</p>
+<p>理解了 MA, EMA 的含义后，就可以理解其用途了，简单的说，当要比较数值与均价的关系时，用 MA 就可以了，而要比较均价的趋势快慢时，用 EMA 更稳定；有时，在均价值不重要时，也用 EMA 来平滑和美观曲线。</p>
+<ul>
+<li><strong>SMA (Simple Moving Average，简单移动平均)：</strong><ul>
+<li>特点：所有K线权重相等。</li>
+<li>优缺点：平滑性好，信号滞后，能反映长期趋势。</li>
 </ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ol>
-<li><strong>Q</strong>: Which account should I sign in to manage the console?<br><strong>A</strong>: Default administrator account: <a href="mailto:&#x61;&#x64;&#109;&#x69;&#110;&#64;&#119;&#105;&#x7a;&#46;&#x63;&#110;">&#x61;&#x64;&#109;&#x69;&#110;&#64;&#119;&#105;&#x7a;&#46;&#x63;&#110;</a> password:123456 Please change the password after you finished the deployment. It can add five accounts in the free edition.</li>
-</ol>
-<br/>
-
-<ol start="2">
-<li><strong>Q</strong>: Where my data preserved？<br><strong>A</strong>: All data include files and databases saved in the data folder (the wizdata folder, as we mentioned). Please make sure to back up this folder regularly for preventing data loss.</li>
-</ol>
-<br/>
-
-<ol start="3">
-<li><strong>Q</strong>: Are the applications of WizNote acceptable of the Docker Server?<br><strong>A</strong>: Yes, you could connect the server via all the clients by choosing the Enterprise Server when you log in and then input the address of your docker server. Please notice: The same LAN is necessary. For example, the server data are inaccessible on the mobile, which is not in the same LAN with the server, but the data have been downloaded can be accessed.</li>
-</ol>
-<br/>
-
-<ol start="4">
-<li><strong>Q</strong>: Is there any time limit of WizNote Docker Server?<br><strong>A</strong>: There is no time limit when the number of accounts is under 5. You can enjoy the server as long as you wish. Please contact us to buy more licenses when you want to promote it in your team.</li>
-</ol>
-<br/>
-
-<ol start="5">
-<li><strong>Q</strong>: The date of new notes is incorrect<br><strong>A</strong>: It is because the time of the server is not correct. Please set the time zone. For example, set the time zone to UTC&#x2F;GMT+08:00(Beijing).</li>
-</ol>
+</li>
+</ul>
+<p>SMA(C,N,M) 简单移动平均<br>理解了 MA 和 EMA 的含义和用途后，后面几个函数就好理解了；因为 EMA 的 <code>平滑系数=2/(周期+1)</code>，是固定的；如果要改变平滑系数咋办？这就用到了 SMA，与 EMA 的区别就是增加了权重参数 M，也就是用 M 代替 EMA 平滑系数中的 2, 这样我们可以根据需要调整当日数值在均价中的权重&#x3D;M&#x2F;N。(要求N&gt;M）</p>
+<ul>
+<li><strong>WMA (Weighted Moving Average，加权移动平均)：</strong><ul>
+<li>特点：权重随时间线性递减。</li>
+<li>应用：相比SMA更重视近期价格，但相比EMA对远期数据权重更高。</li>
+</ul>
+</li>
+</ul>
+<p>WMA(X,A) 加权移动平均<br>用法:WMA(X, A),求 X 的加权移动平均。算法：<br>若 Y&#x3D;WMA(X, A)，则<code>Y=(N*X0+(N-1)*X1+(N-2)*X2)+...+1*Xn)/(N+(N-1)+(N-2)+...+1)</code><br>X0表示本周期值，X1表示上一周期值。</p>
+<ul>
+<li><strong>DMA (Dynamic Moving Average，动态移动平均)：</strong><ul>
+<li>特点：利用另一个指标（通常是成交量或换手率）作为权重系数来计算。</li>
+<li>应用：量能越大，收盘价对均价影响越大，更直观反映成交量趋势。</li>
+</ul>
+</li>
+</ul>
+<p>DMA(C,A) 动态移动平均<br>注意，权重系数在 EMA 与 SMA 中都是用数值与周期计算出来的小数，假设有一个小数可以直接代表权重，如何办？这就有了 DMA，DMA(C, A) 中 A 为权重值，公式如下：<code>X=DMA(C,A)=A*X+(1-A)*X&#39;</code> (A小于1)，可以发现，DMA 与 SMA 原理是一样的，只是用一个小数直接代替了 M&#x2F;N，而在实用中，这个小数最有价值的就是<code>换手率=V/CAPITAL</code>; DMA(C, V&#x2F;CAPITAL) 的直接含义是用换手率作为权重系数，利用当日收盘价在均价中的比重计算均价，直观理解就是换手率越大，当日收盘价在均价中的作用越大！</p>
+<ul>
+<li><strong>TMA (Triangular Moving Average，三角&#x2F;递归移动平均)：</strong><ul>
+<li>特点：对均线值进行再次平均的算法（递归移动平均），即均线的均线。</li>
+<li>应用：比EMA或WMA更平滑，能更有效地过滤价格波动噪音。</li>
+</ul>
+</li>
+</ul>
+<p>TMA(X,N,M) 递归移动平均<br>用法:TMA(X, N, M),求 X 的递归移动平均，N、M 为权重。算法:若 <code>Y=TMA(X, N, M)</code> 则 <code>Y=(N*Y’+M*X)</code>, 其中 Y’ 表示上一周期 Y 值。初值为 M*X。<br>例如:TMA(CLOSE, 0.9, 0.1) 表示求 CLOSE 的递归移动平均 </p>
+<h3 id="总结建议："><a href="#总结建议：" class="headerlink" title="总结建议："></a>总结建议：</h3><ul>
+<li>趋势平滑：SMA &gt; TMA &gt; WMA &gt; EMA</li>
+<li>响应速度：EMA &gt; WMA &gt; TMA &gt; SMA</li>
+<li>考虑成交量：用DMA。</li>
+<li>短线操作：常用EMA。</li>
+<li>长线趋势：常用SMA。</li>
+</ul>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
+  <a href="/tags#投资理财" >
+    <span class="tag-code">投资理财</span>
   </a>
 
       </div>
@@ -276,20 +266,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/">
+      <a class="nav-left" href="/2026/03/03/%E5%BC%80%E6%94%BE%E5%BC%8F%E5%9F%BA%E9%87%91%E5%AE%9E%E6%97%B6%E4%BC%B0%E5%80%BC%E6%8E%A5%E5%8F%A3/">
         <span class="nav-arrow">← </span>
         
-          解决 ssh 不操作就自动掉线问题
+          开放式基金实时估值接口
         
       </a>
     
-    
-      <a class="nav-right" href="/2026/02/17/%E8%A7%A3%E5%86%B3-wordpress-%E7%9A%84-comment_date-%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/">
-        
-          解决 wordpress 的 comment_date 默认值无效的问题
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -319,7 +302,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/02/17/为知笔记服务器部署指南/';
+    var url = 'https://xzl2021.github.io/2026/03/11/MA-EMA-SMA-DMA-TMA-WMA-6-种均值算法含义/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -382,7 +365,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/02/17/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/';
+    var disqus_url = 'https://xzl2021.github.io/2026/03/11/MA-EMA-SMA-DMA-TMA-WMA-6-%E7%A7%8D%E5%9D%87%E5%80%BC%E7%AE%97%E6%B3%95%E5%90%AB%E4%B9%89/';
     
     (function(){
       var dsq = document.createElement('script');

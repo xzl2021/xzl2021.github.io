@@ -10,7 +10,7 @@
   
   <title>
     
-      Anti anti-debugger 油猴脚本的使用方法 | 阿良の小屋
+      正则表达式 BRE, ERE, PCRE 的区别 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Anti anti-debugger 油猴脚本的使用方法</h2>
-  <p class="post-date">2026-03-25</p>
+  <h2>正则表达式 BRE, ERE, PCRE 的区别</h2>
+  <p class="post-date">2026-04-02</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,14 +189,187 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、在新窗口中打开开发者工具（F12）; 否则，网站可能会检测视口的宽度和高度。</span><br><span class="line">2、关闭开发者工具设置中的 Javascript source maps; 有些网站会检测这个。</span><br><span class="line">3、先打开开发者工具，再打开网站，顺序不要错。</span><br></pre></td></tr></table></figure></section>
+    <section class="markdown-content"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>对于刚使用 Linux 不久的同学，肯定会遇到这个问题，就是用 grep 匹配数字时，发现 <code>\d</code> 匹配不了数字。</p>
+<p>主要原因是 grep 支持三种正则表达式 <code>BRE</code>、<code>ERE</code>、<code>PCRE</code>，而其默认使用的是 <code>BRE</code>，但 <code>\d</code> 是定义在 <code>PCRE</code> 中的，所以 grep 默认是不支持 <code>\d</code> 的。</p>
+<h3 id="正则表达式分类"><a href="#正则表达式分类" class="headerlink" title="正则表达式分类"></a>正则表达式分类</h3><ul>
+<li><p><strong>BRE</strong><br>基本的正则表达式（Basic Regular Expression 简称 BRE），由 posix 标准定义，为了统一历史上混乱的正则实现。</p>
+</li>
+<li><p><strong>ERE</strong><br>扩展的正则表达式（Extended Regular Expression 简称 ERE），由 posix 标准定义，解决了一些BRE的缺陷并补充了一些新功能。</p>
+</li>
+<li><p><strong>PCRE</strong><br>Perl 兼容的正则表达式（Perl Compatible Regular Expression 简称 PCRE），由 perl 语言发展而来，而后移植到各平台与编程语言中，所以称其为 Perl 兼容的正则表达式。<br>如今主流编程语言 (java, python) 中的正则实现，基本都是 PCRE，PCRE 功能也比 BRE, ERE 要强大得多，虽然大部分同学只知道其基础部分。</p>
+</li>
+</ul>
+<h3 id="BRE-ERE-PCRE-对比"><a href="#BRE-ERE-PCRE-对比" class="headerlink" title="BRE, ERE, PCRE 对比"></a>BRE, ERE, PCRE 对比</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>描述</th>
+<th>BRE</th>
+<th>ERE</th>
+<th>PCRE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符组</td>
+<td>匹配指定任一字符</td>
+<td><code>[..]</code></td>
+<td><code>[..]</code></td>
+<td><code>[..]</code></td>
+</tr>
+<tr>
+<td>排除字符组</td>
+<td>匹配非指定任一字符</td>
+<td><code>[^..]</code></td>
+<td><code>[^..]</code></td>
+<td><code>[^..]</code></td>
+</tr>
+<tr>
+<td>简写字符组.号</td>
+<td>匹配非换行字符</td>
+<td><code>.</code></td>
+<td><code>.</code></td>
+<td><code>.</code></td>
+</tr>
+<tr>
+<td>简写字符组</td>
+<td>匹配数字<br>匹配非数字</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><code>\d</code> <code>\D</code></td>
+</tr>
+<tr>
+<td>简写字符组</td>
+<td>匹配字母数据下划线<br>匹配非字母数字下划线</td>
+<td><code>\w</code> <code>\W</code></td>
+<td><code>\w</code> <code>\W</code></td>
+<td><code>\w</code> <code>\W</code></td>
+</tr>
+<tr>
+<td>简写字符组</td>
+<td>匹配空白符<br>匹配非空白符</td>
+<td><code>\s</code> <code>\S</code></td>
+<td><code>\s</code> <code>\S</code></td>
+<td><code>\s</code> <code>\S</code></td>
+</tr>
+<tr>
+<td>匹配量词</td>
+<td>匹配0次或多次</td>
+<td><code>*</code></td>
+<td><code>*</code></td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td>匹配量词</td>
+<td>匹配1次或多次</td>
+<td><code>\+</code></td>
+<td><code>+</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td>匹配量词</td>
+<td>匹配0次或1次</td>
+<td><code>\?</code></td>
+<td><code>?</code></td>
+<td><code>?</code></td>
+</tr>
+<tr>
+<td>匹配量词</td>
+<td>匹配x次<br>匹配x次或以上<br>匹配x次或以上y次或以下</td>
+<td><code>\&#123;x\&#125;</code> <code>\&#123;x,\&#125;</code> <code>\&#123;x,y\&#125;</code></td>
+<td><code>&#123;x&#125;</code> <code>&#123;x,&#125;</code> <code>&#123;x,y&#125;</code></td>
+<td><code>&#123;x&#125;</code> <code>&#123;x,&#125;</code> <code>&#123;x,y&#125;</code></td>
+</tr>
+<tr>
+<td>懒惰匹配量词</td>
+<td>尽量不匹配</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><code>*?</code> <code>+?</code> <code>??</code> <code>&#123;x&#125;?</code> <code>&#123;x,&#125;?</code> <code>&#123;x,y&#125;?</code></td>
+</tr>
+<tr>
+<td>占有匹配量词</td>
+<td>匹配后就不会回溯</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><code>*+</code> <code>++</code> <code>?+</code> <code>&#123;x&#125;+</code> <code>&#123;x,&#125;+</code> <code>&#123;x,y&#125;+</code></td>
+</tr>
+<tr>
+<td>位置限定</td>
+<td>匹配行开头位置</td>
+<td><code>^</code></td>
+<td><code>^</code></td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>位置限定</td>
+<td>匹配行结尾位置</td>
+<td><code>$</code></td>
+<td><code>$</code></td>
+<td><code>$</code></td>
+</tr>
+<tr>
+<td>位置限定</td>
+<td>匹配单词边界<br>匹配非单词边界</td>
+<td><code>\b</code> <code>\B</code></td>
+<td><code>\b</code> <code>\B</code></td>
+<td><code>\b</code> <code>\B</code></td>
+</tr>
+<tr>
+<td>多选结构</td>
+<td>多选匹配条件</td>
+<td><code>|</code></td>
+<td>`</td>
+<td>`</td>
+</tr>
+<tr>
+<td>捕获组与反向引用</td>
+<td>分组并捕获</td>
+<td><code>\(...\) \1 \2</code></td>
+<td><code>(...) \1 \2</code></td>
+<td><code>(...) \1 \2</code></td>
+</tr>
+<tr>
+<td>仅分组</td>
+<td>仅分组不捕获括号</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><code>(?:)</code></td>
+</tr>
+<tr>
+<td>固化分组</td>
+<td>匹配后就不回溯的分组</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><code>(?&gt;)</code></td>
+</tr>
+<tr>
+<td>环视</td>
+<td>零长度断言</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><code>(?=...)</code> <code>(?!...)</code> <code>(?&lt;=...)</code> <code>(?&lt;!...)</code></td>
+</tr>
+</tbody></table>
+<p>可以发现 BRE 与 ERE 的主要区别是，BRE 对于 <code>+</code>、<code>?</code>、<code>&#123;x&#125;</code>、<code>|</code>、<code>()</code>, 需要使用 <code>\</code> 转义后，才能表达正则的含义，否则视为普通字符。而ERE默认表示正则元字符，加 <code>\</code> 才是普通字符。</p>
+<p>另外，对于我们常用的 <code>\d</code>，BRE 与 ERE 都不支持。</p>
+<h3 id="命令与它们的正则分类"><a href="#命令与它们的正则分类" class="headerlink" title="命令与它们的正则分类"></a>命令与它们的正则分类</h3><ul>
+<li><p><strong>grep</strong><br>对于 grep，默认使用 BRE，<code>grep -E</code> 或 <code>egrep</code> 使用 ERE，实际上 <code>grep -E</code> 与 <code>egrep</code> 是等价的，<code>grep -P</code> 使用 PCRE。<br>另外，值得一提的是 <code>grep -F</code> 代表原始字符串匹配，<code>grep -w</code> 代表单词模式匹配，如<code>grep -w abc</code> 等价于 <code>grep &#39;\babc\b&#39;</code>，其中 <code>\b</code> 用于匹配单词边界。</p>
+</li>
+<li><p><strong>sed</strong><br>对于 sed，默认也使用 BRE，<code>sed -E</code> 或 <code>sed -r</code> 使用 ERE，sed 不支持 PCRE。</p>
+</li>
+<li><p><strong>awk</strong><br>对于 awk 来说，默认就是 ERE，它不支持 BRE 与 PCRE。</p>
+</li>
+</ul>
+<hr>
+<p>出处：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/codelogs/p/16060372.html">https://www.cnblogs.com/codelogs/p/16060372.html</a></p>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#JavaScript" >
-    <span class="tag-code">JavaScript</span>
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
   </a>
 
       </div>
@@ -207,20 +380,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/03/11/MA-EMA-SMA-DMA-TMA-WMA-6-%E7%A7%8D%E5%9D%87%E5%80%BC%E7%AE%97%E6%B3%95%E5%90%AB%E4%B9%89/">
+      <a class="nav-left" href="/2026/03/25/Anti-anti-debugger-%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
         <span class="nav-arrow">← </span>
         
-          MA、EMA、SMA、DMA、TMA、WMA 6种均值算法含义
+          Anti anti-debugger 油猴脚本的使用方法
         
       </a>
     
-    
-      <a class="nav-right" href="/2026/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-BRE-ERE-PCRE-%E7%9A%84%E5%8C%BA%E5%88%AB/">
-        
-          正则表达式 BRE, ERE, PCRE 的区别
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -250,7 +416,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/03/25/Anti-anti-debugger-油猴脚本的使用方法/';
+    var url = 'https://xzl2021.github.io/2026/04/02/正则表达式-BRE-ERE-PCRE-的区别/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -313,7 +479,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/03/25/Anti-anti-debugger-%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/';
+    var disqus_url = 'https://xzl2021.github.io/2026/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-BRE-ERE-PCRE-%E7%9A%84%E5%8C%BA%E5%88%AB/';
     
     (function(){
       var dsq = document.createElement('script');

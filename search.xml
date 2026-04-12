@@ -9,17 +9,17 @@
       </tags>
   </entry>
   <entry>
-    <title>2025春节快乐！</title>
-    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
+    <title>2026新年快乐！</title>
+    <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
-    <title>2026新年快乐！</title>
-    <url>/2026/01/01/2026%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2026-happy-new-year.jpg](https://imgsrc.01000010.xyz/2026/02/2026-happy-new-year.jpg)]]></content>
+    <title>2025春节快乐！</title>
+    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -1529,6 +1529,15 @@ regedit /s "path\to\your\file.reg"
       </tags>
   </entry>
   <entry>
+    <title>元素的各种尺寸</title>
+    <url>/2017/07/10/%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8/</url>
+    <content><![CDATA[![sizeOfElem](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/sizeOfElem.gif)
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用 du 命令分析硬盘空间占用情况</title>
     <url>/2022/08/19/%E5%88%A9%E7%94%A8du%E5%91%BD%E4%BB%A4%E5%88%86%E6%9E%90%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/</url>
     <content><![CDATA[```
@@ -1559,15 +1568,6 @@ sort（默认从小到大排列）
 ]]></content>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>元素的各种尺寸</title>
-    <url>/2017/07/10/%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8/</url>
-    <content><![CDATA[![sizeOfElem](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/sizeOfElem.gif)
-]]></content>
-      <tags>
-        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -1828,40 +1828,6 @@ Fin.]]></content>
       </tags>
   </entry>
   <entry>
-    <title>暴风影音老版本</title>
-    <url>/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[# 暴风影音老版本
-<br/>
-
-![baofeng_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng_20241102.png)
-![baofeng2_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng2_20241102.png)
-
----
-暴风影音_5.57.0202.2111_去广告版：
-
-[https://www.lanzoux.com/i25pssxkw9c](https://www.lanzoux.com/i25pssxkw9c)
-
-密码:52pj
-
----
-暴风影音_5.58.0331.2111_去广告版：
-
-[https://www.lanzoux.com/iDGvVy4edsd](https://www.lanzoux.com/iDGvVy4edsd)
-
-密码:52pj
-
----
-
-暴风影音_5.59.0428.1111_去广告版：
-
-[https://www.lanzoux.com/ixxBcsvtx2d](https://www.lanzoux.com/ixxBcsvtx2d)
-
-密码:52pj]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>查看 Linux 发行版名称和版本号的方法</title>
     <url>/2026/02/18/%E6%9F%A5%E7%9C%8B-Linux-%E5%8F%91%E8%A1%8C%E7%89%88%E5%90%8D%E7%A7%B0%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[### /etc/*-release 文件
@@ -1949,6 +1915,40 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
 ```]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>暴风影音老版本</title>
+    <url>/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[# 暴风影音老版本
+<br/>
+
+![baofeng_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng_20241102.png)
+![baofeng2_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng2_20241102.png)
+
+---
+暴风影音_5.57.0202.2111_去广告版：
+
+[https://www.lanzoux.com/i25pssxkw9c](https://www.lanzoux.com/i25pssxkw9c)
+
+密码:52pj
+
+---
+暴风影音_5.58.0331.2111_去广告版：
+
+[https://www.lanzoux.com/iDGvVy4edsd](https://www.lanzoux.com/iDGvVy4edsd)
+
+密码:52pj
+
+---
+
+暴风影音_5.59.0428.1111_去广告版：
+
+[https://www.lanzoux.com/ixxBcsvtx2d](https://www.lanzoux.com/ixxBcsvtx2d)
+
+密码:52pj]]></content>
+      <tags>
+        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
@@ -2716,6 +2716,34 @@ VMware-workstation-full-17.5.1-23298084.exe
 ---]]></content>
       <tags>
         <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 PC 端 iTunes 不能搜索 app 的问题</title>
+    <url>/2026/04/12/%E8%A7%A3%E5%86%B3-PC-%E7%AB%AF-iTunes-%E4%B8%8D%E8%83%BD%E6%90%9C%E7%B4%A2-app-%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[### 起因
+最近几个月，想从 PC 端 iTunes（v12.6.5.3）下载 app。可是右上角搜索 app 名称，出来的却只有歌曲和影视。
+于是就有了下面这种解决办法。
+
+### 解决办法
+1. 先从 google 搜索 app 的商店网址，例如：
+```
+https://apps.apple.com/us/app/2fa-authenticator-2fas/id1217793794
+```
+
+2. 构建 iTunes 打开链接，将 `id1217793794` 部分和 `itms://itunes.apple.com/app/` 进行拼接，形成：
+```
+itms://itunes.apple.com/app/id1217793794
+```
+
+3. 在 Chrome 或者 Firefox 浏览器地址栏输入构建好的 iTunes 链接，并按回车。
+
+4. 会出现提示用外部软件打开，点击确定即可。
+
+### 注意
+- 需要先安装好 12.6.5.3 版本的 iTunes 再来进行上面的操作，否这最后一步不会提示用外部软件打开。]]></content>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>

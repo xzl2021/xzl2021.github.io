@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2022元旦快乐！</title>
-    <url>/2022/01/01/2022%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2022happynewyear.jpg](https://imgsrc.01000010.xyz/2024/11/2022happynewyear.jpg)]]></content>
+    <title>2025春节快乐！</title>
+    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -17,9 +17,9 @@
       </tags>
   </entry>
   <entry>
-    <title>2025春节快乐！</title>
-    <url>/2025/01/29/2025%E6%98%A5%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
-    <content><![CDATA[![2025happynewyear.png](https://imgsrc.01000010.xyz/2025/02/2025happynewyear.png)]]></content>
+    <title>2022元旦快乐！</title>
+    <url>/2022/01/01/2022%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%EF%BC%81/</url>
+    <content><![CDATA[![2022happynewyear.jpg](https://imgsrc.01000010.xyz/2024/11/2022happynewyear.jpg)]]></content>
       <tags>
         <tag>杂七杂八</tag>
       </tags>
@@ -694,6 +694,44 @@ fin
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 22.04 没有 rc.local 的解决办法</title>
+    <url>/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[### rc-local服务简介
+Linux 中的 rc-local 服务是一个开机自动启动的，调用开发人员或系统管理员编写的可执行脚本或命令的，它的启动顺序是在系统所有服务加载完成之后执行。
+
+ubuntu 22.04 系统已经默认安装了 rc-local.service 服务，但是不知什么原因系统把这个服务给 “隐蔽” 了，所以如果不做一番操作是无法使用的。
+
+### 解决办法
+将 rc-local 服务设置为开机自启动（本文操作都在root用户下，或使用sudo）。
+
+首先将 `rc-local.service` 文件复制到 `/etc/systemd/system/` 目录下
+```shell
+cp /usr/lib/systemd/system/rc-local.service /etc/systemd/system/
+```
+
+新建 rc.local 文件
+ubuntu 22.04 中是没有 `/etc/rc.local` 文件的，需要我们手动建立一个。
+```shell
+touch /etc/rc.local
+chmod 755 /etc/rc.local
+echo '''#!/bin/bash''' >> /etc/rc.local
+```
+
+设置开机启动 rc-local
+```
+systemctl start rc-local
+systemctl enable rc-local
+init 6    # 或者 reboot
+```
+
+重启系统后，通过命令 `systemctl status rc-local` 查看服务已经正常开启了。
+
+最后将要开机自启的命令写入 `/etc/rc.local` 文件即可。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WiFi 密码查看器（PC版）</title>
     <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
     <content><![CDATA[
@@ -1147,48 +1185,51 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
       </tags>
   </entry>
   <entry>
-    <title>shadowsocksR（简称SSR）使用教程（iOS版）</title>
-    <url>/2017/11/11/ssr-ios/</url>
-    <content><![CDATA[### 一：下载SSR客户端
-去美国区 App Store 下载 Shadowrocket
+    <title>《道德经》套装全六册 无删减 精注全释版</title>
+    <url>/2022/01/05/%E3%80%8A%E9%81%93%E5%BE%B7%E7%BB%8F%E3%80%8B%E5%A5%97%E8%A3%85%E5%85%A8%E5%85%AD%E5%86%8C-%E6%97%A0%E5%88%A0%E5%87%8F-%E7%B2%BE%E6%B3%A8%E5%85%A8%E9%87%8A%E7%89%88/</url>
+    <content><![CDATA[
+![2022-1-5-15-18-36-1005x1024.png](https://imgsrc.01000010.xyz/2024/11/2022-1-5-15-18-36-1005x1024.png)
 
-<br/>
-
----
-### 二：使用SSR
-##### 第一步：修改语言（如果看得懂英文就不用修改）
-
-![修改语言](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2247.PNG)
-
-<br>
-
-##### 第二步：添加配置
-
-![添加配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2248.png)
-
-<br>
+- 作者：老子
+- 出版社：北京联合出版公司
+- 出版日期：2017 年 3 月
+- ISBN：978-7-5502-9563-6
+- 格式：EPUB
 
 ---
 
-<br>
+下载地址：
 
-![添加配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2249.PNG)
+[https://www.lanzoux.com/iNJn4yekb0j](https://www.lanzoux.com/iNJn4yekb0j)
 
-<br>
+密码：2333
 
 ---
 
-<br>
-
-![选择混淆](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2250.PNG)
-
-<br>
-
-##### 第三步：进行连接
-![进行连接](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2252.PNG)
 ]]></content>
       <tags>
-        <tag>杂七杂八</tag>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一键关闭显示器</title>
+    <url>/2022/01/14/%E4%B8%80%E9%94%AE%E5%85%B3%E9%97%AD%E6%98%BE%E7%A4%BA%E5%99%A8/</url>
+    <content><![CDATA[
+![closemonitor-2022-1-14-22-16-38.png](https://imgsrc.01000010.xyz/2024/11/closemonitor-2022-1-14-22-16-38.png)
+
+---
+
+软件很简单，没有 UI 界面，直接双击软件图标即可熄灭显示器。兼容性极佳，XP – Win10 亲测可用！
+
+软件下载地址：
+
+[https://www.lanzoux.com/i9X4Xys3yrg](https://www.lanzoux.com/i9X4Xys3yrg)
+
+---
+
+]]></content>
+      <tags>
+        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
@@ -1266,54 +1307,6 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 ]]></content>
       <tags>
         <tag>杂七杂八</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《道德经》套装全六册 无删减 精注全释版</title>
-    <url>/2022/01/05/%E3%80%8A%E9%81%93%E5%BE%B7%E7%BB%8F%E3%80%8B%E5%A5%97%E8%A3%85%E5%85%A8%E5%85%AD%E5%86%8C-%E6%97%A0%E5%88%A0%E5%87%8F-%E7%B2%BE%E6%B3%A8%E5%85%A8%E9%87%8A%E7%89%88/</url>
-    <content><![CDATA[
-![2022-1-5-15-18-36-1005x1024.png](https://imgsrc.01000010.xyz/2024/11/2022-1-5-15-18-36-1005x1024.png)
-
-- 作者：老子
-- 出版社：北京联合出版公司
-- 出版日期：2017 年 3 月
-- ISBN：978-7-5502-9563-6
-- 格式：EPUB
-
----
-
-下载地址：
-
-[https://www.lanzoux.com/iNJn4yekb0j](https://www.lanzoux.com/iNJn4yekb0j)
-
-密码：2333
-
----
-
-]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一键关闭显示器</title>
-    <url>/2022/01/14/%E4%B8%80%E9%94%AE%E5%85%B3%E9%97%AD%E6%98%BE%E7%A4%BA%E5%99%A8/</url>
-    <content><![CDATA[
-![closemonitor-2022-1-14-22-16-38.png](https://imgsrc.01000010.xyz/2024/11/closemonitor-2022-1-14-22-16-38.png)
-
----
-
-软件很简单，没有 UI 界面，直接双击软件图标即可熄灭显示器。兼容性极佳，XP – Win10 亲测可用！
-
-软件下载地址：
-
-[https://www.lanzoux.com/i9X4Xys3yrg](https://www.lanzoux.com/i9X4Xys3yrg)
-
----
-
-]]></content>
-      <tags>
-        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
@@ -1504,6 +1497,51 @@ server {
 fin]]></content>
       <tags>
         <tag>OpenSSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shadowsocksR（简称SSR）使用教程（iOS版）</title>
+    <url>/2017/11/11/ssr-ios/</url>
+    <content><![CDATA[### 一：下载SSR客户端
+去美国区 App Store 下载 Shadowrocket
+
+<br/>
+
+---
+### 二：使用SSR
+##### 第一步：修改语言（如果看得懂英文就不用修改）
+
+![修改语言](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2247.PNG)
+
+<br>
+
+##### 第二步：添加配置
+
+![添加配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2248.png)
+
+<br>
+
+---
+
+<br>
+
+![添加配置](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2249.PNG)
+
+<br>
+
+---
+
+<br>
+
+![选择混淆](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2250.PNG)
+
+<br>
+
+##### 第三步：进行连接
+![进行连接](https://imgsrc.01000010.xyz/2018/01/shadowsocksR-Usage/IMG_2252.PNG)
+]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
@@ -1828,6 +1866,40 @@ Fin.]]></content>
       </tags>
   </entry>
   <entry>
+    <title>暴风影音老版本</title>
+    <url>/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[# 暴风影音老版本
+<br/>
+
+![baofeng_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng_20241102.png)
+![baofeng2_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng2_20241102.png)
+
+---
+暴风影音_5.57.0202.2111_去广告版：
+
+[https://www.lanzoux.com/i25pssxkw9c](https://www.lanzoux.com/i25pssxkw9c)
+
+密码:52pj
+
+---
+暴风影音_5.58.0331.2111_去广告版：
+
+[https://www.lanzoux.com/iDGvVy4edsd](https://www.lanzoux.com/iDGvVy4edsd)
+
+密码:52pj
+
+---
+
+暴风影音_5.59.0428.1111_去广告版：
+
+[https://www.lanzoux.com/ixxBcsvtx2d](https://www.lanzoux.com/ixxBcsvtx2d)
+
+密码:52pj]]></content>
+      <tags>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>查看 Linux 发行版名称和版本号的方法</title>
     <url>/2026/02/18/%E6%9F%A5%E7%9C%8B-Linux-%E5%8F%91%E8%A1%8C%E7%89%88%E5%90%8D%E7%A7%B0%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[### /etc/*-release 文件
@@ -1915,40 +1987,6 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
 ```]]></content>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>暴风影音老版本</title>
-    <url>/2021/12/30/%E6%9A%B4%E9%A3%8E%E5%BD%B1%E9%9F%B3%E8%80%81%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[# 暴风影音老版本
-<br/>
-
-![baofeng_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng_20241102.png)
-![baofeng2_20241102.png](https://imgsrc.01000010.xyz/2024/11/baofeng2_20241102.png)
-
----
-暴风影音_5.57.0202.2111_去广告版：
-
-[https://www.lanzoux.com/i25pssxkw9c](https://www.lanzoux.com/i25pssxkw9c)
-
-密码:52pj
-
----
-暴风影音_5.58.0331.2111_去广告版：
-
-[https://www.lanzoux.com/iDGvVy4edsd](https://www.lanzoux.com/iDGvVy4edsd)
-
-密码:52pj
-
----
-
-暴风影音_5.59.0428.1111_去广告版：
-
-[https://www.lanzoux.com/ixxBcsvtx2d](https://www.lanzoux.com/ixxBcsvtx2d)
-
-密码:52pj]]></content>
-      <tags>
-        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>

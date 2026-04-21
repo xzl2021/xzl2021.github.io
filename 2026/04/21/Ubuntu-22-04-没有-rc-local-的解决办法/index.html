@@ -10,7 +10,7 @@
   
   <title>
     
-      解决 PC 端 iTunes 不能搜索 app 的问题 | 阿良の小屋
+      Ubuntu 22.04 没有 rc.local 的解决办法 | 阿良の小屋
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -180,8 +180,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>解决 PC 端 iTunes 不能搜索 app 的问题</h2>
-  <p class="post-date">2026-04-12</p>
+  <h2>Ubuntu 22.04 没有 rc.local 的解决办法</h2>
+  <p class="post-date">2026-04-21</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -189,30 +189,28 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>最近几个月，想从 PC 端 iTunes（v12.6.5.3）下载 app。可是右上角搜索 app 名称，出来的却只有歌曲和影视。<br>于是就有了下面这种解决办法。</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><ol>
-<li><p>先从 google 搜索 app 的商店网址，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://apps.apple.com/us/app/2fa-authenticator-2fas/id1217793794</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>构建 iTunes 打开链接，将 <code>id1217793794</code> 部分和 <code>itms://itunes.apple.com/app/</code> 进行拼接，形成：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">itms://itunes.apple.com/app/id1217793794</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 Chrome 或者 Firefox 浏览器地址栏输入构建好的 iTunes 链接，并按回车。</p>
-</li>
-<li><p>会出现提示用外部软件打开，点击确定即可。</p>
-</li>
-</ol>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
-<li>需要先安装好 12.6.5.3 版本的 iTunes 再来进行上面的操作，否这最后一步不会提示用外部软件打开。</li>
-</ul>
+    <section class="markdown-content"><h3 id="rc-local服务简介"><a href="#rc-local服务简介" class="headerlink" title="rc-local服务简介"></a>rc-local服务简介</h3><p>Linux 中的 rc-local 服务是一个开机自动启动的，调用开发人员或系统管理员编写的可执行脚本或命令的，它的启动顺序是在系统所有服务加载完成之后执行。</p>
+<p>ubuntu 22.04 系统已经默认安装了 rc-local.service 服务，但是不知什么原因系统把这个服务给 “隐蔽” 了，所以如果不做一番操作是无法使用的。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>将 rc-local 服务设置为开机自启动（本文操作都在root用户下，或使用sudo）。</p>
+<p>首先将 <code>rc-local.service</code> 文件复制到 <code>/etc/systemd/system/</code> 目录下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp /usr/lib/systemd/system/rc-local.service /etc/systemd/system/</span><br></pre></td></tr></table></figure>
+
+<p>新建 rc.local 文件<br>ubuntu 22.04 中是没有 <code>/etc/rc.local</code> 文件的，需要我们手动建立一个。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch /etc/rc.local</span><br><span class="line">chmod 755 /etc/rc.local</span><br><span class="line">echo &#x27;&#x27;&#x27;#!/bin/bash&#x27;&#x27;&#x27; &gt;&gt; /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>设置开机启动 rc-local</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start rc-local</span><br><span class="line">systemctl enable rc-local</span><br><span class="line">init 6    # 或者 reboot</span><br></pre></td></tr></table></figure>
+
+<p>重启系统后，通过命令 <code>systemctl status rc-local</code> 查看服务已经正常开启了。</p>
+<p>最后将要开机自启的命令写入 <code>/etc/rc.local</code> 文件即可。</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Windows" >
-    <span class="tag-code">Windows</span>
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
   </a>
 
       </div>
@@ -223,20 +221,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2026/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-BRE-ERE-PCRE-%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      <a class="nav-left" href="/2026/04/12/%E8%A7%A3%E5%86%B3-PC-%E7%AB%AF-iTunes-%E4%B8%8D%E8%83%BD%E6%90%9C%E7%B4%A2-app-%E7%9A%84%E9%97%AE%E9%A2%98/">
         <span class="nav-arrow">← </span>
         
-          正则表达式 BRE, ERE, PCRE 的区别
+          解决 PC 端 iTunes 不能搜索 app 的问题
         
       </a>
     
-    
-      <a class="nav-right" href="/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-        
-          Ubuntu 22.04 没有 rc.local 的解决办法
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -266,7 +257,7 @@
 
 <script>
   (function () {
-    var url = 'https://xzl2021.github.io/2026/04/12/解决-PC-端-iTunes-不能搜索-app-的问题/';
+    var url = 'https://xzl2021.github.io/2026/04/21/Ubuntu-22-04-没有-rc-local-的解决办法/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -329,7 +320,7 @@
   <script>
     var disqus_shortname = 'lyraa';
     
-    var disqus_url = 'https://xzl2021.github.io/2026/04/12/%E8%A7%A3%E5%86%B3-PC-%E7%AB%AF-iTunes-%E4%B8%8D%E8%83%BD%E6%90%9C%E7%B4%A2-app-%E7%9A%84%E9%97%AE%E9%A2%98/';
+    var disqus_url = 'https://xzl2021.github.io/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/';
     
     (function(){
       var dsq = document.createElement('script');

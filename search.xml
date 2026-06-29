@@ -76,52 +76,6 @@ https://www.lanzoux.com/iNxgDp23o0j
       </tags>
   </entry>
   <entry>
-    <title>GDriveFS 挂载 Google Drive</title>
-    <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
-    <content><![CDATA[不支持OpenVZ架构.
-
-### 1. 安装
-```
-$ sudo apt-get install python-pip
-$ sudo apt-get install build-essential python-dev
-$ sudo pip install gdrivefs
-```
-<br>
-### 2. 授权
-生成授权网址：
-```
-$ gdfstool auth -u
-```
-写入授权文件：
-```
-$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
-Authorization code recorded.
-```
-<br>
-### 3. 挂载
-```
-$ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
-```
-<br>
-### 4. 解挂
-```
-$ umount -l /root/googledrive/
-```
-<br>
-### 5. 登陆时自动挂载
-```
-$ vim /root/.profile
-```
-加一行：
-```
-mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
-```
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Google BBR的部署</title>
     <url>/2018/08/12/Google-BBR/</url>
     <content><![CDATA[开机后 `uname -r` 看看是不是内核 >= 4.9
@@ -289,6 +243,52 @@ lamp:x:502:502::/home/lamp:/usr/bin/passwd
 那么这个用户可以登录，但登录之后就只能修改自己的密码。
 
 但是，这里不能随便写入和登陆没有关系的命令（如 ls），系统不会识别这些命令，同时也就意味着这个用户不能登录。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GDriveFS 挂载 Google Drive</title>
+    <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
+    <content><![CDATA[不支持OpenVZ架构.
+
+### 1. 安装
+```
+$ sudo apt-get install python-pip
+$ sudo apt-get install build-essential python-dev
+$ sudo pip install gdrivefs
+```
+<br>
+### 2. 授权
+生成授权网址：
+```
+$ gdfstool auth -u
+```
+写入授权文件：
+```
+$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
+Authorization code recorded.
+```
+<br>
+### 3. 挂载
+```
+$ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
+```
+<br>
+### 4. 解挂
+```
+$ umount -l /root/googledrive/
+```
+<br>
+### 5. 登陆时自动挂载
+```
+$ vim /root/.profile
+```
+加一行：
+```
+mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
+```
+]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -841,44 +841,6 @@ fin
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 22.04 没有 rc.local 的解决办法</title>
-    <url>/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[### rc-local服务简介
-Linux 中的 rc-local 服务是一个开机自动启动的，调用开发人员或系统管理员编写的可执行脚本或命令的，它的启动顺序是在系统所有服务加载完成之后执行。
-
-ubuntu 22.04 系统已经默认安装了 rc-local.service 服务，但是不知什么原因系统把这个服务给 “隐蔽” 了，所以如果不做一番操作是无法使用的。
-
-### 解决办法
-将 rc-local 服务设置为开机自启动（本文操作都在root用户下，或使用sudo）。
-
-首先将 `rc-local.service` 文件复制到 `/etc/systemd/system/` 目录下
-```shell
-cp /usr/lib/systemd/system/rc-local.service /etc/systemd/system/
-```
-
-新建 rc.local 文件
-ubuntu 22.04 中是没有 `/etc/rc.local` 文件的，需要我们手动建立一个。
-```shell
-touch /etc/rc.local
-chmod 755 /etc/rc.local
-echo '''#!/bin/bash''' >> /etc/rc.local
-```
-
-设置开机启动 rc-local
-```
-systemctl start rc-local
-systemctl enable rc-local
-init 6    # 或者 reboot
-```
-
-重启系统后，通过命令 `systemctl status rc-local` 查看服务已经正常开启了。
-
-最后将要开机自启的命令写入 `/etc/rc.local` 文件即可。]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>WiFi 密码查看器（PC版）</title>
     <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
     <content><![CDATA[
@@ -924,6 +886,44 @@ init 6    # 或者 reboot
 ]]></content>
       <tags>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 22.04 没有 rc.local 的解决办法</title>
+    <url>/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[### rc-local服务简介
+Linux 中的 rc-local 服务是一个开机自动启动的，调用开发人员或系统管理员编写的可执行脚本或命令的，它的启动顺序是在系统所有服务加载完成之后执行。
+
+ubuntu 22.04 系统已经默认安装了 rc-local.service 服务，但是不知什么原因系统把这个服务给 “隐蔽” 了，所以如果不做一番操作是无法使用的。
+
+### 解决办法
+将 rc-local 服务设置为开机自启动（本文操作都在root用户下，或使用sudo）。
+
+首先将 `rc-local.service` 文件复制到 `/etc/systemd/system/` 目录下
+```shell
+cp /usr/lib/systemd/system/rc-local.service /etc/systemd/system/
+```
+
+新建 rc.local 文件
+ubuntu 22.04 中是没有 `/etc/rc.local` 文件的，需要我们手动建立一个。
+```shell
+touch /etc/rc.local
+chmod 755 /etc/rc.local
+echo '''#!/bin/bash''' >> /etc/rc.local
+```
+
+设置开机启动 rc-local
+```
+systemctl start rc-local
+systemctl enable rc-local
+init 6    # 或者 reboot
+```
+
+重启系统后，通过命令 `systemctl status rc-local` 查看服务已经正常开启了。
+
+最后将要开机自启的命令写入 `/etc/rc.local` 文件即可。]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1196,6 +1196,55 @@ ffmpeg -i input.avi -vf scale=-2:300 output.mp4
       </tags>
   </entry>
   <entry>
+    <title>js 数组方法总结图</title>
+    <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
+    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2017/07/10/hello-world/</url>
+    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+
+## Quick Start
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)
+]]></content>
+  </entry>
+  <entry>
     <title>git 常用配置</title>
     <url>/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[### config 级别
@@ -1250,55 +1299,6 @@ git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -
 ```]]></content>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2017/07/10/hello-world/</url>
-    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
-
-## Quick Start
-
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
-]]></content>
-  </entry>
-  <entry>
-    <title>js 数组方法总结图</title>
-    <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
-    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1538,6 +1538,26 @@ xclock
       </tags>
   </entry>
   <entry>
+    <title>为知笔记官方账号笔记内容迁移到私有部署账号</title>
+    <url>/2026/06/29/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E5%AE%98%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%AC%94%E8%AE%B0%E5%86%85%E5%AE%B9%E8%BF%81%E7%A7%BB%E5%88%B0%E7%A7%81%E6%9C%89%E9%83%A8%E7%BD%B2%E8%B4%A6%E5%8F%B7/</url>
+    <content><![CDATA[为知笔记支持自建 docker
+但是原来的为知笔记账号和自己搭建的 docker 服务账号是不互通的，数据也没法同步过来。
+
+### 下面说下如何迁移数据的方法:
+1. 为知笔记 exe 需要是官网下载的版本，这样数据就会保存在 `C:\Users\xxxx\Documents\My Knowledge\Data\xxxxxxxx@xxx.com`
+2. 使用新账号登录为知笔记，使用自建的docker服务.这时就会在 `C:\Users\xxxx\Documents\My Knowledge\Data\` 目录下创建了该账号的对应的目录。
+3. 拷贝旧账号下的笔记目录到新账号目录下。
+4. 从旧目录中的 index.db 数据库的 `WIZ_DOCUMENT` 表中将 `DOCUMENT_OWNER` 字段的值修改为新账号的值，将 `WIZ_VERSION` 值修改为 -1
+5. 上一步可用 SQL 语句：`UPDATE WIZ_DOCUMENT SET WIZ_VERSION = -1` 以及 `UPDATE WIZ_DOCUMENT SET DOCUMENT_OWNER = 'xxxxxxxxx@xxx.com'`
+6. 将 `WIZ_DOCUMENT` 表数据导出，然后导入到新账号目录下的 index.db 的 `WIZ_DOCUMENT` 表中即可。
+7. 重新打开为知笔记，等待数据上传到自己的 docker 服务即可。
+
+注意：如果不想导出再导入 `WIZ_DOCUMENT` 表，可以直接清空原 index.db 数据库中的 `WIZ_META` 表，这个表里存的是官方账号登录凭证，之后打开为知笔记重新登陆 docker 服务账号即可。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为知笔记服务器部署指南</title>
     <url>/2026/02/17/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[## Download and Run the Docker Image
@@ -1661,6 +1681,25 @@ run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 80:80 -p 9269:9269/udp -v  /
 5. **Q**: The date of new notes is incorrect
 **A**: It is because the time of the server is not correct. Please set the time zone. For example, set the time zone to UTC/GMT+08:00(Beijing).
 ]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为知笔记私有化部署忘记密码的解决办法</title>
+    <url>/2026/06/29/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[### 为知笔记（WizNote）私有化部署（Docker）重置密码需直接操作数据库，因无邮件重置功能时默认无法通过界面找回。‌‌
+1. 登录容器并查初始密码‌：运行 `cat /wiz/app/entrypoint.sh` 查看 MySQL root 密码（若未修改过），默认管理员账号通常为 admin@wiz.cn / 123456。
+2. 进入 MySQL 数据库‌：使用 `mysql -uroot -p密码来自上述脚本` 后执行 `USE wizasent;`。
+3. 查询并更新密码‌：执行 `SELECT * FROM wiz_user;` 确认目标用户 ID 和 GUID，再用 `UPDATE wiz_user SET PASSWORD='计算得出的密码' WHERE ID=1;`
+   （注意：密码需为 MD5 加密后的字符串‌，如原始密码 123456 应先计算其 `MD5(MD5(MD5(MD5(123456))) 拼接 GUID)`。
+   （注意：系统管理员的 GUID 为 00000000-0000-0000-0000-000000000000，其计算得出的密码为 a9da87c000d58437ffd94b020dc221c9）
+4. 重启服务生效‌：`docker restart <容器名>`，之后用密码 123456 登录。‌‌
+
+### 注意事项：
+- 若已配置 SMTP（管理员后台 → SMTP 设置），可尝试网页端点击“忘记密码”通过邮箱重置；否则‌必须数据库直改‌。
+- 操作前备份 `/wiz/storage` 目录，避免数据丢失。
+- MD5 可用命令如 `echo -n "新密码" | md5sum` 生成（Linux/macOS），或使用 [在线 MD5 生成器](https://www.md5ma.com/)。‌‌]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -2173,6 +2212,19 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
       </tags>
   </entry>
   <entry>
+    <title>油画展</title>
+    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
+    <content><![CDATA[
+![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
+
+![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
+
+![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>正则表达式 BRE, ERE, PCRE 的区别</title>
     <url>/2026/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-BRE-ERE-PCRE-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[### 简介
@@ -2237,19 +2289,6 @@ Perl 兼容的正则表达式（Perl Compatible Regular Expression 简称 PCRE�
 出处：https://www.cnblogs.com/codelogs/p/16060372.html]]></content>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>油画展</title>
-    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
-    <content><![CDATA[
-![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
-
-![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
-
-![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
-      <tags>
-        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>

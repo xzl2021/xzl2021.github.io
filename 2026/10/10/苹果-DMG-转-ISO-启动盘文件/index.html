@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="阿良の小屋">
+  <meta name="keyword" content="hexo, blog, Lyra">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      苹果 DMG 转 ISO 启动盘文件 | 阿良の小屋
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>阿良の小屋</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/projects/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/projects/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>苹果 DMG 转 ISO 启动盘文件</h2>
+  <p class="post-date">2026-10-10</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>将 macOS Sonoma 14.8.9 的 DMG 文件转换为标准 ISO 镜像，最安全且成功率最高的方法是在 Mac 电脑上使用终端（Terminal）命令行。</p>
+<p>因为 macOS 的系统 DMG 文件通常只是安装程序或固件的封装，直接更改后缀或用常规转换工具无法让其支持虚拟机（如 VMware、VirtualBox）引导。</p>
+<p>以下是完整的转换方法：</p>
+<h3 id="方法一：在-Mac-系统的终端中转换（推荐，最标准）"><a href="#方法一：在-Mac-系统的终端中转换（推荐，最标准）" class="headerlink" title="方法一：在 Mac 系统的终端中转换（推荐，最标准）"></a>方法一：在 Mac 系统的终端中转换（推荐，最标准）</h3><p>如果你的 DMG 文件内包含 Install macOS Sonoma.app（安装 macOS Sonoma 应用程序），需要先将其挂载，然后通过系统自带的 createinstallmedia 工具来制作可引导的 ISO。</p>
+<ol>
+<li><p>双击挂载 DMG 文件，确保你能在 Finder（访达）中看到 macOS 的安装程序。</p>
+</li>
+<li><p>打开 终端（Terminal），依次复制并运行以下命令：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1. 创建一个大小约为 16GB 的空白影子磁盘镜像</span><br><span class="line">hdiutil create -o /tmp/Sonoma -size 16384m -volname Sonoma -layout SPUD -fs HFS+J</span><br><span class="line"></span><br><span class="line"># 2. 将创建的镜像挂载到系统中</span><br><span class="line">hdiutil attach /tmp/Sonoma.dmg -noverify -mountpoint /Volumes/Sonoma</span><br><span class="line"></span><br><span class="line"># 3. 使用系统自带工具写入 macOS 14.8.9 的安装文件（注意：请根据实际挂载路径检查“Install macOS Sonoma.app”的位置）</span><br><span class="line">sudo /Volumes/已挂载的DMG名称/Install\ macOS\ Sonoma.app/Contents/Resources/createinstallmedia --volume /Volumes/Sonoma --nointeraction</span><br><span class="line"></span><br><span class="line"># 4. 卸载已制作完毕的卷</span><br><span class="line">hdiutil detach /Volumes/Install\ macOS\ Sonoma</span><br><span class="line"></span><br><span class="line"># 5. 将刚生成的 .dmg 文件转换为标准的 CDR 格式</span><br><span class="line">hdiutil convert /tmp/Sonoma.dmg -format UDTO -o /tmp/Sonoma.cdr</span><br><span class="line"></span><br><span class="line"># 6. 将 CDR 文件重命名为 ISO 格式并移动到桌面上</span><br><span class="line">mv /tmp/Sonoma.cdr ~/Desktop/macOS_Sonoma_14.8.9.iso</span><br><span class="line"></span><br><span class="line"># 7. 清理临时生成的 dmg 缓存文件</span><br><span class="line">rm /tmp/Sonoma.dmg</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二：如果已经是刻录好的纯系统镜像-DMG"><a href="#方法二：如果已经是刻录好的纯系统镜像-DMG" class="headerlink" title="方法二：如果已经是刻录好的纯系统镜像 DMG"></a>方法二：如果已经是刻录好的纯系统镜像 DMG</h3><p>如果你下载的 DMG 本身就是第三方已经封装好的可启动镜像卷（而非官方 App 封装），你可以直接使用 hdiutil 将其转换：</p>
+<ol>
+<li><p>打开 终端。</p>
+</li>
+<li><p>输入以下命令（请将路径替换为你实际的文件路径）：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdiutil convert /路径/macos_14.8.9.dmg -format UDTO -o /路径/macos_14.8.9.cdr</span><br><span class="line"></span><br><span class="line">mv /路径/macos_14.8.9.cdr /路径/macos_14.8.9.iso</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Fin.</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#macOS" >
+    <span class="tag-code">macOS</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2026/06/29/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E5%AE%98%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%AC%94%E8%AE%B0%E5%86%85%E5%AE%B9%E8%BF%81%E7%A7%BB%E5%88%B0%E7%A7%81%E6%9C%89%E9%83%A8%E7%BD%B2%E8%B4%A6%E5%8F%B7/">
+        <span class="nav-arrow">← </span>
+        
+          为知笔记官方账号笔记内容迁移到私有部署账号
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xzl2021.github.io/2026/10/10/苹果-DMG-转-ISO-启动盘文件/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'lyraa';
+    
+    var disqus_url = 'https://xzl2021.github.io/2026/10/10/%E8%8B%B9%E6%9E%9C-DMG-%E8%BD%AC-ISO-%E5%90%AF%E5%8A%A8%E7%9B%98%E6%96%87%E4%BB%B6/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2026 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">Vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'false';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>

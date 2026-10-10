@@ -76,6 +76,52 @@ https://www.lanzoux.com/iNxgDp23o0j
       </tags>
   </entry>
   <entry>
+    <title>GDriveFS 挂载 Google Drive</title>
+    <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
+    <content><![CDATA[不支持OpenVZ架构.
+
+### 1. 安装
+```
+$ sudo apt-get install python-pip
+$ sudo apt-get install build-essential python-dev
+$ sudo pip install gdrivefs
+```
+<br>
+### 2. 授权
+生成授权网址：
+```
+$ gdfstool auth -u
+```
+写入授权文件：
+```
+$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
+Authorization code recorded.
+```
+<br>
+### 3. 挂载
+```
+$ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
+```
+<br>
+### 4. 解挂
+```
+$ umount -l /root/googledrive/
+```
+<br>
+### 5. 登陆时自动挂载
+```
+$ vim /root/.profile
+```
+加一行：
+```
+mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
+```
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Google BBR的部署</title>
     <url>/2018/08/12/Google-BBR/</url>
     <content><![CDATA[开机后 `uname -r` 看看是不是内核 >= 4.9
@@ -243,52 +289,6 @@ lamp:x:502:502::/home/lamp:/usr/bin/passwd
 那么这个用户可以登录，但登录之后就只能修改自己的密码。
 
 但是，这里不能随便写入和登陆没有关系的命令（如 ls），系统不会识别这些命令，同时也就意味着这个用户不能登录。]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GDriveFS 挂载 Google Drive</title>
-    <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
-    <content><![CDATA[不支持OpenVZ架构.
-
-### 1. 安装
-```
-$ sudo apt-get install python-pip
-$ sudo apt-get install build-essential python-dev
-$ sudo pip install gdrivefs
-```
-<br>
-### 2. 授权
-生成授权网址：
-```
-$ gdfstool auth -u
-```
-写入授权文件：
-```
-$ gdfstool auth -a /var/cache/gdfs.creds "4/WUsOa-Sm2RhgQtf9_NFAMMbRC.cj4LQYdXfshQV0ieZDAqA-C7ecwI"
-Authorization code recorded.
-```
-<br>
-### 3. 挂载
-```
-$ sudo gdfs -o big_writes /var/cache/gdfs.creds /root/googledrive/
-```
-<br>
-### 4. 解挂
-```
-$ umount -l /root/googledrive/
-```
-<br>
-### 5. 登陆时自动挂载
-```
-$ vim /root/.profile
-```
-加一行：
-```
-mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
-```
-]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -841,6 +841,44 @@ fin
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 22.04 没有 rc.local 的解决办法</title>
+    <url>/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[### rc-local服务简介
+Linux 中的 rc-local 服务是一个开机自动启动的，调用开发人员或系统管理员编写的可执行脚本或命令的，它的启动顺序是在系统所有服务加载完成之后执行。
+
+ubuntu 22.04 系统已经默认安装了 rc-local.service 服务，但是不知什么原因系统把这个服务给 “隐蔽” 了，所以如果不做一番操作是无法使用的。
+
+### 解决办法
+将 rc-local 服务设置为开机自启动（本文操作都在root用户下，或使用sudo）。
+
+首先将 `rc-local.service` 文件复制到 `/etc/systemd/system/` 目录下
+```shell
+cp /usr/lib/systemd/system/rc-local.service /etc/systemd/system/
+```
+
+新建 rc.local 文件
+ubuntu 22.04 中是没有 `/etc/rc.local` 文件的，需要我们手动建立一个。
+```shell
+touch /etc/rc.local
+chmod 755 /etc/rc.local
+echo '''#!/bin/bash''' >> /etc/rc.local
+```
+
+设置开机启动 rc-local
+```
+systemctl start rc-local
+systemctl enable rc-local
+init 6    # 或者 reboot
+```
+
+重启系统后，通过命令 `systemctl status rc-local` 查看服务已经正常开启了。
+
+最后将要开机自启的命令写入 `/etc/rc.local` 文件即可。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WiFi 密码查看器（PC版）</title>
     <url>/2021/12/31/WiFi%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8%EF%BC%88PC%E7%89%88%EF%BC%89/</url>
     <content><![CDATA[
@@ -886,44 +924,6 @@ fin
 ]]></content>
       <tags>
         <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 22.04 没有 rc.local 的解决办法</title>
-    <url>/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[### rc-local服务简介
-Linux 中的 rc-local 服务是一个开机自动启动的，调用开发人员或系统管理员编写的可执行脚本或命令的，它的启动顺序是在系统所有服务加载完成之后执行。
-
-ubuntu 22.04 系统已经默认安装了 rc-local.service 服务，但是不知什么原因系统把这个服务给 “隐蔽” 了，所以如果不做一番操作是无法使用的。
-
-### 解决办法
-将 rc-local 服务设置为开机自启动（本文操作都在root用户下，或使用sudo）。
-
-首先将 `rc-local.service` 文件复制到 `/etc/systemd/system/` 目录下
-```shell
-cp /usr/lib/systemd/system/rc-local.service /etc/systemd/system/
-```
-
-新建 rc.local 文件
-ubuntu 22.04 中是没有 `/etc/rc.local` 文件的，需要我们手动建立一个。
-```shell
-touch /etc/rc.local
-chmod 755 /etc/rc.local
-echo '''#!/bin/bash''' >> /etc/rc.local
-```
-
-设置开机启动 rc-local
-```
-systemctl start rc-local
-systemctl enable rc-local
-init 6    # 或者 reboot
-```
-
-重启系统后，通过命令 `systemctl status rc-local` 查看服务已经正常开启了。
-
-最后将要开机自启的命令写入 `/etc/rc.local` 文件即可。]]></content>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1196,55 +1196,6 @@ ffmpeg -i input.avi -vf scale=-2:300 output.mp4
       </tags>
   </entry>
   <entry>
-    <title>js 数组方法总结图</title>
-    <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
-    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2017/07/10/hello-world/</url>
-    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
-
-## Quick Start
-
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
-]]></content>
-  </entry>
-  <entry>
     <title>git 常用配置</title>
     <url>/2026/02/04/git-%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[### config 级别
@@ -1299,6 +1250,55 @@ git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -
 ```]]></content>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2017/07/10/hello-world/</url>
+    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+
+## Quick Start
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)
+]]></content>
+  </entry>
+  <entry>
+    <title>js 数组方法总结图</title>
+    <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
+    <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -2212,19 +2212,6 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
       </tags>
   </entry>
   <entry>
-    <title>油画展</title>
-    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
-    <content><![CDATA[
-![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
-
-![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
-
-![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
-      <tags>
-        <tag>杂七杂八</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>正则表达式 BRE, ERE, PCRE 的区别</title>
     <url>/2026/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-BRE-ERE-PCRE-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[### 简介
@@ -2289,6 +2276,19 @@ Perl 兼容的正则表达式（Perl Compatible Regular Expression 简称 PCRE�
 出处：https://www.cnblogs.com/codelogs/p/16060372.html]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>油画展</title>
+    <url>/2021/12/28/%E6%B2%B9%E7%94%BB%E5%B1%95/</url>
+    <content><![CDATA[
+![roses-tremieres-hollyhocks-1884-846x1024.jpg](https://imgsrc.01000010.xyz/2024/11/roses-tremieres-hollyhocks-1884-846x1024.jpg)
+
+![young-woman-in-mauve-828x1024.jpg](https://imgsrc.01000010.xyz/2024/11/young-woman-in-mauve-828x1024.jpg)
+
+![in-the-bois-de-boulogne-1024x842.jpg](https://imgsrc.01000010.xyz/2024/11/in-the-bois-de-boulogne-1024x842.jpg)]]></content>
+      <tags>
+        <tag>杂七杂八</tag>
       </tags>
   </entry>
   <entry>
@@ -2927,6 +2927,65 @@ RAID 10 是条带化 + 镜像，坏盘影响读性能，不影响写性能，而
 ]]></content>
       <tags>
         <tag>计算机原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>苹果 DMG 转 ISO 启动盘文件</title>
+    <url>/2026/10/10/%E8%8B%B9%E6%9E%9C-DMG-%E8%BD%AC-ISO-%E5%90%AF%E5%8A%A8%E7%9B%98%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[
+将 macOS Sonoma 14.8.9 的 DMG 文件转换为标准 ISO 镜像，最安全且成功率最高的方法是在 Mac 电脑上使用终端（Terminal）命令行。
+
+因为 macOS 的系统 DMG 文件通常只是安装程序或固件的封装，直接更改后缀或用常规转换工具无法让其支持虚拟机（如 VMware、VirtualBox）引导。
+
+以下是完整的转换方法：
+
+### 方法一：在 Mac 系统的终端中转换（推荐，最标准）
+如果你的 DMG 文件内包含 Install macOS Sonoma.app（安装 macOS Sonoma 应用程序），需要先将其挂载，然后通过系统自带的 createinstallmedia 工具来制作可引导的 ISO。
+
+1. 双击挂载 DMG 文件，确保你能在 Finder（访达）中看到 macOS 的安装程序。
+
+2. 打开 终端（Terminal），依次复制并运行以下命令：
+
+```
+# 1. 创建一个大小约为 16GB 的空白影子磁盘镜像
+hdiutil create -o /tmp/Sonoma -size 16384m -volname Sonoma -layout SPUD -fs HFS+J
+
+# 2. 将创建的镜像挂载到系统中
+hdiutil attach /tmp/Sonoma.dmg -noverify -mountpoint /Volumes/Sonoma
+
+# 3. 使用系统自带工具写入 macOS 14.8.9 的安装文件（注意：请根据实际挂载路径检查“Install macOS Sonoma.app”的位置）
+sudo /Volumes/已挂载的DMG名称/Install\ macOS\ Sonoma.app/Contents/Resources/createinstallmedia --volume /Volumes/Sonoma --nointeraction
+
+# 4. 卸载已制作完毕的卷
+hdiutil detach /Volumes/Install\ macOS\ Sonoma
+
+# 5. 将刚生成的 .dmg 文件转换为标准的 CDR 格式
+hdiutil convert /tmp/Sonoma.dmg -format UDTO -o /tmp/Sonoma.cdr
+
+# 6. 将 CDR 文件重命名为 ISO 格式并移动到桌面上
+mv /tmp/Sonoma.cdr ~/Desktop/macOS_Sonoma_14.8.9.iso
+
+# 7. 清理临时生成的 dmg 缓存文件
+rm /tmp/Sonoma.dmg
+```
+
+### 方法二：如果已经是刻录好的纯系统镜像 DMG
+如果你下载的 DMG 本身就是第三方已经封装好的可启动镜像卷（而非官方 App 封装），你可以直接使用 hdiutil 将其转换：
+
+1. 打开 终端。
+
+2. 输入以下命令（请将路径替换为你实际的文件路径）：
+
+```
+hdiutil convert /路径/macos_14.8.9.dmg -format UDTO -o /路径/macos_14.8.9.cdr
+
+mv /路径/macos_14.8.9.cdr /路径/macos_14.8.9.iso
+```
+
+---
+Fin.]]></content>
+      <tags>
+        <tag>macOS</tag>
       </tags>
   </entry>
   <entry>

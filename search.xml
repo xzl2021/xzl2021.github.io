@@ -76,6 +76,43 @@ https://www.lanzoux.com/iNxgDp23o0j
       </tags>
   </entry>
   <entry>
+    <title>Google BBR的部署</title>
+    <url>/2018/08/12/Google-BBR/</url>
+    <content><![CDATA[开机后 `uname -r` 看看是不是内核 >= 4.9
+
+执行 `lsmod | grep bbr`，如果结果中没有 tcp_bbr 的话就先执行
+```bash
+modprobe tcp_bbr    #加载内核的bbr模块
+```
+```
+echo "tcp_bbr" >> /etc/modules-load.d/modules.conf    #将bbr模块在开机时加载
+```
+如果上一句命令提示找不到文件，将命令换为
+```
+echo "tcp_bbr" >> /etc/modules
+```
+执行
+```bash
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+```
+保存生效
+```bash
+sysctl -p
+```
+执行
+```bash
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
+```
+如果结果都有 bbr, 则证明你的内核已开启 bbr
+
+执行 `lsmod | grep bbr`, 看到有 tcp_bbr 模块即说明 bbr 已启动]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GDriveFS 挂载 Google Drive</title>
     <url>/2018/01/12/GDriveFS-mount-Google-Drive/</url>
     <content><![CDATA[不支持OpenVZ架构.
@@ -117,43 +154,6 @@ $ vim /root/.profile
 mount | grep "${HOME}/googledrive" >/dev/null || sudo gdfs -o big_writes /var/cache/gdfs.creds "${HOME}/googledrive"
 ```
 ]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Google BBR的部署</title>
-    <url>/2018/08/12/Google-BBR/</url>
-    <content><![CDATA[开机后 `uname -r` 看看是不是内核 >= 4.9
-
-执行 `lsmod | grep bbr`，如果结果中没有 tcp_bbr 的话就先执行
-```bash
-modprobe tcp_bbr    #加载内核的bbr模块
-```
-```
-echo "tcp_bbr" >> /etc/modules-load.d/modules.conf    #将bbr模块在开机时加载
-```
-如果上一句命令提示找不到文件，将命令换为
-```
-echo "tcp_bbr" >> /etc/modules
-```
-执行
-```bash
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-```
-保存生效
-```bash
-sysctl -p
-```
-执行
-```bash
-sysctl net.ipv4.tcp_available_congestion_control
-sysctl net.ipv4.tcp_congestion_control
-```
-如果结果都有 bbr, 则证明你的内核已开启 bbr
-
-执行 `lsmod | grep bbr`, 看到有 tcp_bbr 模块即说明 bbr 已启动]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
@@ -394,53 +394,6 @@ systemctl daemon-reload
       </tags>
   </entry>
   <entry>
-    <title>Linux 内核 TCP 调优</title>
-    <url>/2026/04/21/Linux-%E5%86%85%E6%A0%B8-TCP-%E8%B0%83%E4%BC%98/</url>
-    <content><![CDATA[
-### 编辑 `/etc/sysctl.conf`
-```
-# 打开 BBR 拥塞控制算法
-net.ipv4.tcp_congestion_control = bbr
-net.core.default_qdisc = fq
-
-# 系统所有进程一共可以打开的文件数量， 每个套接字也占用一个文件描述字
-fs.file-max = 1491124
-
-# 增加 TCP 最大缓冲区大小
-net.core.rmem_max = 16777216
-net.core.wmem_max = 16777216
-net.core.rmem_default = 65536
-net.core.wmem_default = 65536
-net.core.netdev_max_backlog = 65535
-net.core.somaxconn = 65535
-
-# TCP 内存优化
-net.ipv4.tcp_rmem = 4096 87380 16777216
-net.ipv4.tcp_wmem = 4096 65536 16777216
-net.ipv4.tcp_mem = 5120 10240 20480
-net.ipv4.tcp_max_syn_backlog = 65535
-net.ipv4.tcp_max_tw_buckets = 55000
-net.ipv4.tcp_tw_reuse = 1
-net.ipv4.tcp_tw_recycle = 0
-net.ipv4.tcp_fin_timeout = 10
-net.ipv4.tcp_synack_retries = 2
-net.ipv4.tcp_slow_start_after_idle = 0
-net.ipv4.tcp_timestamps = 1
-net.ipv4.tcp_fastopen=3
-net.ipv4.tcp_keepalive_time=7200
-net.ipv4.tcp_keepalive_intvl=15
-net.ipv4.tcp_keepalive_probes=3
-net.ipv4.tcp_mtu_probing = 1
-net.ipv4.tcp_syncookies = 1
-net.ipv4.ip_forward = 1
-```
-
-### 修改完成后，执行 `sysctl -p` 使配置生效]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MA、EMA、SMA、DMA、TMA、WMA 6种均值算法含义</title>
     <url>/2026/03/11/MA-EMA-SMA-DMA-TMA-WMA-6-%E7%A7%8D%E5%9D%87%E5%80%BC%E7%AE%97%E6%B3%95%E5%90%AB%E4%B9%89/</url>
     <content><![CDATA[
@@ -666,43 +619,50 @@ fi
       </tags>
   </entry>
   <entry>
-    <title>Navicat Premium 破解版</title>
-    <url>/2021/12/29/Navicat-Premium-%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
-    <content><![CDATA[![navicat-2021-12-29-23-12-33.png](https://imgsrc.01000010.xyz/2024/11/navicat-2021-12-29-23-12-33.png)
-
----
-
-破解工具下载地址：
-
-[https://www.lanzoux.com/ihMbxy42ieh](https://www.lanzoux.com/ihMbxy42ieh)
-
-密码:52pj]]></content>
-      <tags>
-        <tag>资源分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python 学习手册（第四版）高清中文 高清英文 带完整书签</title>
-    <url>/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/</url>
+    <title>Linux 内核 TCP 调优</title>
+    <url>/2026/04/21/Linux-%E5%86%85%E6%A0%B8-TCP-%E8%B0%83%E4%BC%98/</url>
     <content><![CDATA[
-#### 资源下载：
+### 编辑 `/etc/sysctl.conf`
+```
+# 打开 BBR 拥塞控制算法
+net.ipv4.tcp_congestion_control = bbr
+net.core.default_qdisc = fq
 
-## Python 学习手册（第四版）高清中文 带完整书签 可复制文字 非扫描版 （附赠随书源码）
-<!--![Python 学习手册](https://img-blog.csdnimg.cn/20210501235339643.png)-->
-![Python 学习手册](https://imgsrc.01000010.xyz/2021/05/20210501235339643.png)
+# 系统所有进程一共可以打开的文件数量， 每个套接字也占用一个文件描述字
+fs.file-max = 1491124
 
----
+# 增加 TCP 最大缓冲区大小
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.core.rmem_default = 65536
+net.core.wmem_default = 65536
+net.core.netdev_max_backlog = 65535
+net.core.somaxconn = 65535
 
-## Python 学习手册（第五版）高清英文 带完整书签 可复制文字 非扫描版
-<!--![Learning Python](https://img-blog.csdnimg.cn/20210501235436572.png)-->
-![Learning Python](https://imgsrc.01000010.xyz/2021/05/20210501235436572.png)
+# TCP 内存优化
+net.ipv4.tcp_rmem = 4096 87380 16777216
+net.ipv4.tcp_wmem = 4096 65536 16777216
+net.ipv4.tcp_mem = 5120 10240 20480
+net.ipv4.tcp_max_syn_backlog = 65535
+net.ipv4.tcp_max_tw_buckets = 55000
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 0
+net.ipv4.tcp_fin_timeout = 10
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_slow_start_after_idle = 0
+net.ipv4.tcp_timestamps = 1
+net.ipv4.tcp_fastopen=3
+net.ipv4.tcp_keepalive_time=7200
+net.ipv4.tcp_keepalive_intvl=15
+net.ipv4.tcp_keepalive_probes=3
+net.ipv4.tcp_mtu_probing = 1
+net.ipv4.tcp_syncookies = 1
+net.ipv4.ip_forward = 1
+```
 
-下载地址：
-链接：[https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA](https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA)
-提取码：52pj
-复制这段内容后打开百度网盘手机App，操作更方便哦]]></content>
+### 修改完成后，执行 `sysctl -p` 使配置生效]]></content>
       <tags>
-        <tag>资源分享</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -841,6 +801,30 @@ fin
       </tags>
   </entry>
   <entry>
+    <title>Python 学习手册（第四版）高清中文 高清英文 带完整书签</title>
+    <url>/2021/05/02/Python-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%89%E9%AB%98%E6%B8%85%E4%B8%AD%E6%96%87-%E9%AB%98%E6%B8%85%E8%8B%B1%E6%96%87-%E5%B8%A6%E5%AE%8C%E6%95%B4%E4%B9%A6%E7%AD%BE/</url>
+    <content><![CDATA[
+#### 资源下载：
+
+## Python 学习手册（第四版）高清中文 带完整书签 可复制文字 非扫描版 （附赠随书源码）
+<!--![Python 学习手册](https://img-blog.csdnimg.cn/20210501235339643.png)-->
+![Python 学习手册](https://imgsrc.01000010.xyz/2021/05/20210501235339643.png)
+
+---
+
+## Python 学习手册（第五版）高清英文 带完整书签 可复制文字 非扫描版
+<!--![Learning Python](https://img-blog.csdnimg.cn/20210501235436572.png)-->
+![Learning Python](https://imgsrc.01000010.xyz/2021/05/20210501235436572.png)
+
+下载地址：
+链接：[https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA](https://pan.baidu.com/s/1OUsncoYhtXvtrCLblIdymA)
+提取码：52pj
+复制这段内容后打开百度网盘手机App，操作更方便哦]]></content>
+      <tags>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 22.04 没有 rc.local 的解决办法</title>
     <url>/2026/04/21/Ubuntu-22-04-%E6%B2%A1%E6%9C%89-rc-local-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[### rc-local服务简介
@@ -876,6 +860,22 @@ init 6    # 或者 reboot
 最后将要开机自启的命令写入 `/etc/rc.local` 文件即可。]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Navicat Premium 破解版</title>
+    <url>/2021/12/29/Navicat-Premium-%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <content><![CDATA[![navicat-2021-12-29-23-12-33.png](https://imgsrc.01000010.xyz/2024/11/navicat-2021-12-29-23-12-33.png)
+
+---
+
+破解工具下载地址：
+
+[https://www.lanzoux.com/ihMbxy42ieh](https://www.lanzoux.com/ihMbxy42ieh)
+
+密码:52pj]]></content>
+      <tags>
+        <tag>资源分享</tag>
       </tags>
   </entry>
   <entry>
@@ -1253,46 +1253,6 @@ git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%h%Creset -
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2017/07/10/hello-world/</url>
-    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
-
-## Quick Start
-
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
-]]></content>
-  </entry>
-  <entry>
     <title>js 数组方法总结图</title>
     <url>/2017/07/10/js%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%E5%9B%BE/</url>
     <content><![CDATA[![jsArray](https://githublog-1253656474.cos.ap-shanghai.myqcloud.com/image/2017/07/js-array.png)
@@ -1366,6 +1326,46 @@ xclock
       <tags>
         <tag>杂七杂八</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2017/07/10/hello-world/</url>
+    <content><![CDATA[Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+
+## Quick Start
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/deployment.html)
+]]></content>
   </entry>
   <entry>
     <title>shadowsocksR（简称SSR）使用教程（iOS版）</title>
@@ -1795,6 +1795,34 @@ regedit /s "path\to\your\file.reg"
 ]]></content>
       <tags>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用 screen 命令实现程序后台开机自启动</title>
+    <url>/2026/10/11/%E5%88%A9%E7%94%A8-screen-%E5%91%BD%E4%BB%A4%E5%AE%9E%E7%8E%B0%E7%A8%8B%E5%BA%8F%E5%90%8E%E5%8F%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/</url>
+    <content><![CDATA[### 以 frp 服务端这个软件为例：
+1. 先配置好 `frps.ini` 文件（位置与 frps 程序同目录）。
+
+2. 再创建 `screenfrp.sh` 文件（位置与 frps 程序同目录）。
+
+3. 向 `screenfrp.sh` 文件写入以下内容：
+```
+#!/bin/sh
+
+SCRIPT_DIR=$(cd "$(dirname $0)" && pwd)
+
+screen -dmS frp && \
+screen -S frp -X stuff "$SCRIPT_DIR/frps -c $SCRIPT_DIR/frps.ini\n"
+```
+
+4. 加入开机启动，即在 `/etc/rc.local` 文件末尾添加一行：
+```
+sh /path/to/your/screenfrp.sh
+```
+---
+Fin.]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -3038,6 +3066,27 @@ VMware-workstation-full-17.5.1-23298084.exe
       </tags>
   </entry>
   <entry>
+    <title>解决 ssh 不操作就自动掉线问题</title>
+    <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
+在 `/etc/ssh/sshd_config` 文件里添加以下两行:
+```bash
+ClientAliveInterval 15
+ClientAliveCountMax 45
+```
+
+重启 sshd 服务：
+```bash
+sudo service sshd restart
+```
+
+- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
+- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 PC 端 iTunes 不能搜索 app 的问题</title>
     <url>/2026/04/12/%E8%A7%A3%E5%86%B3-PC-%E7%AB%AF-iTunes-%E4%B8%8D%E8%83%BD%E6%90%9C%E7%B4%A2-app-%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[### 起因
@@ -3063,27 +3112,6 @@ itms://itunes.apple.com/app/id1217793794
 - 需要先安装好 12.6.5.3 版本的 iTunes 再来进行上面的操作，否这最后一步不会提示用外部软件打开。]]></content>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 ssh 不操作就自动掉线问题</title>
-    <url>/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[vps 一直是使用 ssh 管理，但是 ssh 默认一段时间不操作就会自动掉线，查阅资料后，发现修改如下参数可以解决掉线问题。
-在 `/etc/ssh/sshd_config` 文件里添加以下两行:
-```bash
-ClientAliveInterval 15
-ClientAliveCountMax 45
-```
-
-重启 sshd 服务：
-```bash
-sudo service sshd restart
-```
-
-- **ClientAliveInterval**：设置一个以秒记的时长，如果超过这么长时间没有收到客户端的任何数据，sshd 将通过安全通道向客户端发送一个 “alive” 消息，并等候应答。默认值 0 表示不发送 “alive” 消息。这个选项仅对 SSH-2 有效。
-- **ClientAliveCountMax**：sshd 在未收到任何客户端回应前最多允许发送多少个 “alive” 消息。默认值是 3 。到达这个上限后，sshd 将强制断开连接、关闭会话。]]></content>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>

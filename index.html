@@ -183,6 +183,30 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2026/10/16/%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AE-Fail2ban/">安装并配置 Fail2ban</a>
+      </h2>
+      <p class="article-date">October 16, 2026</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          安装 fail2ban以 ubuntu 系统为例：
+sudo apt updatesudo apt install -y fail2ban
+
+创建自定义配置文件不要直接修改默认的 /etc/fail2ban/jail.conf，请复制一份作为本地自定义配置：
+sudo cp /etc/fai ...
+        
+      </div>
+      <a class="more" href="/2026/10/16/%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AE-Fail2ban/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2026/10/11/%E5%88%A9%E7%94%A8-screen-%E5%91%BD%E4%BB%A4%E5%AE%9E%E7%8E%B0%E7%A8%8B%E5%BA%8F%E5%90%8E%E5%8F%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/">利用 screen 命令实现程序后台开机自启动</a>
       </h2>
       <p class="article-date">October 11, 2026</p>
@@ -265,7 +289,7 @@
       <div class="article-summary">
         
           为知笔记（WizNote）私有化部署（Docker）重置密码需直接操作数据库，因无邮件重置功能时默认无法通过界面找回。‌‌
-登录容器并查初始密码‌：运行 cat /wiz/app/entrypoint.sh 查看 MySQL root 密码（若未修改过），默认管理员账号通常为 &#x61;& ...
+登录容器并查初始密码‌：运行 cat /wiz/app/entrypoint.sh 查看 MySQL root 密码（若未修改过），默认管理员账号通常为 &#97;&# ...
         
       </div>
       <a class="more" href="/2026/06/29/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">Read more</a>
@@ -716,26 +740,6 @@ ClientAliveInterval 15ClientAliveCountMax 45
         
       </div>
       <a class="more" href="/2026/02/17/%E8%A7%A3%E5%86%B3-ssh-%E4%B8%8D%E6%93%8D%E4%BD%9C%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%8E%89%E7%BA%BF%E9%97%AE%E9%A2%98/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/">docker 国内源</a>
-      </h2>
-      <p class="article-date">February 9, 2026</p>
-      
-        
-  <a href="/tags#Docker" >
-    <span class="tag-code">Docker</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          mkdir -p /etc/dockertee /etc/docker/daemon.json &lt;&lt;- EOF&#123;&quot;registry-mirrors&quot;: [&quot;https://docker.1panel.live/&quot;, &quot;h ...
-        
-      </div>
-      <a class="more" href="/2026/02/09/docker-%E5%9B%BD%E5%86%85%E6%BA%90/">Read more</a>
     </article>
   
 
